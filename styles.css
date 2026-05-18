@@ -1,0 +1,1002 @@
+/* Reset some default styles for consistency across browsers */
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Styling for all section titles (center alignment and increased size) */
+h2, h3 {
+    text-align: center;
+    font-size: 2.5rem; /* Adjust the size as needed */
+}
+
+/* About Me Section */
+#about {
+    padding: 6rem 2rem; /* Adjust padding for smaller screens */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#about p {
+    max-width: 40em; /* Recommended maximum width for a comfortable reading experience */
+    text-align: justify;
+    line-height: 1.5; /* Line height for better readability */
+    margin-bottom: 0.25em; /* Add margin to the bottom of paragraphs for spacing */
+}
+
+#about button {
+    margin-top: 20px; /* Adjust top margin for spacing */
+}
+
+/* Single column layout for mobile breakpoints */
+@media (max-width: 767px) {
+    #about button {
+        margin-top: 20px; /* Adjust top margin for spacing */
+        align-self: flex-start; /* Align the button to the left for single column layout */
+        margin-left: 0; /* Reset margin-left for single column layout */
+    }
+}
+
+/* Offset the button to the right on larger screens */
+@media (min-width: 1024px) {
+    #about button {
+        margin-left: auto; /* Set margin-left to auto for automatic right alignment */
+        display: block; /* Ensure block-level display for the button */
+    }
+}
+
+/* Center align the "Menu" button horizontally in the navigation bar */
+#menuButton {
+    cursor: pointer;
+    display: flex; /* Enable flexbox for the button content */
+    align-items: center; /* Align items vertically in the flex container */
+    padding: 8px 12px; /* Padding for better spacing */
+    margin-right: 4rem; /* Default right margin */
+}
+
+
+#drawerMenu ul {
+    margin-top: 20px; /* Adjust margin-top to move the menu items down */
+}
+
+/* Style the vertical scrollbar */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Style the scrollbar track */
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Style the scrollbar thumb */
+body::-webkit-scrollbar-thumb {
+    background: #333;
+    transition: background 0.3s; /* Smooth transition effect */
+}
+
+/* Change scrollbar on hover */
+body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Hide the initial state of the drawer menu */
+#drawerMenu {
+    transform: translateX(100%);
+    transition: transform 0.3s; /* Smooth transition effect */
+    position: fixed; /* Add fixed positioning */
+    top: 0; /* Align to the top of the viewport */
+    right: 0; /* Align to the right of the viewport */
+    height: 100%; /* Set height to cover the entire viewport */
+    overflow-y: auto; /* Enable vertical scroll if needed */
+}
+
+
+/* Interaction for project images */
+.project-image-container img {
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.project-image-container img:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+/* Align project titles, descriptions, and links to the left */
+.project-title {
+    text-align: left;
+}
+
+.project-title h3,
+.project-title p,
+.project-title a {
+    text-align: left;
+}
+
+/* Contact form styles */
+#contactForm {
+    max-width: 30rem;
+    margin: 0 auto;
+}
+
+/* Validation message styles */
+#feedback {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #4CAF50;
+    border-radius: 4px;
+    background-color: #DFF2BF;
+    color: #4CAF50;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Clear the form alignment for larger screens (md and above) */
+@media (min-width: 768px) {
+    #contactForm {
+        display: block;
+    }
+
+    #submitForm {
+        margin-left: auto;
+        display: block;
+    }
+
+    #menuButton {
+        margin-right: 4rem; /* Adjust right margin for larger screens */
+    }
+
+    #about button {
+        margin-top: 40px; /* Adjust top margin for larger screens */
+    }
+}
+
+/* Mobile Landscape (768px - 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Hero Section */
+    header {
+        padding: 6rem 2rem; /* Adjust padding for smaller screens */
+        text-align: center;
+    }
+
+
+    /* Case Studies Section */
+    #work {
+        padding: 6rem 2rem; /* Adjust padding for smaller screens */
+    }
+
+    .flex.mb-8 {
+        flex-direction: column; /* Display content in a single column */
+        align-items: center; /* Center align content */
+    }
+
+    .w-1/ {
+        width: 100%; /* Make text full width for smaller screens */
+    }
+
+    .project-image-container {
+        text-align: center; /* Center align images for smaller screens */
+    }
+
+    /* About Me Section */
+    #about {
+        padding: 6rem 2rem; /* Adjust padding for smaller screens */
+    }
+
+    #about button {
+        margin-top: 20px; /* Adjust top margin for smaller screens */
+        align-self: flex-end; /* Align the button to the right */
+    }
+
+    .flex.flex-col.md\:flex-row.items-start {
+        flex-direction: column; /* Display content in a single column */
+        align-items: center; /* Center align content */
+    }
+
+    .w-1/.mb-4.relative {
+        width: 100%; /* Make image full width for smaller screens */
+        margin-left: 0; /* Reset left margin */
+    }
+
+    .w-1/ {
+        width: 100%; /* Make text full width for smaller screens */
+    }
+
+    #about img:nth-child(1) {
+        width: 50%; /* Resize the profile.png image */
+        position: relative; /* Change position to relative */
+        z-index: 10;
+    }
+}
+
+
+/* Stack the Menu bar and the Menu drawer on top */
+#navigationBar {
+    position: relative;
+    z-index: 30;
+}
+
+#drawerMenu {
+    z-index: 1000; /* Bring the drawer menu forward */
+}
+
+/* Make the Menu bar and Menu button sticky */
+#navigationBar,
+#menuButton {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+}
+
+/* Styling for the Specialisation section */
+#specialisation {
+    display: none; /* Hide the Specialisation section */
+}
+
+/* Footer */
+footer {
+    background-color: #0e0e0e; /* Adjust background color as needed */
+    color: #fff; /* Adjust text color as needed */
+    padding: 1rem 0; /* Add padding to the footer */
+}
+
+/* Footer text */
+footer div {
+    text-align: center; /* Center align text in the footer */
+}
+
+/* Style for individual skills */
+.skill-card {
+    overflow: hidden; /* Hide overflow to prevent background image overflow */
+    border-radius: 10px; /* Add rounded corners to the skill card */
+}
+
+.skill-image {
+    height: 120px; /* Set the height of the skill image area */
+    overflow: hidden; /* Hide overflow for the skill image area */
+}
+
+.skill-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.skill-card h3 {
+    color: #333; /* Adjust text color for skill titles */
+    font-size: 1.5rem; /* Adjust font size for skill titles */
+    font-weight: bold; /* Add bold font weight */
+    margin-bottom: 0.5rem; /* Adjust margin bottom for skill titles */
+}
+
+.skill-card p {
+    color: #666; /* Adjust text color for skill descriptions */
+    font-size: 1rem; /* Adjust font size for skill descriptions */
+    line-height: 1.5; /* Line height for better readability */
+    margin-bottom: 1.5rem; /* Adjust margin bottom for skill descriptions */
+}
+
+/* Optional: Add some animation to the scroll indicator */
+#scrollIndicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 32px; /* Adjust the bottom value as needed */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#scrollIndicator img {
+    width: 60px; /* Adjust the width of the image as needed */
+    height: auto; /* Maintain the aspect ratio */
+    animation: bounce 1s infinite alternate; /* Bounce animation effect */
+}
+
+/* Styles for View Project button */
+.btn-pill-black {
+    display: inline-block;
+    padding: 8px 16px; /* Adjust the padding as needed */
+    background-color: black;
+    color: white;
+    border-radius: 8px; /* Set rounded corners */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-pill-black:hover {
+    background-color: #333; /* Adjust the hover color as needed */
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 767px) {
+    /* Additional styling for smaller screens */
+    #menuButton {
+        margin-right: 2rem; /* Adjust right margin for smaller screens */
+    }
+
+    #about button {
+        margin-top: 20px; /* Adjust top margin for smaller screens */
+    }
+
+    /* Adjustments for the Specialisation section on smaller screens */
+    #specialisation {
+        display: block; /* Show the Specialisation section */
+        padding: 2rem; /* Add padding for spacing */
+        text-align: center; /* Center align text in the Specialisation section */
+    }
+}
+
+/* Responsive Styles for Tablet and Large Screens */
+@media screen and (min-width: 768px) {
+    #menuButton {
+        margin-right: 4rem; /* Adjust right margin for larger screens */
+    }
+
+    #about button {
+        margin-top: 40px; /* Adjust top margin for larger screens */
+    }
+}
+
+#about img:nth-child(1) {
+    width: 60%; /* Adjust the width of the profile.png image */
+    max-width: 600px; /* Set a maximum width to ensure it's not too large */
+    align-self: flex-start; /* Align the image to the left */
+}
+
+/* Case Studies Section */
+#work {
+    padding: 6rem 1rem; /* Adjust padding for smaller screens */
+}
+
+/* Single column layout for mobile breakpoints */
+@media (max-width: 767px) {
+    .flex.mb-8 {
+        flex-direction: column; /* Display content in a single column */
+        align-items: center; /* Center align content */
+    }
+
+    .w-1/ {
+        width: 100%; /* Make text full width for smaller screens */
+    }
+
+    .project-image-container {
+        text-align: center; /* Center align images for smaller screens */
+    }
+
+    /* Adjust width of the content to match 'Specialisation' section */
+    .w-full {
+        width: 100%; /* Make content full width */
+        max-width: 30rem; /* Set a maximum width to ensure it's not too wide */
+        margin-left: auto; /* Align content to the left */
+        margin-right: auto; /* Align content to the right */
+    }
+}
+
+/* Hero Section for Mobile Screens */
+@media only screen and (max-width: 767px) {
+    /* ... (previous styles) */
+
+    /* Adjust text container position */
+    .container.mx-auto.text-left.relative.z-20 {
+        right: 0; /* Reset the right offset */
+    }
+
+    /* Adjust the font size for the title in the Hero Section */
+    header h1 {
+        font-size: 2.5rem; /* Adjust the font size as needed */
+        margin-right: 0; /* Reset the margin-right */
+    }
+
+    /* Adjust the font size and spacing for the description in the Hero Section */
+    header p {
+        font-size: 1rem; /* Adjust the font size as needed */
+        margin-top: 1rem; /* Add margin to the top of the description for spacing */
+        margin-right: 0; /* Reset the margin-right */
+    }
+
+    /* Adjust the position of the scroll indicator */
+    #scrollIndicator {
+        bottom: 16px; /* Adjust the bottom value as needed */
+    }
+}
+
+/* Case Studies Section for Mobile Screens */
+@media only screen and (max-width: 767px) {
+    /* Adjust the width of the project image containers */
+    .project-image-container {
+        text-align: center; /* Center align images for smaller screens */
+        width: 100%; /* Make image container full width for smaller screens */
+    }
+
+    /* Adjust the width and alignment of the text containers in the left section */
+    #work .flex.mb-8 > .w-1/ .project-title {
+        text-align: center; /* Center align text for smaller screens */
+        width: 100%; /* Make text container full width for smaller screens */
+    }
+
+    /* Adjust the width of the text containers in the right section */
+    #work .flex.mb-8 > .w-1/ .project-title > h3,
+    #work .flex.mb-8 > .w-1/ .project-title > p {
+        text-align: justify; /* Optionally, maintain justification */
+        width: 100%; /* Make text container full width for smaller screens */
+        margin-right: 0; /* Reset the right margin for full width */
+    }
+
+    /* Adjust padding for smaller screens */
+    #work {
+        padding: 6rem 1rem; /* Adjust padding for smaller screens */
+    }
+}
+
+/* Case Studies Section for Mobile Screens */
+@media only screen and (max-width: 767px) {
+    /* Adjust the width of the project image containers */
+    .project-image-container {
+        text-align: center; /* Center align images for smaller screens */
+        width: 100%; /* Make image container full width for smaller screens */
+    }
+
+    /* Adjust the width and alignment of the text containers in the left section */
+    #work .flex.mb-8 > .w-1/ {
+        text-align: center; /* Center align text for smaller screens */
+        width: 100%; /* Make text container full width for smaller screens */
+        margin: 0 auto; /* Center the text container */
+    }
+
+    /* Adjust the width of the text containers in the right section */
+    #work .flex.mb-8 > .w-1/ .project-title {
+        text-align: justify; /* Optionally, maintain justification */
+        width: 100%; /* Make text container full width for smaller screens */
+        margin-right: 0; /* Reset the right margin for full width */
+    }
+
+    /* Adjust padding for smaller screens */
+    #work {
+        padding: 6rem 1rem; /* Adjust padding for smaller screens */
+    }
+}
+
+
+/* Reset some default styles for consistency across browsers */
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Use 'Inter' as the default font family */
+}
+
+/* Styling for all section titles (center alignment and increased size) */
+h2, h3 {
+    text-align: center;
+    font-size: 2.5rem; /* Adjust the size as needed */
+}
+
+/* Offset the text in the Hero Section to the right by 250% */
+header h1,
+header p {
+    margin-right: -50%; /* Adjust the right offset as needed */
+}
+
+/* About Me Section */
+#about {
+    padding: 6rem 2rem; /* Adjust padding for smaller screens */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#about p {
+    max-width: 40em; /* Recommended maximum width for a comfortable reading experience */
+    text-align: justify;
+    line-height: 1.5; /* Line height for better readability */
+    margin-bottom: 0.25em; /* Add margin to the bottom of paragraphs for spacing */
+    font-family: 'Inter Tight', sans-serif; /* Use 'Inter Tight' for paragraphs */
+}
+
+#about button {
+    margin-top: 20px; /* Adjust top margin for spacing */
+}
+
+/* Single column layout for mobile breakpoints */
+@media (max-width: 767px) {
+    #about button {
+        margin-top: 20px; /* Adjust top margin for spacing */
+        align-self: flex-start; /* Align the button to the left for single column layout */
+        margin-left: 0; /* Reset margin-left for single column layout */
+    }
+}
+
+/* Offset the button to the right on larger screens */
+@media (min-width: 1024px) {
+    #about button {
+        margin-left: auto; /* Set margin-left to auto for automatic right alignment */
+        display: block; /* Ensure block-level display for the button */
+    }
+}
+
+/* styles.css */
+
+body {
+    font-family: 'Inter', sans-serif; /* Set the default font family */
+}
+
+p {
+    font-weight: 300; /* Set the font weight for paragraphs */
+}
+
+
+.special-paragraph {
+    font-weight: 500; /* Set a different font weight for specific paragraphs */
+}
+
+/* styles.css */
+
+#skillSet p {
+    font-family: 'Inter Tight', sans-serif; /* Set the font family */
+    font-weight: 500; /* Set the font weight for paragraphs */
+}
+
+
+/* Add the following styles for the animated background */
+.hero-background {
+    position: relative;
+}
+
+.gradient-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #FF3CAC, #784BA0, #2B86C5, #56CCF2);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Scroll Indicator */
+#scrollIndicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#scrollIndicator img {
+    width: 60px;
+    height: auto;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(8px);
+    }
+}
+
+/* Custom styles for the cards */
+.card {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 1.5rem; /* Add margin between the cards */
+}
+
+.md\:w-1\/2 {
+    flex: 0 0 calc(48% - 1.5rem); /* Adjust the width of the left and right cards with a gap of 1.5rem */
+    margin-right: 1.5rem; /* Adjust the margin between the cards */
+}
+
+/* Hero Section */
+header {
+    padding: 6rem 2rem; /* Adjust padding for smaller screens */
+    text-align: center;
+}
+
+header h1,
+header h2 {
+    margin: 0 auto; /* Center the heading elements */
+}
+
+/* Add the following styles for the Hero Section */
+/* Hero Section */
+header h3 {
+    color: #fff; /* Set text color to white */
+    font-family: 'Inter Tight', sans-serif; /* Use 'Inter Tight' for font family */
+    margin-bottom: 0.5rem; /* Adjust margin for spacing */
+}
+
+header h1 {
+    font-size: 3.5rem; /* Adjust the font size for H1 */
+}
+
+header h1,
+header h2 {
+    color: #fff; /* Set text color to white */
+    font-family: 'Inter Tight', sans-serif; /* Use 'Inter Tight' for font family */
+}
+
+.btn-pill-white {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 25px; /* Adjust the border-radius for pill-shaped button */
+    background-color: #fff;
+    color: #333; /* Adjust the text color for better visibility */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-pill-white:hover {
+    background-color: #eee; /* Adjust the hover background color as needed */
+}
+
+
+/* Additional styles for the cards in the 'About Me' section */
+#about .card {
+    background-color: #edf2f4; /* Change background color to black */
+    color: #0e0e0e; /* Set text color to white */
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 1.5rem; /* Add margin between the cards */
+}
+
+#about p {
+    margin-bottom: 2rem; /* Adjust the margin-bottom value as needed */
+}
+
+
+
+/* Case Studies Section */
+#work {
+    padding: 6rem 1rem; /* Adjust padding for smaller screens */
+}
+
+/* Style for the 'View Project' button in the Case Studies section */
+#work .btn-pill-blackbtn-pill-black,
+#work .btn-pill-black:hover {
+    background-color: #0e0e0e; /* Set the background color */
+    color: white; /* Set the text color */
+}
+
+#work .btn-pill-black:hover {
+    background-color: #333; /* Adjust the hover color */
+}
+
+
+/* Trusted By Section Styles */
+#trustedBy {
+    background-color: #fff; /* Change the background color as needed */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  #trustedBy h4 {
+    color: #646464; /* Change the text color as needed */
+    font-size: 1.5rem;
+    font-weight:200;
+    margin-bottom: 1rem;
+  }
+
+  #trustedBy img {
+    height: 36px; /* Set the height of the logo images */
+    margin-right: 0.5rem; /* Adjust the spacing between logos */
+  }
+
+
+  /* styles.css */
+
+/* Work Section Styles */
+#work {
+    background-color: #edf2f4; /* Very light grey background */
+}
+
+.project-title {
+    font-family: 'Inter Tight', sans-serif; /* Use Inter Tight font */
+}
+
+.btn-pill-black {
+    background-color: #000; /* Black background for the button */
+    color: #fff; /* White text color for the button */
+    border-radius: 999px; /* Pill shape */
+    padding: 10px 20px; /* Adjust padding as needed */
+    display: inline-block;
+    text-decoration: none; /* Remove default link underline */
+}
+
+.btn-pill-black:hover {
+    background-color: #333; /* Darker background on hover */
+}
+
+
+/* Work Section Styles */
+#work {
+    background-color: #f5f5f5; /* Very light grey background */
+}
+
+.project-title {
+    font-family: 'Inter Tight', sans-serif; /* Use Inter Tight font */
+}
+
+
+/* Common button styles for Let's connect and View Project */
+.btn-pill {
+    border-radius: 999px; /* Pill shape */
+    padding: 10px 20px; /* Adjust padding as needed */
+    display: inline-block;
+    text-decoration: none; /* Remove default link underline */
+}
+
+.btn-pill-black {
+    background-color: #000; /* Black background for the button */
+    color: #fff; /* White text color for the button */
+}
+
+.btn-pill-black:hover {
+    background-color: #333; /* Darker background on hover */
+}
+
+
+/* Add this CSS block for the gradient animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#skillSet {
+    background: linear-gradient(45deg, #f86594,#ffcaa6, #ea5753, #f89999);
+    background-size: 200% 200%;
+    animation: gradientAnimation 8s ease infinite;
+}
+
+/* Your existing styles */
+.py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.relative {
+    position: relative;
+}
+
+.bg-cover {
+    background-size: cover;
+}
+
+.bg-center {
+    background-position: center;
+}
+
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.z-10 {
+    z-index: 10;
+}
+
+.text-3xl {
+    font-size: 1.875rem;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.mb-8 {
+    margin-bottom: 2rem;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.gap-8 {
+    gap: 2rem;
+}
+
+.p-6 {
+    padding: 1.5rem;
+}
+
+.bg-black {
+    background-color: #000;
+}
+
+.bg-opacity-60 {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.rounded-md {
+    border-radius: 0.375rem;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.text-gray-300 {
+    color: #d2d6dc;
+}
+
+
+/* Add this CSS to your existing styles */
+
+/* Default style for the scroll indicator */
+#scrollIndicator {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Media query to hide the scroll indicator on screens with a maximum width of 767px (typical mobile devices) */
+@media (max-width: 767px) {
+    #scrollIndicator {
+        display: none;
+    }
+}
+
+
+/* Add this CSS to your existing styles or in an external stylesheet */
+
+#trustedBy .flex {
+    /* Set flex direction to row for larger screens (default) */
+    flex-direction: row;
+    justify-content: center; /* Center logos horizontally */
+    flex-wrap: wrap; /* Allow logos to wrap onto the next line */
+    margin: 0 -0.5rem; /* Equal negative margins on the left and right to offset the spacing */
+}
+
+#trustedBy .flex a {
+    /* Adjust logo size and margin for better spacing on larger screens */
+    margin: 0.5rem; /* Equal spacing between logos */
+    max-width: calc(20% - 1rem); /* Ensure logos don't exceed 20% of container width with margin */
+}
+
+/* Media query to arrange logos in two columns on screens with a maximum width of 767px (typical mobile devices) */
+@media (max-width: 767px) {
+    #trustedBy .flex a {
+        /* Adjust logo size and reduce margin for better spacing on mobile */
+        margin: 1rem; /* Equal spacing between logos */
+        max-width: calc(50% - 1rem); /* Ensure logos don't exceed 50% of container width with margin */
+    }
+
+    #trustedBy .flex {
+        /* Center the rows on smaller screens */
+        align-items: center;
+        margin: 0; /* Remove the negative margin on smaller screens */
+    }
+}
+
+
+/* Add this CSS to your existing styles */
+@media (max-width: 767px) {
+    #work .project-title p {
+      text-align: justify;
+    }
+  }
+
+
+ 
+
+  /* Add this CSS to your existing styles */
+@media (max-width: 767px) {
+    .grid-cols-1,
+    .grid-cols-2,
+    .grid-cols-3 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Styles for the view project link */
+  .view-project-link {
+    color: #7209b7;
+    font-family: 'Inter Tight', sans-serif;
+    text-decoration: none;
+    font-weight: 400; /* Make the text medium */
+    transition: color 0.3s ease-in-out;
+}
+
+.view-project-link:hover {
+    color: #4361ee;
+}
+
+
+.quoted-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    color: #fff;
+    position: relative;
+}
+
+.quoted-text:before,
+.quoted-text:after {
+    content: '\201C'; /* open-quote character */
+    font-size: 2em;
+    position: relative;
+    top: 0.3em; /* Adjust the vertical positioning */
+}
+
+.quoted-text:before {
+    left: -0.15em; /* Adjust the horizontal positioning for open-quote */
+}
+
+.quoted-text:after {
+    content: '\201D'; /* close-quote character */
+    font-size: 2em;
+    position: relative;
+    top: 0.3em; /* Adjust the vertical positioning for close-quote */
+    right: -0.15em; /* Adjust the horizontal positioning for close-quote */
+}
+
