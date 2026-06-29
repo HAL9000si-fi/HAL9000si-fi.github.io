@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showToast(
         'success',
         'Message sent',
-        'Thanks — your enquiry has been sent. I’ll get back to you as soon as I can.'
+        'Thanks, your enquiry has been sent. I’ll get back to you as soon as I can.'
       );
     } catch (error) {
       if (feedback) feedback.textContent = '';
