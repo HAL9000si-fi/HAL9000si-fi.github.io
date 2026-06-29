@@ -1824,6 +1824,39 @@
     }
   </style>
 
+
+  <style>
+    /* Back-to-top visibility behaviour */
+    .case-study-back-to-top,
+    .influence-back-to-top {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transform: translateY(0.8rem) !important;
+      transition:
+        opacity 180ms ease,
+        visibility 180ms ease,
+        transform 180ms ease,
+        background 180ms ease,
+        box-shadow 180ms ease !important;
+    }
+
+    .case-study-back-to-top.is-visible,
+    .influence-back-to-top.is-visible {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      transform: translateY(0) !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .case-study-back-to-top,
+      .influence-back-to-top {
+        transition: none !important;
+      }
+    }
+  </style>
+
 </head>
 <body id="top" class="case-page">
   <header class="site-header" data-header>
@@ -2260,5 +2293,31 @@
 
 
   <script src="../script.js"></script>
+
+  <script>
+    /* Back-to-top only appears after the first viewport */
+    (() => {
+      const controls = document.querySelectorAll(".case-study-back-to-top, .influence-back-to-top");
+
+      if (!controls.length) return;
+
+      const updateBackToTopVisibility = () => {
+        const showAfter = Math.max(window.innerHeight, 420);
+        const shouldShow = window.scrollY > showAfter;
+
+        controls.forEach((control) => {
+          control.classList.toggle("is-visible", shouldShow);
+          control.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+          control.tabIndex = shouldShow ? 0 : -1;
+        });
+      };
+
+      updateBackToTopVisibility();
+
+      window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
+      window.addEventListener("resize", updateBackToTopVisibility);
+    })();
+  </script>
+
 </body>
 </html>
