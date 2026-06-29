@@ -3847,3 +3847,23 @@ select::-ms-expand {
   opacity: 0.92;
 }
 
+/* Case study mobile menu source-of-truth width */
+@media (max-width: 820px) {
+  .case-page .mobile-menu {
+    position: fixed !important;
+    top: 4.75rem !important;
+    left: var(--page-pad) !important;
+    right: var(--page-pad) !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+  }
+
+  .case-page .mobile-menu nav {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+

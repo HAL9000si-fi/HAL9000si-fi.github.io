@@ -2389,5 +2389,48 @@
     })();
   </script>
 
+
+  <script>
+    /* Case study mobile menu controller */
+    (() => {
+      const menuButton = document.querySelector("[data-menu-button]");
+      const mobileMenu = document.querySelector("[data-mobile-menu]");
+
+      if (!menuButton || !mobileMenu) return;
+      if (menuButton.dataset.menuControllerBound === "true") return;
+
+      menuButton.dataset.menuControllerBound = "true";
+
+      const closeMenu = () => {
+        mobileMenu.hidden = true;
+        menuButton.setAttribute("aria-expanded", "false");
+      };
+
+      const openMenu = () => {
+        mobileMenu.hidden = false;
+        menuButton.setAttribute("aria-expanded", "true");
+      };
+
+      menuButton.addEventListener("click", () => {
+        const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+        isOpen ? closeMenu() : openMenu();
+      });
+
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeMenu();
+      });
+
+      document.addEventListener("click", (event) => {
+        if (mobileMenu.hidden) return;
+        if (menuButton.contains(event.target) || mobileMenu.contains(event.target)) return;
+        closeMenu();
+      });
+    })();
+  </script>
+
 </body>
 </html>
