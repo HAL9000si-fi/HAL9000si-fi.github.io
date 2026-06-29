@@ -3826,3 +3826,24 @@ select::-ms-expand {
     margin-top: 0.45rem;
   }
 }
+
+
+/* Contact form toast / success orange refinement */
+.site-toast--success .site-toast__panel {
+  background: var(--vermilion, #c94b32);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 22px 48px rgba(201, 75, 50, 0.3),
+    0 10px 24px rgba(21, 21, 21, 0.18);
+}
+
+.site-toast--success .site-toast__panel strong,
+.site-toast--success .site-toast__panel p {
+  color: #ffffff;
+}
+
+.site-toast--success .site-toast__panel p {
+  opacity: 0.92;
+}
+
