@@ -1,328 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hal Habeel - Senior product Designer (UX)</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="/images/fav_icon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="/images/fav_icon.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hal Habeel is a Senior Product Designer designing complex SaaS, B2C, enterprise and AI-assisted product experiences.">
+  <meta property="og:title" content="Hal Habeel — Senior Product Designer">
+  <meta property="og:description" content="Complex SaaS, B2C, enterprise and AI-assisted product experiences — designed with clarity, systems thinking and craft.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/linkedin_banner.png">
+  <title>Hal Habeel — Senior Product Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images/circle_logo_favicon.svg" type="image/svg+xml">
 </head>
-
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
- <!-- Navigation Bar with Menu Button -->
-<nav id="navigationBar" class="bg-black text-white py-4 sticky top-0 z-20">
-    <div class="container mx-auto flex justify-between items-center">
-        <!-- Display both the text logo and Japanese characters -->
-        <div class="flex flex-col items-center ml-4 md:ml-0">
-            <span class="text-2xl font-semibold uppercase ml-4 md:ml-0">Hal Habeel</span>
-            <span class="text-sm ml-4 md:ml-0">プロダクト・デザイナー</span>
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="Hal Habeel home">
+      <span class="brand__mark" aria-hidden="true">ハ</span>
+      <span class="brand__text">
+        <span>Hal Habeel</span>
+        <span>ハル・ハビール</span>
+      </span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#guide">AI Guide</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu">
+      <span>Menu</span>
+      <span class="menu-button__lines" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+    <nav aria-label="Mobile navigation">
+      <a href="#work">Work</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#guide">AI Guide</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <section id="top" class="hero section-pad">
+      <div class="hero__grid shell">
+        <div class="hero__content">
+          <p class="eyebrow">Senior Product Designer <span>·</span> 13+ years</p>
+          <h1>Designing clarity for complex <span class="hero-tone hero-tone--enterprise">enterprise</span>, <span class="hero-tone hero-tone--saas">SaaS</span> and <span class="hero-tone hero-tone--b2c">B2C</span> products.</h1>
+          <p class="hero__intro">I help teams turn ambiguous product problems into clear, usable and scalable experiences across workflow automation, mobile finance, customer feedback platforms and AI-assisted systems.</p>
+          <div class="hero__actions" aria-label="Primary actions">
+            <a class="button button--primary" href="#work">View selected work</a>
+            <a class="button button--secondary" href="#guide">Ask the portfolio guide</a>
+          </div>
         </div>
-        <!-- Menu Button (aligned to the right) -->
-        <button id="menuButton" class="bg-black text-white px-4 py-2 flex items-center border-0 ml-4 md:ml-0 md:hidden">
-            Menu
-        </button>
-    </div>
-</nav>
 
-
-
-<!-- Drawer Menu -->
-<div id="drawerMenu" class="w-64 bg-black text-white fixed top-0 right-0 h-full transform translate-x-full transition-transform duration-300 ease-in-out z-10">
-    <!-- Close Icon -->
-    <div id="closeMenu" class="absolute top-4 right-4 cursor-pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" id="closeIcon"></path>
-        </svg>
-    </div>
-    <ul class="mt-16 space-y-4 px-8">
-        <li><a href="#work" class="hover:text-gray-400">Work</a></li>
-        <li><a href="#about" class="hover:text-gray-400">About</a></li>
-        <li><a href="#skillSet" class="hover:text-gray-400">Process</a></li>
-        <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
-        <!-- Add the Skill Set link to the drawer menu -->
-    </ul>
-</div>
-
-<!-- JavaScript to toggle the visibility of the drawer menu -->
-<script>
-    document.getElementById('menuButton').addEventListener('click', function () {
-        document.getElementById('drawerMenu').classList.toggle('transform');
-    });
-
-    document.getElementById('closeMenu').addEventListener('click', function () {
-        document.getElementById('drawerMenu').classList.toggle('transform');
-    });
-</script>
-
-
- <!-- Hero Section -->
-<header class="hero-background py-32 px-6 h-screen relative overflow-hidden flex flex-col items-center justify-center">
-    <div class="gradient-animation"></div>
-    <div class="container mx-auto text-center relative">
-        <!-- Control the size of the image directly -->
-        <img src="images/Initial.svg" alt="Signiture" class="mb-4 mx-auto" width="140" height="140">
-        
-        <h3 class="text-white font-inter-tight text-base mb-4">12+ YEARS OF EXPERIENCE AS A</h3>
-        <h1 class="text-white font-bold text-5xl mb-4 font-inter-tight">Senior Product Designer</h1>
-        <h2 class="text-white text-lg mb-8 font-inter-tight quoted-text">Delivering value to SaaS and B2C products, through strategic thinking and data-driven insights.</h2>
-        <button class="btn-pill-white mb-4">
-            <a href="#contact" class="scroll-to-contact">Let's connect</a>
-        </button>
-    </div>
-</header>
-
-<!-- Scroll Indicator -->
-<div id="scrollIndicator">
-    <img src="images/scroller.svg" alt="Scroll Indicator">
-</div>
-
-
-<!-- Trusted by Section -->
-<section id="trustedBy" class="bg-gray-700 text-white py-16">
-    <div class="container mx-auto text-center">
-        <h4 class="text-3xl mb-8">Trusted by</h4>
-        <div class="flex items-center justify-center space-x-10">
-            <!-- Link each logo to its corresponding URL -->
-
-            <a href="https://www.adaptavist.com/" target="_blank">
-                <img src="images/Adaptavist.svg" alt="Adaptavist SaaS" class="h-12">
-            </a>
-            <a href="https://www.orange.com/en" target="_blank">
-                <img src="images/Orange.svg" alt="Orange telecom" class="h-12">
-            </a>
-            <a href="https://www.benjerry.co.uk/" target="_blank">
-                <img src="images/Benandjerry_logo.svg" alt="Ben and jerry ice cream" class="h-12">
-            </a>
-            <a href="https://www.voxpopme.com/" target="_blank">
-                <img src="images/Voxpopme.svg" alt="Voxpopme SaaS" class="h-12">
-            </a>
-            <a href="https://tekion.com/" target="_blank">
-                <img src="images/Tekion.svg" alt="Tekion corp" class="h-12">
-            </a>
-        </div>
-    </div>
-</section>
-
-
-<!-- Work Section -->
-<section id="work" class="py-16 px-6">
-    <div class="container mx-auto">
-        <h2 class="text-4xl font-bold mb-8">My Work</h2>
-        <div class="flex flex-col">
-
-            <!-- Project 1 -->
-            <div class="flex mb-8 flex-col md:flex-row">
-                <div class="w-full md:w-1/2 mb-4 md:mb-0">
-                    <div class="project-title text-left">
-                        <h3 class="text-2xl font-semibold">Build</h3>
-                        <p class="text-lg text-justify">
-                            An Enterprise-level SaaS platform, for building integration and automation solutions. Empowering technical professionals with basic programming skills to effortlessly script integration processes spanning two or more systems.<br>
-                            <a href="case_studies/Stitch-it_case_study.pdf" target="_blank" class="view-project-link mt-2 block">View project <i class="fas fa-square-arrow-up-right"></i></a>
-                        </p>
-                    </div>
-                </div>
-                <div class="project-image-container text-right w-full md:w-1/2">
-                    <img src="images/build.png" alt="Project Image 1" class="w-full hover:scale-105 transition-transform duration-300 mb-4">
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="flex mb-8 flex-col md:flex-row">
-                <div class="w-full md:w-1/2 mb-4 md:mb-0">
-                    <div class="project-title text-left">
-                        <h3 class="text-2xl font-semibold">Finance</h3>
-                        <p class="text-lg text-justify">
-                            Redefining the finance application journey! Transforming the finance experience with our cross-platform app, enabling direct applications from your device and providing initial decisions within minutes. Instantly uploading finances to a digital wallet for seamless access and boosted confidence.<br>
-                            <a href="case_studies/Oodlefinance_case_study.pdf" target="_blank" class="view-project-link mt-2 block">View project <i class="fas fa-square-arrow-up-right"></i></a>
-                        </p>
-                    </div>
-                </div>
-                <div class="project-image-container text-right w-full md:w-1/2">
-                    <img src="images/finance.png" alt="Project preview thumbnail" class="w-full hover:scale-105 transition-transform duration-300 mb-4">
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="flex mb-8 flex-col md:flex-row">
-                <div class="w-full md:w-1/2 mb-4 md:mb-0">
-                    <div class="project-title text-left">
-                        <h3 class="text-2xl font-semibold">Influence</h3>
-                        <p class="text-lg text-justify">
-                            Elevate your influence with top brands by sharing your thoughts through recorded feedback! Unleash your opinions in captivating video surveys and watch the rewards roll in – turning your insights into cash with this exciting app!<br>
-                            <a href="case_studies/influence_app_case_study.pdf" target="_blank" class="view-project-link mt-2 block">View project <i class="fas fa-square-arrow-up-right"></i></a>
-                        </p>
-                    </div>
-                </div>
-                <div class="project-image-container text-right w-full md:w-1/2">
-                    <img src="images/influence.png" alt="Project Image 3" class="w-full hover:scale-105 transition-transform duration-300 mb-4">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- About Section -->
-<section id="about" class="py-16 px-6 bg-white">
-    <div class="container mx-auto relative">
-        <h2 class="text-3xl font-bold text-center mb-4 mt-4">About Me</h2>
-        <div class="flex flex-col items-center">
-            
-            <!-- 'About Me' paragraph above the cards with bottom margin -->
-            <p class="text-center font-inter-tight text-base mb-4">
-                Highly motivated Senior Product Designer/ Researcher with 12+ years of experience. Working on complex enterprise and customer-facing solutions. Proven ability to coordinate an end-to-end design process using a user-centric strategy. Working collaboratively or independently with product owners, data scientists, designers and engineers to create a vision, conceive designs and consistently meet deadlines and requirements. Expertly convert features to benefits to achieve product objectives. Optimising user experience through solid research and meaningful design solutions.
-            </p>
-
-            <!-- Two cards arranged two by two with a max width of 330px and adjusted margin -->
-            <div class="md:flex justify-center space-x-2 mb-2">
-                <div class="card mb-4 p-6 md:w-1/2" style="min-width: 305px; margin-bottom: 1.5rem; text-align: center; box-shadow: none;">
-                    <h3 class="text-xl font-bold mb-2">12+ Years</h3>
-                    <p class="text-sm font-medium"> Of designing intuitive user experiences</p>
-                </div>
-                <div class="card mb-4 p-6 md:w-1/2" style="min-width: 305px; margin-bottom: 1.5rem; text-align: center; box-shadow: none;">
-                    <h3 class="text-xl font-bold mb-2">5+ Million</h3>
-                    <p class="text-sm font-medium">Customers, I've designed for overtime</p>
-                </div>
-            </div>
-
-            <!-- Two cards arranged two by two with a max width of 330px and adjusted margin -->
-            <div class="md:flex justify-center space-x-2">
-                <div class="card mb-4 p-6 md:w-1/2" style="min-width: 305px; margin-bottom: 1.5rem; text-align: center; box-shadow: none;">
-                    <h3 class="text-xl font-bold mb-2">30+ Products</h3>
-                    <p class="text-sm font-medium">I have designed or helped to expand</p>
-                </div>
-                <div class="card mb-4 p-6 md:w-1/2" style="min-width: 305px; margin-bottom: 1.5rem; text-align: center; box-shadow: none;">
-                    <h3 class="text-xl font-bold mb-2">7+ Companies</h3>
-                    <p class="text-sm font-medium">I have had the opportunity to work with</p>
-                </div>
-            </div>
-
-            <!-- Buttons centered below the cards with top margin -->
-            <div class="flex justify-center mt-4">
-                <button onclick="window.open('https://linkedin.com/in/halhabeel/', '_blank')" class="bg-white border border-gray-400 px-4 py-2 rounded-full text-sm mr-4">
-                    <i class="fab fa-linkedin"></i> Linkedin
-                </button>
-                <a href="#contact" class="scroll-to-contact">
-                    <button class="bg-white border border-gray-400 px-4 py-2 rounded-full text-sm">
-                        Let's connect
-                    </button>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- JavaScript for smooth scrolling -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Select all elements with the class 'scroll-to-contact'
-        const scrollToContactLinks = document.querySelectorAll('.scroll-to-contact');
-
-        // Add a click event listener to each link
-        scrollToContactLinks.forEach(link => {
-            link.addEventListener('click', function (event) {
-                event.preventDefault(); // Prevent the default behavior of the link
-
-                // Get the target element's ID from the href attribute
-                const targetId = this.getAttribute('href').substring(1);
-
-                // Use smooth scroll to scroll to the target element
-                document.getElementById(targetId).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    });
-</script>
-
-
-    <!-- My Process Section -->
-    <section id="skillSet" class="py-16 px-6 relative bg-cover bg-center">
-        <div class="container mx-auto relative z-10">
-            <h2 class="text-3xl font-bold text-center text-0e0e0e mb-8">My tried-and-true design process</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                
-                <!-- 01 Discovery -->
-                <div class="mb-8 p-6 bg-black bg-opacity-100 rounded-md text-white">
-                    <h3 class="text-xl font-semibold mb-2">01 Discovery</h3>
-                    <p class="text-gray-300">The first part of my process is about learning all about your industry.</p>
-                </div>
-
-                <!-- 02 Strategy -->
-                <div class="mb-8 p-6 bg-black bg-opacity-100 rounded-md text-white">
-                    <h3 class="text-xl font-semibold mb-2">02 Strategy</h3>
-                    <p class="text-gray-300">Next, we’ll map an approach to meet your business’s design objectives.</p>
-                </div>
-
-                <!-- 03 Alignment -->
-                <div class="mb-8 p-6 bg-black bg-opacity-100 rounded-md text-white">
-                    <h3 class="text-xl font-semibold mb-2">03 Alignment</h3>
-                    <p class="text-gray-300">Depending on complexity, I’ll create wireframes to get alignment on the strategic direction, interactions, and the functional requirements.</p>
-                </div>
-
-                <!-- 04 Design -->
-                <div class="mb-8 p-6 bg-black bg-opacity-100 rounded-md text-white">
-                    <h3 class="text-xl font-semibold mb-2">04 Design</h3>
-                    <p class="text-gray-300">I’ll explore the art direction and animation for the experience, ensuring it aligns with your target audience and brand personality.</p>
-                </div>
-
-                <!-- 05 Build -->
-                <div class="mb-8 p-6 bg-black bg-opacity-100 rounded-md text-white">
-                    <h3 class="text-xl font-semibold mb-2">05 Build</h3>
-                    <p class="text-gray-300">Once the designs are finalised, I’ll partner with a creative engineer(s) to bring the vision to reality.</p>
-                </div>
-
-                <!-- 06 Post launch -->
-                <div class="mb-8 p-6 bg-black bg-opacity-100 rounded-md text-white">
-                    <h3 class="text-xl font-semibold mb-2">06 Post launch</h3>
-                    <p class="text-gray-300">Monitoring product performance metrics, and iteratively improving the user experience based on real-world usage.</p>
-                </div>
-            </div>
-        </div>
+        <aside class="hero-card" aria-label="Portfolio summary">
+          <div class="hero-card__seal" aria-hidden="true">間</div>
+          <p class="jp-label">ハル・ハビール</p>
+          <h2>Designing product systems for the AI era.</h2>
+          <p>End-to-end product design across AI-native experiences, agentic UX, interaction systems, research, multi-surface journeys and code-driven prototyping.</p>
+          <dl class="stats-grid">
+            <div><dt>13+</dt><dd>Years experience</dd></div>
+            <div><dt>30+</dt><dd>Products</dd></div>
+            <div><dt>5M+</dt><dd>Users reached</dd></div>
+            <div><dt>7+</dt><dd>Companies</dd></div>
+          </dl>
+        </aside>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 px-6">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold mb-8">Think I’d be a good fit for your team or project?</h2>
-            <p class="text-lg text-center mb-8">Let's connect</p>
-            <form id="contactForm" class="text-left" action="contact.php" method="POST">
-                <div class="mb-4">
-                    <label for="name" class="block text-sm font-medium text-gray-700">My name is<span class="text-red-500">*</span></label>
-                    <input type="text" id="name" name="name" class="w-full px-3 py-2 rounded-md border focus:outline-none focus:ring-2 focus:ring-blue-400" required>
-                </div>
-                <div class="mb-4">
-                    <label for="contactNumber" class="block text-sm font-medium text-gray-700">My contact number is</label>
-                    <input type="text" id="contactNumber" name="contactNumber" class="w-full px-3 py-2 rounded-md border focus:outline-none focus:ring-2 focus:ring-blue-400">
-                </div>
-                <div class="mb-4">
-                    <label for="email" class="block text-sm font-medium text-gray-700">Reach me @<span class="text-red-500">*</span></label>
-                    <input type="email" id="email" name="email" class="w-full px-3 py-2 rounded-md border focus:outline-none focus:ring-2 focus:ring-blue-400" required>
-                </div>
-                <div class="mb-4">
-                    <label for="message" class="block text-sm font-medium text-gray-700">Message<span class="text-red-500">*</span></label>
-                    <textarea id="message" name="message" class="w-full px-3 py-2 rounded-md border focus:outline-none focus:ring-2 focus:ring-blue-400" required></textarea>
-                </div>
-                <button id="submitForm" type="submit" class="bg-black text-white px-6 py-3 rounded-full text-lg hover:bg-gray-700">Submit</button>
-            </form>
+    <section class="trusted section-pad section-pad--compact" aria-labelledby="trusted-title">
+      <div class="shell">
+        <div class="section-heading section-heading--inline">
+          <p class="eyebrow">Experience proof</p>
+          <h2 id="trusted-title">Teams and brands I’ve contributed to</h2>
+        </div>
+        <div class="logo-strip" aria-label="Company logos">
+          <img src="images/Adaptavist.svg" alt="Adaptavist">
+          <img src="images/Orange.svg" alt="Orange">
+          <img src="images/Benandjerry_logo.svg" alt="Ben & Jerry's">
+          <img src="images/Voxpopme.svg" alt="Voxpopme">
+          <img src="images/Tekion.svg" alt="Tekion">
+        </div>
+      </div>
     </section>
 
-
-    <!-- Footer -->
-    <footer class="bg-black text-white py-4">
-        <div class="container mx-auto text-center">
-            &copy; 2024. All rights reserved.
+    <section id="work" class="work section-pad" aria-labelledby="work-title">
+      <div class="shell">
+        <div class="section-heading section-heading--work">
+          <p class="eyebrow"><span class="eyebrow__number">01</span> / Selected Work <span class="jp-inline">選ばれた仕事</span></p>
+          <h2 id="work-title">Selected case studies showing how I turn complex product problems into clearer user experiences.</h2>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <div class="case-study-list case-study-list--editorial">
+          <article class="case-card case-card--feature case-card--flagship">
+            <div class="case-card__content">
+              <p class="case-card__meta">Enterprise SaaS · Workflow automation · Technical users</p>
+              <h3>ScriptRunner Connect / Stitch-It</h3>
+              <p>Redesigning a complex workflow-builder so technical users could configure, validate and deploy automations with more confidence.</p>
+              <ul class="tag-list" aria-label="Case study capabilities">
+                <li>Complex workflows</li>
+                <li>Enterprise UX</li>
+                <li>Systems thinking</li>
+              </ul>
+              <a class="text-link" href="case_studies/stitch-it.html">Explore case study</a>
+            </div>
+
+            <div class="case-card__media case-card__media--abstract case-card__media--workflow" aria-hidden="true">
+              <div class="abstract-workflow">
+                <div class="workflow-panel workflow-panel--source">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="workflow-node workflow-node--one"></div>
+                <div class="workflow-node workflow-node--two"></div>
+                <div class="workflow-node workflow-node--three"></div>
+                <div class="workflow-line workflow-line--one"></div>
+                <div class="workflow-line workflow-line--two"></div>
+                <div class="workflow-panel workflow-panel--editor">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </div>
+                <div class="workflow-panel workflow-panel--deploy">
+                  <strong>Deploy</strong>
+                  <span>Validated</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <div class="case-study-secondary-grid">
+            <article class="case-card case-card--support">
+              <div class="case-card__content">
+                <p class="case-card__meta">Mobile finance · B2C · Trust and conversion</p>
+                <h3>Oodle Finance App</h3>
+                <p>Improving a finance application journey where speed, clarity and reassurance shape user trust and completion.</p>
+                <ul class="tag-list" aria-label="Case study capabilities">
+                  <li>Mobile UX</li>
+                  <li>Fintech</li>
+                  <li>Decision journeys</li>
+                </ul>
+                <a class="text-link" href="case_studies/oodle-finance.html">Explore case study</a>
+              </div>
+
+              <div class="case-card__media case-card__media--abstract case-card__media--finance" aria-hidden="true">
+                <div class="abstract-mobile">
+                  <div class="phone-frame phone-frame--back">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="phone-frame phone-frame--front">
+                    <i></i>
+                    <strong></strong>
+                    <span></span>
+                    <span></span>
+                    <em></em>
+                  </div>
+                  <div class="finance-orbit"></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="case-card case-card--support">
+              <div class="case-card__content">
+                <p class="case-card__meta">Consumer research · Video feedback · Paid participation</p>
+                <h3>Influence App</h3>
+                <p>Turning feedback loops, survey clarity and reward mechanics into a more usable participation experience.</p>
+                <ul class="tag-list" aria-label="Case study capabilities">
+                  <li>B2C UX</li>
+                  <li>Research loops</li>
+                  <li>Engagement</li>
+                </ul>
+                <a class="text-link" href="case_studies/influence-app.html">Explore case study</a>
+              </div>
+
+              <div class="case-card__media case-card__media--abstract case-card__media--influence" aria-hidden="true">
+                <div class="abstract-feedback">
+                  <div class="feedback-card feedback-card--one"></div>
+                  <div class="feedback-card feedback-card--two"></div>
+                  <div class="feedback-video">
+                    <span></span>
+                  </div>
+                  <div class="feedback-wave">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="capabilities" class="capabilities section-pad" aria-labelledby="capabilities-title">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow"><span class="eyebrow__number">02</span> / Capabilities <span class="jp-inline">能力</span></p>
+          <h2 id="capabilities-title">What hiring teams should actually take away.</h2>
+        </div>
+
+        <div class="capability-grid">
+          <article>
+            <span>01</span>
+            <h3>Complex workflow design</h3>
+            <p>Turning multi-step systems, dependencies and technical logic into understandable user journeys.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Product discovery and strategy</h3>
+            <p>Framing problems, mapping evidence, identifying assumptions and aligning teams before design execution.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>End-to-end UX/UI delivery</h3>
+            <p>Moving from ambiguity to flows, prototypes, polished interface design and implementation-ready detail.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Cross-functional collaboration</h3>
+            <p>Working with PMs, engineers, data, research, clients and stakeholders to make decisions stick.</p>
+          </article>
+          <article>
+            <span>05</span>
+            <h3>AI-assisted product thinking</h3>
+            <p>Designing AI as support for clarity, monitoring, decision-making and human oversight — not gimmicks.</p>
+          </article>
+          <article>
+            <span>06</span>
+            <h3>Design systems and craft</h3>
+            <p>Creating reusable interface patterns, visual hierarchy and product experiences that feel coherent at scale.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="guide" class="portfolio-guide section-pad" aria-labelledby="guide-title">
+      <div class="shell guide-compact">
+        <div class="guide-compact__intro">
+          <p class="eyebrow"><span class="eyebrow__number">03</span> / Portfolio Guide <span class="jp-inline">案内</span></p>
+          <h2 id="guide-title">Find the strongest proof for your role.</h2>
+          <p>Choose a hiring lens and the guide will surface the most relevant case study, strengths and evidence to review first.</p>
+        </div>
+
+        <div class="guide-panel guide-panel--ai guide-panel--scout guide-panel--compact" data-role-guide>
+          <div class="guide-compact__header">
+            <span class="ai-orb" aria-hidden="true"><span>AI</span></span>
+            <div>
+              <p class="guide-kicker">Portfolio Scout</p>
+              <h3 data-guide-title>Select a hiring lens</h3>
+              <p data-guide-status></p>
+            </div>
+          </div>
+
+          <div class="role-options role-options--compact" role="list" aria-label="Role fit options">
+            <button type="button" data-role="saas">
+              <span>SaaS</span>
+              <strong>Enterprise systems</strong>
+            </button>
+            <button type="button" data-role="ai">
+              <span>AI</span>
+              <strong>AI product systems</strong>
+            </button>
+            <button type="button" data-role="mobile">
+              <span>Mobile</span>
+              <strong>Mobile journeys</strong>
+            </button>
+            <button type="button" data-role="consulting">
+              <span>Consulting</span>
+              <strong>Strategy & delivery</strong>
+            </button>
+          </div>
+
+          <div class="guide-result guide-result--compact guide-result--empty" data-guide-result aria-live="polite">
+            <div class="guide-empty-state" data-guide-empty>
+              <span class="guide-empty-state__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M12 3.5l1.65 4.55L18.2 9.7l-4.55 1.65L12 15.9l-1.65-4.55L5.8 9.7l4.55-1.65L12 3.5Z"></path>
+                  <path d="M18.5 14.25l.78 2.02 2.02.78-2.02.78-.78 2.02-.78-2.02-2.02-.78 2.02-.78.78-2.02Z"></path>
+                  <path d="M5.4 15.1l.58 1.5 1.5.58-1.5.58-.58 1.5-.58-1.5-1.5-.58 1.5-.58.58-1.5Z"></path>
+                </svg>
+              </span>
+              <p>Select a hiring lens above and the scout will recommend the most relevant case study to review first.</p>
+            </div>
+
+            <div class="guide-generated" data-guide-generated hidden>
+              <p class="guide-result__label">Recommended case study</p>
+              <h4 data-guide-card-title></h4>
+              <p data-guide-summary></p>
+            </div>
+
+            <a class="guide-result__link guide-result__link--delayed" data-guide-link href="#" hidden>Explore case study</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about section-pad" aria-labelledby="about-title">
+      <div class="shell about-grid">
+        <div>
+          <p class="eyebrow"><span class="eyebrow__number">04</span> / About <span class="jp-inline">自己紹介</span></p>
+          <h2 id="about-title">A senior designer for teams dealing with complexity, not just screens.</h2>
+        </div>
+        <div class="about-copy">
+          <p>I design complex product experiences where clarity, trust and usability matter, from enterprise automation platforms to mobile finance and consumer feedback products.</p>
+          <p>Across 13+ years, I’ve worked through discovery, strategy, UX, UI, prototyping, research and delivery with product, engineering, data and stakeholder teams. The work is strongest when the challenge is ambiguous, cross-functional and commercially meaningful.</p>
+          <div class="about-actions">
+            <a class="button button--secondary" href="https://linkedin.com/in/halhabeel/" rel="noopener">View LinkedIn</a>
+            <a class="button button--ghost" href="#contact">Discuss a role or project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="process section-pad" aria-labelledby="process-title">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow"><span class="eyebrow__number">05</span> / How I work <span class="jp-inline">過程</span></p>
+          <h2 id="process-title">A senior process focused on risk, evidence and delivery.</h2>
+        </div>
+        <ol class="process-list">
+          <li><span>01</span><strong>Frame the product problem</strong><p>Clarify the user, business goal, constraints and decision criteria.</p></li>
+          <li><span>02</span><strong>Map users, systems and dependencies</strong><p>Expose complexity before simplifying it.</p></li>
+          <li><span>03</span><strong>Identify high-risk assumptions</strong><p>Prioritise what needs evidence, not just what needs screens.</p></li>
+          <li><span>04</span><strong>Prototype the critical path</strong><p>Make the core journey testable and discussable quickly.</p></li>
+          <li><span>05</span><strong>Design for scale and edge cases</strong><p>Account for states, errors, permissions, handoffs and operational reality.</p></li>
+          <li><span>06</span><strong>Partner through delivery</strong><p>Keep design quality intact as the product moves into build and iteration.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="contact" class="contact section-pad" aria-labelledby="contact-title">
+      <div class="shell contact-grid">
+        <div>
+          <p class="eyebrow"><span class="eyebrow__number">06</span> / Contact <span class="jp-inline">連絡</span></p>
+          <h2 id="contact-title">Hiring for a senior designer or need product design support?</h2>
+          <p>Send the context. The more specific you are about the role, product, team and timeline, the easier it is to have a useful first conversation.</p>
+        </div>
+
+        <form id="contactForm" class="contact-form" action="https://formsubmit.co/ajax/skootinteractive@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Portfolio enquiry from halhabeel.co">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <label for="name">Name <span>*</span></label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+
+          <label for="email">Email <span>*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+
+          <label for="context">What are you hiring for?</label>
+          <select id="context" name="context" class="contact-native-select" data-custom-select>
+            <option value="Senior Product Designer role">Senior Product Designer role</option>
+            <option value="Contract or consulting project">Contract or consulting project</option>
+            <option value="AI or workflow product work">AI or workflow product work</option>
+            <option value="Other enquiry">Other enquiry</option>
+          </select>
+
+          <label for="message">Message <span>*</span></label>
+          <textarea id="message" name="message" rows="6" required placeholder="Tell me about the role, product, timeline, team and why you think my experience might fit."></textarea>
+
+          <button class="button button--primary" type="submit">Send</button>
+          <p id="feedback" class="form-feedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <strong>Hal Habeel</strong>
+        <span>ハル・ハビール</span>
+      </div>
+      <p>© 2026. Senior Product Designer.</p>
+    </div>
+  </footer>
+
+  <div class="site-toast" data-toast hidden role="status" aria-live="polite">
+    <div class="site-toast__panel">
+      <strong data-toast-title></strong>
+      <p data-toast-message></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-
 </html>

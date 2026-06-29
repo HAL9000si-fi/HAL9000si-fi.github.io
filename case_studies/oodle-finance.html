@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oodle Finance — Hal Habeel Case Study</title>
+  <meta name="description" content="This case study shows mobile product craft in a higher-trust context: designing clear flows, reducing uncertainty and helping users move through a finance journey with stronger comprehension and confidence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="../images/circle_logo_favicon.svg" type="image/svg+xml">
+
+  <style>
+
+
+
+    /* Oodle Finance hero simple reset */
+    .case-visual-section {
+      padding: clamp(1.5rem, 3vw, 2.5rem) var(--page-pad) clamp(3.5rem, 6vw, 5rem) !important;
+    }
+
+    .case-visual-section .case-shell {
+      width: min(100% - (var(--page-pad) * 2), 72rem) !important;
+      margin-inline: auto !important;
+    }
+
+    .case-visual {
+      width: 100% !important;
+      height: auto !important;
+      min-height: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      border-radius: 1.6rem !important;
+      background: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
+    }
+
+    .case-visual img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      object-fit: initial !important;
+      object-position: initial !important;
+      border-radius: inherit !important;
+      box-shadow: none !important;
+      transform: none !important;
+      image-rendering: auto !important;
+    }
+
+    @media (max-width: 900px) {
+      .case-visual-section .case-shell {
+        width: min(100% - 2rem, 72rem) !important;
+      }
+
+      .case-visual {
+        border-radius: 1.25rem !important;
+      }
+    }
+
+
+    /* Oodle Finance hero image under title */
+    .case-hero .case-visual-section--hero {
+      padding: clamp(1.75rem, 3vw, 2.75rem) 0 0 !important;
+    }
+
+    .case-hero .case-visual-section--hero .case-visual {
+      margin: 0 !important;
+    }
+
+
+
+    /* Oodle Finance hero spacing cleanup */
+    .case-hero .back-link {
+      display: inline-flex !important;
+      width: fit-content !important;
+      margin-bottom: clamp(2rem, 4vw, 3rem) !important;
+    }
+
+    .oodle-hero-kicker {
+      display: flex !important;
+      align-items: baseline !important;
+      gap: 0.55rem !important;
+      width: fit-content !important;
+      margin: 0 0 clamp(0.85rem, 1.5vw, 1.15rem) !important;
+      clear: both !important;
+    }
+
+    .oodle-hero-kicker span {
+      color: rgba(117, 111, 103, 0.78) !important;
+      font-family: "Noto Sans JP", sans-serif !important;
+      font-size: 0.78rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: none !important;
+    }
+
+    .case-hero h1 {
+      margin-bottom: clamp(1.75rem, 3vw, 2.5rem) !important;
+    }
+
+    .case-hero .case-visual-section--hero {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+      margin-bottom: clamp(1.75rem, 3vw, 2.4rem) !important;
+    }
+
+    .case-hero .case-visual {
+      margin-bottom: 0 !important;
+    }
+
+    .case-hero .case-lede {
+      margin-top: 0 !important;
+      max-width: 52rem !important;
+    }
+
+    .case-hero .case-tags {
+      margin-top: clamp(1.25rem, 2.4vw, 1.85rem) !important;
+    }
+
+
+    /* Oodle selected work section */
+    .oodle-selected-work {
+      padding: clamp(5rem, 8vw, 8rem) var(--page-pad) !important;
+      border-top: 1px solid var(--line) !important;
+      background: var(--bg) !important;
+    }
+
+    .oodle-selected-work .case-shell {
+      width: min(100% - (var(--page-pad) * 2), var(--page-max)) !important;
+      margin-inline: auto !important;
+    }
+
+    .oodle-selected-work h2 {
+      max-width: 9ch !important;
+      margin: 0 0 clamp(2rem, 4vw, 3rem) !important;
+      font-size: clamp(3rem, 7vw, 6.4rem) !important;
+      line-height: 0.92 !important;
+      letter-spacing: -0.075em !important;
+    }
+
+    .case-study-next-work__grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 1.2rem !important;
+      max-width: 100% !important;
+    }
+
+    .case-study-next-work__card {
+      position: relative !important;
+      min-height: 25rem !important;
+      display: grid !important;
+      grid-template-rows: 1fr auto !important;
+      align-items: stretch !important;
+      padding: clamp(1.35rem, 2vw, 1.75rem) !important;
+      border: 1px solid rgba(117, 111, 103, 0.18) !important;
+      border-radius: 1.65rem !important;
+      background: rgba(247, 244, 238, 0.78) !important;
+      color: var(--ink) !important;
+      overflow: hidden !important;
+      box-shadow: 0 18px 44px rgba(21, 21, 21, 0.045) !important;
+      text-decoration: none !important;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .case-study-next-work__card:hover {
+      transform: translateY(-4px) !important;
+      border-color: rgba(201, 75, 50, 0.28) !important;
+      box-shadow: 0 24px 54px rgba(21, 21, 21, 0.075) !important;
+    }
+
+    .case-study-next-work__card.is-current {
+      border-color: rgba(201, 75, 50, 0.28) !important;
+    }
+
+    .case-study-next-work__content {
+      display: grid !important;
+      align-content: start !important;
+    }
+
+    .case-study-next-work__content p {
+      margin: 0 0 1.25rem !important;
+      color: rgba(21, 21, 21, 0.78) !important;
+      font-size: 0.72rem !important;
+      font-weight: 850 !important;
+      letter-spacing: 0.13em !important;
+      line-height: 1.45 !important;
+      text-transform: uppercase !important;
+    }
+
+    .case-study-next-work__content h3 {
+      max-width: 8.5ch !important;
+      margin: 0 !important;
+      color: var(--ink) !important;
+      font-size: clamp(2.05rem, 3.2vw, 3.35rem) !important;
+      line-height: 0.98 !important;
+      letter-spacing: -0.065em !important;
+    }
+
+    .case-study-next-work__content > span {
+      display: block !important;
+      max-width: 28rem !important;
+      margin: 1.1rem 0 0 !important;
+      color: rgba(21, 21, 21, 0.72) !important;
+      font-size: 1rem !important;
+      font-weight: 500 !important;
+      line-height: 1.55 !important;
+      letter-spacing: 0 !important;
+    }
+
+    .case-study-next-work__content ul {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 0.5rem !important;
+      margin: 1.35rem 0 0 !important;
+      padding: 0 !important;
+      list-style: none !important;
+    }
+
+    .case-study-next-work__content li {
+      padding: 0.45rem 0.7rem !important;
+      border: 1px solid rgba(117, 111, 103, 0.18) !important;
+      border-radius: 999px !important;
+      color: rgba(21, 21, 21, 0.62) !important;
+      font-size: 0.72rem !important;
+      font-weight: 750 !important;
+      line-height: 1 !important;
+    }
+
+    .case-study-next-work__content strong {
+      display: block !important;
+      margin-top: 1.4rem !important;
+      color: var(--vermilion) !important;
+      font-size: 0.88rem !important;
+      font-weight: 850 !important;
+      letter-spacing: 0.04em !important;
+    }
+
+    .case-study-next-work__card.is-current .case-study-next-work__content strong {
+      color: rgba(117, 111, 103, 0.72) !important;
+    }
+
+    
+    @media (max-width: 1100px) {
+
+      .case-study-next-work__grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .case-study-next-work__card {
+        min-height: 21rem !important;
+      }
+
+      .case-study-next-work__content h3 {
+        max-width: 12ch !important;
+      }
+    }
+
+
+    /* Oodle Influence mini preview top rectangles correction */
+    .case-study-next-work__card--influence .case-study-next-work__visual {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.10), transparent 22%),
+        linear-gradient(135deg, #ff313a 0%, #ee2130 100%) !important;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: 1rem 1.2rem !important;
+      border-radius: 1.15rem !important;
+      border: 1px solid rgba(255,255,255,0.14) !important;
+      z-index: 0 !important;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual::after {
+      content: "" !important;
+      position: absolute !important;
+      left: 50% !important;
+      top: 48% !important;
+      width: 6rem !important;
+      height: 6rem !important;
+      transform: translate(-50%, -50%) !important;
+      border-radius: 1.55rem !important;
+      background: rgba(72, 14, 21, 0.72) !important;
+      z-index: 2 !important;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(1) {
+      left: 0.9rem !important;
+      top: 1.2rem !important;
+      right: auto !important;
+      bottom: auto !important;
+      width: 40% !important;
+      height: 34% !important;
+      transform: rotate(-8deg) !important;
+      border-radius: 1rem !important;
+      background: rgba(255,255,255,0.20) !important;
+      z-index: 1 !important;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(2) {
+      right: 1rem !important;
+      top: 1.2rem !important;
+      left: auto !important;
+      bottom: auto !important;
+      width: 40% !important;
+      height: 34% !important;
+      transform: rotate(6deg) !important;
+      border-radius: 1rem !important;
+      background: rgba(255,255,255,0.16) !important;
+      z-index: 1 !important;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(3) {
+      left: 50% !important;
+      bottom: 0.9rem !important;
+      top: auto !important;
+      right: auto !important;
+      width: 2rem !important;
+      height: 2rem !important;
+      transform: translateX(-50%) !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      background:
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 0.12rem 1.15rem / 0.24rem 0.7rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 0.62rem 0.7rem / 0.24rem 1.15rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 1.12rem 0.35rem / 0.24rem 1.5rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 1.62rem 0.9rem / 0.24rem 0.95rem no-repeat !important;
+      z-index: 3 !important;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(1)::before,
+    .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(1)::after,
+    .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(2)::before,
+    .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(2)::after,
+    .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(3)::before,
+    .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(3)::after {
+      display: none !important;
+      content: none !important;
+    }
+
+
+    /* Oodle Stitch-It mini preview final alignment */
+
+    /* Left card: force the small dark panel to tilt like Stitch-It */
+    .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(1) {
+      left: 1.1rem !important;
+      top: 2.4rem !important;
+      right: auto !important;
+      bottom: auto !important;
+      width: 33% !important;
+      height: 34% !important;
+      transform: rotate(-7deg) !important;
+      transform-origin: center center !important;
+      border-radius: 1.1rem !important;
+      background:
+        linear-gradient(rgba(255,255,255,0.34), rgba(255,255,255,0.34)) 1rem 1rem / 62% 0.24rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.26), rgba(255,255,255,0.26)) 1rem 1.95rem / 52% 0.22rem no-repeat,
+        linear-gradient(rgba(233,124,109,0.95), rgba(233,124,109,0.95)) 1rem 2.85rem / 36% 0.26rem no-repeat,
+        rgba(255, 255, 255, 0.09) !important;
+      z-index: 2 !important;
+    }
+
+    /* Bottom pill: move left so it lines up with the Stitch-It reference */
+    .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(3) {
+      left: 36% !important;
+      right: auto !important;
+      bottom: 1.1rem !important;
+      top: auto !important;
+      width: 24% !important;
+      height: 18% !important;
+      transform: translateX(-50%) !important;
+      border-radius: 999px !important;
+      background:
+        linear-gradient(#ffffff, #ffffff) 1rem 0.95rem / 34% 0.18rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.38), rgba(255,255,255,0.38)) 1rem 1.65rem / 24% 0.16rem no-repeat,
+        rgba(255,255,255,0.06) !important;
+      z-index: 2 !important;
+    }
+
+
+
+    /* Oodle hero top spacing matched to Stitch-It */
+    .case-hero.section-pad {
+      padding: 7.5rem var(--page-pad) 5.5rem !important;
+    }
+
+    @media (max-width: 900px) {
+      .case-hero.section-pad {
+        padding-top: 6.5rem !important;
+      }
+    }
+
+
+
+    /* Oodle senior story correction */
+    .oodle-story {
+      padding: clamp(4.5rem, 8vw, 7rem) var(--page-pad);
+      border-top: 1px solid var(--line);
+      background: var(--bg);
+    }
+
+    .oodle-story .case-shell {
+      width: min(100% - (var(--page-pad) * 2), var(--page-max));
+      margin-inline: auto;
+    }
+
+    .oodle-story-thesis {
+      max-width: 72rem;
+      margin-bottom: clamp(4rem, 7vw, 6rem);
+    }
+
+    .oodle-story-thesis h2,
+    .oodle-story-copy h2,
+    .oodle-story-takeaway h2 {
+      max-width: 13ch;
+      margin: 0 0 1.25rem;
+      color: var(--ink);
+      font-size: clamp(2.65rem, 5.8vw, 5.9rem);
+      line-height: 0.92;
+      letter-spacing: -0.075em;
+    }
+
+    .oodle-story-copy--wide h2 {
+      max-width: 15ch;
+    }
+
+    .oodle-story-thesis p:not(.case-kicker),
+    .oodle-story-copy p,
+    .oodle-story-takeaway p {
+      max-width: 47rem;
+      color: rgba(21, 21, 21, 0.72);
+      font-size: clamp(1rem, 1.35vw, 1.12rem);
+      line-height: 1.75;
+    }
+
+    .oodle-story-section {
+      padding: clamp(4rem, 7vw, 6.5rem) 0;
+      border-top: 1px solid rgba(117, 111, 103, 0.16);
+    }
+
+    .oodle-story-section--split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+    }
+
+    .oodle-story-section--reverse {
+      grid-template-columns: minmax(0, 0.58fr) minmax(0, 0.42fr);
+    }
+
+    .oodle-story-section--reverse .oodle-story-copy {
+      order: 2;
+    }
+
+    .oodle-story-section--reverse .oodle-story-visual,
+    .oodle-story-section--reverse .oodle-research-card {
+      order: 1;
+    }
+
+    .oodle-story-copy--wide {
+      max-width: 72rem;
+      margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+    }
+
+    .oodle-story-visual {
+      display: block;
+      width: 100%;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid rgba(117, 111, 103, 0.18);
+      border-radius: 1.6rem;
+      background: rgba(247, 244, 238, 0.74);
+      box-shadow: 0 18px 44px rgba(21, 21, 21, 0.045);
+    }
+
+    .oodle-story-section:not(.oodle-story-section--split) .oodle-story-visual {
+      margin-top: clamp(1.5rem, 3vw, 2.25rem);
+    }
+
+    .oodle-story-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: inherit;
+      object-fit: initial;
+      object-position: initial;
+      box-shadow: none;
+    }
+
+    .oodle-story-visual--dark {
+      background: #101620;
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .oodle-story-visual--phone {
+      max-width: 28rem;
+      justify-self: center;
+      background: #101620;
+    }
+
+    .oodle-role-panel,
+    .oodle-feature-grid,
+    .oodle-outcome-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .oodle-role-panel {
+      margin-top: clamp(1.5rem, 3vw, 2rem);
+    }
+
+    .oodle-feature-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin: clamp(1.5rem, 3vw, 2.25rem) 0;
+    }
+
+    .oodle-outcome-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin: clamp(1.5rem, 3vw, 2.25rem) 0;
+    }
+
+    .oodle-role-panel div,
+    .oodle-feature-grid article,
+    .oodle-outcome-grid article,
+    .oodle-research-card {
+      padding: 1.2rem;
+      border: 1px solid rgba(117, 111, 103, 0.18);
+      border-radius: 1.35rem;
+      background: rgba(247, 244, 238, 0.78);
+      box-shadow: 0 12px 28px rgba(21, 21, 21, 0.035);
+    }
+
+    .oodle-feature-grid article,
+    .oodle-outcome-grid article {
+      min-height: 10rem;
+    }
+
+    .oodle-role-panel span,
+    .oodle-feature-grid span {
+      display: block;
+      margin-bottom: 0.7rem;
+      color: var(--vermilion);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .oodle-feature-grid span {
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      background: rgba(201, 75, 50, 0.14);
+      letter-spacing: 0;
+    }
+
+    .oodle-role-panel strong {
+      display: block;
+      color: var(--ink);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .oodle-feature-grid h3,
+    .oodle-outcome-grid h3 {
+      margin-bottom: 0.7rem;
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+      letter-spacing: -0.04em;
+    }
+
+    .oodle-feature-grid p,
+    .oodle-outcome-grid p {
+      margin: 0;
+      color: rgba(21, 21, 21, 0.68);
+      line-height: 1.6;
+    }
+
+    .oodle-evidence-list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 1.25rem 0 0;
+      padding-left: 1.1rem;
+      color: rgba(21, 21, 21, 0.72);
+      line-height: 1.65;
+    }
+
+    .oodle-research-card {
+      min-height: 18rem;
+      display: grid;
+      align-content: center;
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+    }
+
+    .oodle-research-card p {
+      color: var(--vermilion);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .oodle-research-card strong {
+      display: block;
+      max-width: 28rem;
+      color: var(--ink);
+      font-size: clamp(1.4rem, 2.8vw, 2.8rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+    }
+
+    .oodle-story-takeaway {
+      margin-top: clamp(3rem, 6vw, 5rem);
+      padding: clamp(3rem, 6vw, 5rem);
+      border-left: 2px solid var(--vermilion);
+      background: rgba(247, 244, 238, 0.72);
+    }
+
+    .oodle-story-takeaway h2 {
+      max-width: 12ch;
+    }
+
+    @media (max-width: 1100px) {
+      .oodle-story-section--split,
+      .oodle-story-section--reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .oodle-story-section--reverse .oodle-story-copy,
+      .oodle-story-section--reverse .oodle-story-visual,
+      .oodle-story-section--reverse .oodle-research-card {
+        order: initial;
+      }
+
+      .oodle-feature-grid,
+      .oodle-outcome-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .oodle-story-visual--phone {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .oodle-feature-grid,
+      .oodle-outcome-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .oodle-story-takeaway {
+        padding: 2rem;
+      }
+    }
+
+
+    /* Oodle visual proportion refinement */
+    .oodle-story-section--split {
+      grid-template-columns: minmax(0, 0.46fr) minmax(0, 0.54fr);
+      gap: clamp(2.5rem, 5.5vw, 5.75rem);
+    }
+
+    .oodle-story-section--reverse {
+      grid-template-columns: minmax(0, 0.54fr) minmax(0, 0.46fr);
+    }
+
+    .oodle-story-visual {
+      border-radius: 1.35rem;
+      box-shadow: 0 18px 40px rgba(21, 21, 21, 0.055);
+    }
+
+    .oodle-story-visual--phone {
+      max-width: 20rem;
+      justify-self: center;
+      border-radius: 1.45rem;
+    }
+
+    .oodle-story-visual--dark {
+      background: #101620;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .oodle-story-visual--wide {
+      max-width: 62rem;
+      margin-inline: auto;
+    }
+
+    .oodle-story-section--artefact .oodle-story-visual--wide {
+      max-width: 72rem;
+    }
+
+    .oodle-story-section--artefact .oodle-story-copy--wide {
+      margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+    }
+
+    .oodle-story-copy h2 {
+      text-wrap: balance;
+    }
+
+    .oodle-story-copy p {
+      max-width: 42rem;
+    }
+
+    .oodle-story-section:nth-of-type(6) .oodle-story-visual--wide {
+      max-width: 58rem;
+    }
+
+    .oodle-story-section:nth-of-type(7) .oodle-story-visual,
+    .oodle-story-section:nth-of-type(8) .oodle-story-visual,
+    .oodle-story-section:nth-of-type(9) .oodle-story-visual {
+      max-width: 38rem;
+      justify-self: center;
+    }
+
+    @media (max-width: 1100px) {
+      .oodle-story-visual--phone,
+      .oodle-story-section:nth-of-type(7) .oodle-story-visual,
+      .oodle-story-section:nth-of-type(8) .oodle-story-visual,
+      .oodle-story-section:nth-of-type(9) .oodle-story-visual {
+        max-width: 100%;
+      }
+    }
+
+
+
+    /* Oodle problem modal meta final */
+    .oodle-story-section--problem {
+      display: grid !important;
+      grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr) !important;
+      grid-template-areas:
+        "copy visual"
+        "meta meta";
+      column-gap: clamp(3rem, 5.8vw, 6.5rem) !important;
+      row-gap: clamp(2rem, 3.8vw, 3rem) !important;
+      align-items: start !important;
+    }
+
+    .oodle-story-section--problem .oodle-story-copy {
+      grid-area: copy !important;
+      max-width: none !important;
+      min-width: 0 !important;
+    }
+
+    .oodle-story-section--problem .oodle-story-copy h2 {
+      max-width: 10.5ch !important;
+      margin-bottom: clamp(1.25rem, 2vw, 1.75rem) !important;
+    }
+
+    .oodle-story-section--problem .oodle-story-copy p {
+      max-width: 39rem !important;
+    }
+
+    .oodle-story-visual--problem {
+      grid-area: visual !important;
+      position: relative !important;
+      width: 100% !important;
+      max-width: 64rem !important;
+      margin: clamp(2.35rem, 3.1vw, 3rem) 0 0 !important;
+      justify-self: end !important;
+      align-self: start !important;
+      border: 1px solid rgba(117, 111, 103, 0.16) !important;
+      border-radius: 1.45rem !important;
+      background: rgba(255, 255, 255, 0.24) !important;
+      box-shadow: 0 24px 58px rgba(21, 21, 21, 0.075) !important;
+      overflow: hidden !important;
+    }
+
+    .oodle-story-visual--problem img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      border-radius: inherit !important;
+      box-shadow: none !important;
+    }
+
+    .oodle-role-panel--problem {
+      grid-area: meta !important;
+      display: grid !important;
+      grid-template-columns: 0.75fr 1.45fr 1.1fr !important;
+      gap: 1rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-top: 0 !important;
+    }
+
+    .oodle-role-panel--problem div {
+      min-height: 6.25rem !important;
+      display: grid !important;
+      align-content: space-between !important;
+      padding: 1.05rem 1.15rem !important;
+      border: 1px solid rgba(117, 111, 103, 0.18) !important;
+      border-radius: 1.15rem !important;
+      background: rgba(247, 244, 238, 0.78) !important;
+      box-shadow: 0 10px 24px rgba(21, 21, 21, 0.035) !important;
+    }
+
+    .oodle-role-panel--problem span {
+      margin: 0 0 1rem !important;
+      color: var(--vermilion) !important;
+      font-size: 0.64rem !important;
+      font-weight: 850 !important;
+      letter-spacing: 0.13em !important;
+      text-transform: uppercase !important;
+    }
+
+    .oodle-role-panel--problem strong {
+      display: block !important;
+      color: var(--ink) !important;
+      font-size: clamp(0.9rem, 1vw, 1.05rem) !important;
+      line-height: 1.38 !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    .oodle-image-zoom {
+      position: absolute !important;
+      right: 1rem !important;
+      top: 1rem !important;
+      z-index: 3 !important;
+      display: inline-grid !important;
+      place-items: center !important;
+      width: 2.75rem !important;
+      height: 2.75rem !important;
+      border: 1px solid rgba(21, 21, 21, 0.12) !important;
+      border-radius: 999px !important;
+      background: rgba(255, 255, 255, 0.92) !important;
+      color: var(--ink) !important;
+      box-shadow: 0 12px 24px rgba(21, 21, 21, 0.12) !important;
+      cursor: pointer !important;
+      backdrop-filter: blur(10px) !important;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .oodle-image-zoom:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 16px 30px rgba(21, 21, 21, 0.16) !important;
+    }
+
+    .oodle-image-zoom svg {
+      display: block !important;
+      width: 1.15rem !important;
+      height: 1.15rem !important;
+      fill: currentColor !important;
+    }
+
+    .oodle-image-modal[hidden] {
+      display: none !important;
+    }
+
+    .oodle-image-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      padding: clamp(1rem, 3vw, 2.5rem);
+    }
+
+    .oodle-image-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      border: 0;
+      background: rgba(12, 13, 14, 0.72);
+      cursor: zoom-out;
+    }
+
+    .oodle-image-modal__dialog {
+      position: relative;
+      z-index: 1;
+      width: min(96vw, 92rem);
+      max-height: 92vh;
+      overflow: auto;
+      border-radius: 1.3rem;
+      background: var(--bg);
+      box-shadow: 0 34px 90px rgba(0, 0, 0, 0.36);
+    }
+
+    .oodle-image-modal__dialog img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: inherit;
+    }
+
+    .oodle-image-modal__close {
+      position: sticky;
+      top: 1rem;
+      float: right;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      width: 2.6rem;
+      height: 2.6rem;
+      margin: 1rem;
+      border: 1px solid rgba(21, 21, 21, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(21, 21, 21, 0.12);
+    }
+
+    body.oodle-modal-open {
+      overflow: hidden;
+    }
+
+    @media (max-width: 1100px) {
+      .oodle-story-section--problem {
+        grid-template-columns: 1fr !important;
+        grid-template-areas:
+          "copy"
+          "visual"
+          "meta";
+      }
+
+      .oodle-story-visual--problem {
+        max-width: 100% !important;
+        margin-top: 0 !important;
+        justify-self: stretch !important;
+      }
+
+      .oodle-role-panel--problem {
+        grid-template-columns: 1fr !important;
+      }
+
+      .oodle-role-panel--problem div {
+        min-height: 0 !important;
+      }
+    }
+
+
+    /* Oodle modal image fit fix */
+    .oodle-image-modal {
+      overflow: hidden !important;
+    }
+
+    .oodle-image-modal__dialog {
+      width: min(92vw, 78rem) !important;
+      max-width: 92vw !important;
+      height: auto !important;
+      max-height: 86vh !important;
+      overflow: hidden !important;
+      display: grid !important;
+      place-items: center !important;
+      border-radius: 1.25rem !important;
+      background: var(--bg) !important;
+    }
+
+    .oodle-image-modal__dialog img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      max-width: 100% !important;
+      max-height: 86vh !important;
+      object-fit: contain !important;
+      border-radius: inherit !important;
+    }
+
+    .oodle-image-modal__close {
+      position: absolute !important;
+      top: 1rem !important;
+      right: 1rem !important;
+      float: none !important;
+      margin: 0 !important;
+    }
+
+    @media (max-width: 900px) {
+      .oodle-image-modal__dialog {
+        width: 94vw !important;
+        max-height: 82vh !important;
+      }
+
+      .oodle-image-modal__dialog img {
+        max-height: 82vh !important;
+      }
+    }
+
+
+    /* Oodle product vision image refinement */
+    .oodle-story-visual--product-vision {
+      width: 100%;
+      margin: clamp(2rem, 4vw, 3rem) 0 0;
+      border: 1px solid rgba(117, 111, 103, 0.16);
+      border-radius: 1.45rem;
+      background: rgba(255, 255, 255, 0.24);
+      box-shadow: 0 24px 58px rgba(21, 21, 21, 0.075);
+      overflow: hidden;
+    }
+
+    .oodle-story-visual--product-vision img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: inherit;
+      box-shadow: none;
+    }
+
+    @media (min-width: 1280px) {
+      .oodle-story-visual--product-vision {
+        max-width: 92rem;
+      }
+    }
+
+
+    /* Oodle research image refinement */
+    .oodle-story-visual--research {
+      width: 100%;
+      max-width: 42rem;
+      justify-self: start;
+      margin: 0;
+      border: 1px solid rgba(117, 111, 103, 0.16);
+      border-radius: 1.45rem;
+      background: rgba(255, 255, 255, 0.24);
+      box-shadow: 0 24px 58px rgba(21, 21, 21, 0.075);
+      overflow: hidden;
+    }
+
+    .oodle-story-visual--research img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: inherit;
+      box-shadow: none;
+    }
+
+    @media (min-width: 1280px) {
+      .oodle-story-visual--research {
+        max-width: 46rem;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .oodle-story-visual--research {
+        max-width: 100%;
+        justify-self: stretch;
+      }
+    }
+
+
+    /* Oodle research modal zoom refinement */
+    .oodle-story-visual--research {
+      position: relative;
+    }
+
+    .oodle-story-visual--research .oodle-image-zoom {
+      right: 1rem !important;
+      top: 1rem !important;
+    }
+
+
+    /* Oodle research image alignment */
+    .oodle-story-section--research {
+      align-items: start !important;
+    }
+
+    .oodle-story-section--research .oodle-story-copy {
+      align-self: start !important;
+    }
+
+    .oodle-story-section--research .oodle-story-visual--research {
+      align-self: start !important;
+      justify-self: start !important;
+      margin-top: clamp(2.55rem, 3.4vw, 3.25rem) !important;
+      max-width: 46rem !important;
+    }
+
+    @media (min-width: 1280px) {
+      .oodle-story-section--research .oodle-story-visual--research {
+        max-width: 50rem !important;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .oodle-story-section--research .oodle-story-visual--research {
+        margin-top: 0 !important;
+        max-width: 100% !important;
+        justify-self: stretch !important;
+      }
+    }
+
+
+    /* Oodle user flow width match */
+    .oodle-story-section--user-flow .oodle-story-visual--wide {
+      width: 100% !important;
+      max-width: 92rem !important;
+      margin-inline: 0 !important;
+      border: 1px solid rgba(117, 111, 103, 0.16) !important;
+      border-radius: 1.45rem !important;
+      box-shadow: 0 24px 58px rgba(21, 21, 21, 0.075) !important;
+      overflow: hidden !important;
+    }
+
+    .oodle-story-section--user-flow .oodle-story-visual--wide img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      border-radius: inherit !important;
+    }
+
+    @media (min-width: 1280px) {
+      .oodle-story-section--user-flow .oodle-story-visual--wide {
+        max-width: 92rem !important;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .oodle-story-section--user-flow .oodle-story-visual--wide {
+        max-width: 100% !important;
+      }
+    }
+
+
+    /* Oodle UI design image width match */
+    .oodle-story-section--ui-design .oodle-story-visual--wide {
+      width: 100% !important;
+      max-width: 92rem !important;
+      margin: clamp(2rem, 4vw, 3rem) 0 0 !important;
+      border: 1px solid rgba(117, 111, 103, 0.16) !important;
+      border-radius: 1.45rem !important;
+      background: rgba(255, 255, 255, 0.24) !important;
+      box-shadow: 0 24px 58px rgba(21, 21, 21, 0.075) !important;
+      overflow: hidden !important;
+    }
+
+    .oodle-story-section--ui-design .oodle-story-visual--wide img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      border-radius: inherit !important;
+      box-shadow: none !important;
+    }
+
+    @media (min-width: 1280px) {
+      .oodle-story-section--ui-design .oodle-story-visual--wide {
+        max-width: 92rem !important;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .oodle-story-section--ui-design .oodle-story-visual--wide {
+        max-width: 100% !important;
+      }
+    }
+
+
+    /* Oodle car search alignment and modal */
+    .oodle-story-section--car-search {
+      grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr) !important;
+      gap: clamp(3rem, 6vw, 6.5rem) !important;
+      align-items: start !important;
+    }
+
+    .oodle-story-section--car-search .oodle-story-copy {
+      min-width: 0 !important;
+      align-self: start !important;
+    }
+
+    .oodle-story-section--car-search .oodle-story-copy h2 {
+      max-width: 8.5ch !important;
+      margin-bottom: clamp(1.25rem, 2vw, 1.75rem) !important;
+      text-wrap: balance !important;
+    }
+
+    .oodle-story-section--car-search .oodle-story-copy p {
+      max-width: 38rem !important;
+    }
+
+    .oodle-story-visual--car-search {
+      position: relative !important;
+      width: 100% !important;
+      max-width: 56rem !important;
+      justify-self: end !important;
+      align-self: start !important;
+      margin-top: clamp(2.45rem, 3.25vw, 3.15rem) !important;
+      border: 1px solid rgba(117, 111, 103, 0.16) !important;
+      border-radius: 1.45rem !important;
+      background: #101620 !important;
+      box-shadow: 0 24px 58px rgba(21, 21, 21, 0.075) !important;
+      overflow: hidden !important;
+    }
+
+    .oodle-story-visual--car-search img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      border-radius: inherit !important;
+      box-shadow: none !important;
+    }
+
+    .oodle-story-visual--car-search .oodle-image-zoom {
+      right: 1rem !important;
+      top: 1rem !important;
+    }
+
+    @media (min-width: 1280px) {
+      .oodle-story-visual--car-search {
+        max-width: 60rem !important;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .oodle-story-section--car-search {
+        grid-template-columns: 1fr !important;
+      }
+
+      .oodle-story-visual--car-search {
+        max-width: 100% !important;
+        margin-top: 0 !important;
+        justify-self: stretch !important;
+      }
+    }
+
+
+    /* Oodle help choose alignment and modal */
+    .oodle-story-section--help-choose {
+      grid-template-columns: minmax(0, 0.58fr) minmax(0, 0.42fr) !important;
+      gap: clamp(3rem, 6vw, 6.5rem) !important;
+      align-items: start !important;
+    }
+
+    .oodle-story-section--help-choose .oodle-story-copy {
+      min-width: 0 !important;
+      align-self: start !important;
+    }
+
+    .oodle-story-section--help-choose .oodle-story-copy h2 {
+      max-width: 8.5ch !important;
+      margin-bottom: clamp(1.25rem, 2vw, 1.75rem) !important;
+      text-wrap: balance !important;
+    }
+
+    .oodle-story-section--help-choose .oodle-story-copy p {
+      max-width: 38rem !important;
+    }
+
+    .oodle-story-visual--help-choose {
+      position: relative !important;
+      width: 100% !important;
+      max-width: 56rem !important;
+      justify-self: start !important;
+      align-self: start !important;
+      margin-top: clamp(2.45rem, 3.25vw, 3.15rem) !important;
+      border: 1px solid rgba(117, 111, 103, 0.16) !important;
+      border-radius: 1.45rem !important;
+      background: #101620 !important;
+      box-shadow: 0 24px 58px rgba(21, 21, 21, 0.075) !important;
+      overflow: hidden !important;
+    }
+
+    .oodle-story-visual--help-choose img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      border-radius: inherit !important;
+      box-shadow: none !important;
+    }
+
+    .oodle-story-visual--help-choose .oodle-image-zoom {
+      right: 1rem !important;
+      top: 1rem !important;
+    }
+
+    @media (min-width: 1280px) {
+      .oodle-story-visual--help-choose {
+        max-width: 60rem !important;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .oodle-story-section--help-choose {
+        grid-template-columns: 1fr !important;
+      }
+
+      .oodle-story-section--help-choose .oodle-story-copy,
+      .oodle-story-visual--help-choose {
+        order: initial !important;
+      }
+
+      .oodle-story-visual--help-choose {
+        max-width: 100% !important;
+        margin-top: 0 !important;
+        justify-self: stretch !important;
+      }
+    }
+
+
+    /* Oodle secure access alignment and modal */
+    .oodle-story-section--secure-access {
+      grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr) !important;
+      gap: clamp(3rem, 6vw, 6.5rem) !important;
+      align-items: start !important;
+    }
+
+    .oodle-story-section--secure-access .oodle-story-copy {
+      min-width: 0 !important;
+      align-self: start !important;
+    }
+
+    .oodle-story-section--secure-access .oodle-story-copy h2 {
+      max-width: 8.5ch !important;
+      margin-bottom: clamp(1.25rem, 2vw, 1.75rem) !important;
+      text-wrap: balance !important;
+    }
+
+    .oodle-story-section--secure-access .oodle-story-copy p {
+      max-width: 38rem !important;
+    }
+
+    .oodle-story-visual--secure-access {
+      position: relative !important;
+      width: 100% !important;
+      max-width: 56rem !important;
+      justify-self: end !important;
+      align-self: start !important;
+      margin-top: clamp(2.45rem, 3.25vw, 3.15rem) !important;
+      border: 1px solid rgba(117, 111, 103, 0.16) !important;
+      border-radius: 1.45rem !important;
+      background: rgba(255, 255, 255, 0.24) !important;
+      box-shadow: 0 24px 58px rgba(21, 21, 21, 0.075) !important;
+      overflow: hidden !important;
+    }
+
+    .oodle-story-visual--secure-access img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      border-radius: inherit !important;
+      box-shadow: none !important;
+    }
+
+    .oodle-story-visual--secure-access .oodle-image-zoom {
+      right: 1rem !important;
+      top: 1rem !important;
+    }
+
+    @media (min-width: 1280px) {
+      .oodle-story-visual--secure-access {
+        max-width: 60rem !important;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .oodle-story-section--secure-access {
+        grid-template-columns: 1fr !important;
+      }
+
+      .oodle-story-visual--secure-access {
+        max-width: 100% !important;
+        margin-top: 0 !important;
+        justify-self: stretch !important;
+      }
+    }
+
+
+
+    /* Oodle takeaway full bleed finish */
+    .oodle-story-takeaway {
+      position: relative !important;
+      width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: calc(50% - 50vw) !important;
+      margin-top: clamp(5rem, 8vw, 8rem) !important;
+      margin-bottom: 0 !important;
+      padding:
+        clamp(5rem, 8vw, 8rem)
+        max(var(--page-pad), calc((100vw - var(--page-max)) / 2)) !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      background:
+        radial-gradient(circle at 82% 20%, rgba(0, 207, 165, 0.12), transparent 28%),
+        linear-gradient(135deg, #071923 0%, #06151e 52%, #041117 100%) !important;
+      color: #f7f4ee !important;
+      box-shadow: none !important;
+      overflow: hidden !important;
+    }
+
+    .oodle-story-takeaway::before {
+      content: "" !important;
+      position: absolute !important;
+      left: max(var(--page-pad), calc((100vw - var(--page-max)) / 2)) !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      width: 1px !important;
+      background: rgba(0, 207, 165, 0.28) !important;
+      pointer-events: none !important;
+    }
+
+    .oodle-story-takeaway .case-kicker {
+      color: rgba(0, 207, 165, 0.88) !important;
+    }
+
+    .oodle-story-takeaway h2 {
+      max-width: 13ch !important;
+      margin: 0 !important;
+      color: #f7f4ee !important;
+      font-size: clamp(2.8rem, 6vw, 6.2rem) !important;
+      line-height: 0.94 !important;
+      letter-spacing: -0.065em !important;
+    }
+
+    .oodle-story-takeaway p {
+      max-width: 56rem !important;
+      margin: 1.6rem 0 0 !important;
+      color: rgba(247, 244, 238, 0.72) !important;
+      font-size: clamp(1.1rem, 1.7vw, 1.35rem) !important;
+      line-height: 1.6 !important;
+    }
+
+    @media (max-width: 720px) {
+      .oodle-story-takeaway {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+      }
+    }
+
+
+    /* Oodle takeaway remove vertical line */
+    .oodle-story-takeaway::before {
+      display: none !important;
+      content: none !important;
+    }
+
+
+    /* Oodle back-to-top arrow */
+    .case-study-back-to-top-wrap {
+      position: sticky;
+      top: calc(100vh - 4.75rem - 130px) !important;
+      z-index: 160;
+      height: 0;
+      padding: 0 var(--page-pad);
+      margin: 0;
+      pointer-events: none;
+    }
+
+    .case-study-back-to-top-wrap .case-shell {
+      width: 100% !important;
+      max-width: none !important;
+      margin-inline: 0 !important;
+      display: flex !important;
+      justify-content: flex-end !important;
+    }
+
+    .case-study-back-to-top {
+      pointer-events: auto;
+      display: grid;
+      place-items: center;
+      width: 3.25rem;
+      height: 3.25rem;
+      margin-left: auto;
+      border-radius: 999px;
+      background: #00b894;
+      color: #fff;
+      text-decoration: none;
+      box-shadow:
+        0 18px 38px rgba(0, 184, 148, 0.24),
+        0 6px 14px rgba(21, 21, 21, 0.12);
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease;
+    }
+
+    .case-study-back-to-top:hover {
+      transform: translateY(-3px);
+      background: #00a884;
+      box-shadow:
+        0 22px 44px rgba(0, 184, 148, 0.3),
+        0 8px 18px rgba(21, 21, 21, 0.14);
+    }
+
+    .case-study-back-to-top svg {
+      width: 1.15rem;
+      height: 1.15rem;
+    }
+
+    .case-study-back-to-top path {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 720px) {
+      .case-study-back-to-top-wrap {
+        top: calc(100vh - 4.35rem - 130px) !important;
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+
+      .case-study-back-to-top {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+
+
+    /* Oodle narrative mobile mockup robust */
+    .oodle-story-thesis--with-visual {
+      max-width: none !important;
+      display: grid !important;
+      grid-template-columns: minmax(0, 0.58fr) minmax(18rem, 0.42fr) !important;
+      gap: clamp(2.5rem, 6vw, 6.5rem) !important;
+      align-items: center !important;
+      margin-bottom: clamp(4rem, 7vw, 6rem) !important;
+    }
+
+    .oodle-story-thesis__copy {
+      min-width: 0 !important;
+    }
+
+    .oodle-story-thesis--with-visual h2 {
+      max-width: 12ch !important;
+    }
+
+    .oodle-story-thesis--with-visual p:not(.case-kicker) {
+      max-width: 52rem !important;
+    }
+
+    .oodle-story-thesis__visual {
+      margin: 0 !important;
+      justify-self: end !important;
+      width: min(100%, 34rem) !important;
+      border: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      overflow: visible !important;
+    }
+
+    .oodle-story-thesis__visual img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
+    @media (max-width: 1100px) {
+      .oodle-story-thesis--with-visual {
+        grid-template-columns: 1fr !important;
+      }
+
+      .oodle-story-thesis__visual {
+        justify-self: start !important;
+        width: min(100%, 28rem) !important;
+      }
+    }
+
+
+    /* Oodle problem meta boxes background */
+    .oodle-role-panel--problem > div {
+      background: #f3f0ea;
+    }
+
+
+    /* Oodle orange title full stops */
+    .oodle-title-stop {
+      color: var(--vermilion);
+    }
+
+    .oodle-story-takeaway .oodle-title-stop {
+      color: #00cfa5;
+    }
+
+</style>
+
+  <style>
+    /* Oodle selected work visual cascade fix */
+/* Stitch-It selected work thumbnail style refinement */
+
+    .case-study-next-work__visual {
+      position: relative !important;
+      min-height: 10.2rem !important;
+      margin-top: 1.8rem !important;
+      border-radius: 1.35rem !important;
+      overflow: hidden !important;
+      isolation: isolate !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 10px 24px rgba(21, 21, 21, 0.08) !important;
+    }
+
+    .case-study-next-work__visual::before,
+    .case-study-next-work__visual::after,
+    .case-study-next-work__visual i::before,
+    .case-study-next-work__visual i::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .case-study-next-work__visual i {
+      position: absolute !important;
+      display: block !important;
+      border-radius: 1.1rem !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual {
+      background:
+        radial-gradient(circle at 24% 78%, rgba(201, 75, 50, 0.22), transparent 28%),
+        radial-gradient(circle at 72% 20%, rgba(112, 80, 210, 0.30), transparent 24%),
+        linear-gradient(135deg, #0d0d14 0%, #0b0a16 45%, #090913 100%) !important;
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual::before {
+      inset: 0.85rem;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      z-index: 0;
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual::after {
+      inset: 2rem 2.25rem;
+      border-radius: 1.3rem;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      z-index: 0;
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(1) {
+      left: 1.1rem;
+      top: 2.4rem;
+      width: 33%;
+      height: 34%;
+      background:
+        linear-gradient(rgba(255,255,255,0.34), rgba(255,255,255,0.34)) 1rem 1rem / 62% 0.24rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.26), rgba(255,255,255,0.26)) 1rem 1.95rem / 52% 0.22rem no-repeat,
+        linear-gradient(rgba(233,124,109,0.95), rgba(233,124,109,0.95)) 1rem 2.85rem / 36% 0.26rem no-repeat,
+        rgba(255, 255, 255, 0.09) !important;
+      z-index: 2;
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(1)::after {
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 50%;
+      right: -0.42rem;
+      top: 3.15rem;
+      background: #d85d3d;
+      box-shadow: 0 0 0 0.32rem rgba(216, 93, 61, 0.18);
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(2) {
+      right: 1.4rem;
+      top: 3.1rem;
+      width: 47%;
+      height: 36%;
+      background:
+        radial-gradient(circle at 18% 62%, rgba(133, 104, 255, 0.95) 0 0.42rem, transparent 0.45rem),
+        linear-gradient(rgba(255,255,255,0.32), rgba(255,255,255,0.32)) 1rem 1.05rem / 52% 0.22rem no-repeat,
+        linear-gradient(#7f5ae0, #7f5ae0) 1rem 1.85rem / 72% 0.24rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.28), rgba(255,255,255,0.28)) 1rem 2.65rem / 62% 0.22rem no-repeat,
+        linear-gradient(#e07b74, #e07b74) 1rem 3.35rem / 40% 0.24rem no-repeat,
+        rgba(255, 255, 255, 0.10) !important;
+      z-index: 2;
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(2)::after {
+      width: 0.74rem;
+      height: 0.74rem;
+      border-radius: 50%;
+      right: 5rem;
+      bottom: -0.45rem;
+      background: #d85d3d;
+      box-shadow: 0 0 0 0.32rem rgba(216, 93, 61, 0.18);
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(3) {
+      right: 2.45rem;
+      bottom: 1.1rem;
+      width: 24%;
+      height: 18%;
+      background:
+        linear-gradient(#ffffff, #ffffff) 1rem 0.95rem / 34% 0.18rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.38), rgba(255,255,255,0.38)) 1rem 1.65rem / 24% 0.16rem no-repeat,
+        rgba(255,255,255,0.06) !important;
+      z-index: 2;
+    }
+
+    .case-study-next-work__card--oodle .case-study-next-work__visual {
+      background:
+        radial-gradient(circle at 72% 18%, rgba(94, 255, 112, 0.14), transparent 20%),
+        linear-gradient(135deg, #0a716e 0%, #06645f 48%, #045453 100%) !important;
+    }
+
+    .case-study-next-work__card--oodle .case-study-next-work__visual::before {
+      inset: 1rem 1.2rem;
+      border-radius: 1.15rem;
+      border: 1px solid rgba(255,255,255,0.10);
+      z-index: 0;
+    }
+
+    .case-study-next-work__card--oodle .case-study-next-work__visual::after {
+      width: 3.1rem;
+      height: 3.1rem;
+      right: 1.1rem;
+      bottom: 0.8rem;
+      border-radius: 50%;
+      border: 1px solid rgba(73, 255, 112, 0.7);
+      z-index: 2;
+    }
+
+    .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(1) {
+      left: 1.8rem;
+      top: 1.1rem;
+      width: 38%;
+      height: 70%;
+      transform: rotate(-8deg);
+      background:
+        linear-gradient(rgba(181, 233, 230, 0.35), rgba(181, 233, 230, 0.35)) 1rem 1.15rem / 56% 0.25rem no-repeat,
+        linear-gradient(rgba(181, 233, 230, 0.28), rgba(181, 233, 230, 0.28)) 1.2rem 2rem / 44% 0.22rem no-repeat,
+        linear-gradient(rgba(181, 233, 230, 0.28), rgba(181, 233, 230, 0.28)) 1rem 2.85rem / 62% 0.24rem no-repeat,
+        rgba(113, 188, 189, 0.18) !important;
+      z-index: 1;
+    }
+
+    .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(2) {
+      right: 2rem;
+      top: 0.95rem;
+      width: 32%;
+      height: 66%;
+      background:
+        radial-gradient(circle at 22% 14%, #47eb59 0 1rem, transparent 1.05rem),
+        linear-gradient(rgba(226,255,252,0.72), rgba(226,255,252,0.72)) 1.1rem 2.75rem / 48% 0.32rem no-repeat,
+        linear-gradient(rgba(226,255,252,0.42), rgba(226,255,252,0.42)) 1.1rem 3.65rem / 62% 0.22rem no-repeat,
+        linear-gradient(rgba(226,255,252,0.42), rgba(226,255,252,0.42)) 1.1rem 4.35rem / 42% 0.22rem no-repeat,
+        linear-gradient(rgba(171,216,212,0.35), rgba(171,216,212,0.35)) 1.1rem 5.4rem / 56% 1.3rem no-repeat,
+        rgba(184, 234, 222, 0.20) !important;
+      z-index: 2;
+    }
+
+    .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(3) {
+      display: none !important;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.10), transparent 22%),
+        linear-gradient(135deg, #ff313a 0%, #ee2130 100%) !important;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual::before {
+      inset: 1rem 1.2rem;
+      border-radius: 1.15rem;
+      border: 1px solid rgba(255,255,255,0.14);
+      z-index: 0;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual::after {
+      left: 50%;
+      top: 48%;
+      width: 6rem;
+      height: 6rem;
+      transform: translate(-50%, -50%);
+      border-radius: 1.55rem;
+      background:
+        linear-gradient(90deg, transparent 42%, rgba(255,255,255,0.95) 42% 58%, transparent 58%) center / 1.05rem 1.2rem no-repeat,
+        linear-gradient(transparent, transparent) !important;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      box-shadow: inset 0 0 0 999px rgba(72, 14, 21, 0.72);
+      z-index: 2;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(1) {
+      left: 0.9rem;
+      top: 1.2rem;
+      width: 40%;
+      height: 34%;
+      transform: rotate(-8deg);
+      background: rgba(255,255,255,0.20) !important;
+      z-index: 1;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(2) {
+      right: 1rem;
+      bottom: 1.05rem;
+      width: 40%;
+      height: 26%;
+      transform: rotate(6deg);
+      background: rgba(255,255,255,0.16) !important;
+      z-index: 1;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(3) {
+      left: 50%;
+      bottom: 0.9rem;
+      width: 2rem;
+      height: 2rem;
+      transform: translateX(-50%);
+      border: 0 !important;
+      border-radius: 0 !important;
+      background:
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 0.12rem 1.15rem / 0.24rem 0.7rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 0.62rem 0.7rem / 0.24rem 1.15rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 1.12rem 0.35rem / 0.24rem 1.5rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 1.62rem 0.9rem / 0.24rem 0.95rem no-repeat !important;
+      box-shadow: none !important;
+      z-index: 3;
+    }
+
+    /* Oodle-only title correction */
+    .case-study-next-work__card--influence .case-study-next-work__content h3 {
+      max-width: none !important;
+      white-space: nowrap !important;
+    }
+  </style>
+
+</head>
+<body id="top" class="case-page">
+  <header class="site-header" data-header>
+    <a class="brand" href="../index.html#top" aria-label="Hal Habeel home">
+      <span class="brand__mark" aria-hidden="true">ハ</span>
+      <span class="brand__text">
+        <span>Hal Habeel</span>
+        <span>ハル・ハビール</span>
+      </span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#capabilities">Capabilities</a>
+      <a href="../index.html#guide">AI Guide</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+
+    <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu">
+      <span>Menu</span>
+      <span class="menu-button__lines" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+    <nav aria-label="Mobile navigation">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#capabilities">Capabilities</a>
+      <a href="../index.html#guide">AI Guide</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="case-study-back-to-top-wrap oodle-back-to-top-wrap" aria-label="Back to top">
+      <div class="case-shell">
+        <a class="case-study-back-to-top oodle-back-to-top" href="#top" aria-label="Back to top">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 5l-7 7m7-7l7 7M12 5v14"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="case-hero section-pad">
+      <div class="case-shell">
+        <a class="back-link" href="../index.html#work">← Back to selected work</a>
+        <p class="eyebrow oodle-hero-kicker">Mobile finance · Application journey <span>信頼と流れ</span></p>
+        <h1>Oodle Finance</h1>
+
+        <div class="case-visual-section case-visual-section--hero">
+          <div class="case-visual">
+            <img src="../images/oodlefinance_heroimg.png" alt="Oodle Finance case study visual">
+          </div>
+        </div>
+        <p class="case-lede">A mobile product case study focused on clarity, trust and progression in a finance journey where users need to understand status, next steps and decisions.</p>
+
+        <div class="case-tags" aria-label="Case study tags">
+          <span>Mobile UX</span>
+          <span>Finance</span>
+          <span>Application flow</span>
+          <span>Trust</span>
+          <span>Journey design</span>
+          <span>Conversion</span>
+        </div>
+      </div>
+    </section>
+<section id="story" class="oodle-story">
+      <div class="case-shell">
+        <section class="oodle-story-thesis oodle-story-thesis--with-visual">
+          <div class="oodle-story-thesis__copy">
+            <p class="case-kicker">Case study narrative</p>
+            <h2>Making car finance feel faster, clearer and more trustworthy<span class="oodle-title-stop">.</span></h2>
+            <p>
+              The strongest version of this case study is not a gallery of app screens. It is a product story about reducing uncertainty in a high-trust finance journey: helping customers search, apply, verify details, understand status and manage their loan with confidence.
+            </p>
+          </div>
+
+          <figure class="oodle-story-thesis__visual" aria-label="Oodle Finance mobile app mockup">
+            <img src="../images/oodle_app.png" alt="Oodle Finance mobile app mockup showing the car browsing interface.">
+          </figure>
+        </section>
+
+        <section class="oodle-story-section oodle-story-section--split oodle-story-section--problem">
+          <div class="oodle-story-copy">
+            <p class="case-kicker">01 / Problem</p>
+            <h2>The used car market had lost user confidence<span class="oodle-title-stop">.</span></h2>
+            <p>
+              Buyers had lost confidence in used-car purchasing, and finance often appeared as the final, stressful piece of the car-buying puzzle.
+            </p>
+            <p>
+              The challenge was to make searching for and financing a car feel seamless and frictionless, while still respecting the seriousness of a financial decision.
+            </p>
+          </div>
+
+          <figure class="oodle-story-visual oodle-story-visual--phone oodle-story-visual--problem">
+            <button class="oodle-image-zoom" type="button" data-oodle-modal-src="../images/process-overview.png" aria-label="Zoom process overview image">
+              <span aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M10.8 17.1a6.3 6.3 0 1 1 0-12.6 6.3 6.3 0 0 1 0 12.6Zm0-1.8a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm5.1.2 4.1 4.1-1.3 1.3-4.1-4.1 1.3-1.3ZM10 7.8h1.6V10h2.2v1.6h-2.2v2.2H10v-2.2H7.8V10H10V7.8Z"/>
+                </svg>
+              </span>
+            </button>
+            <img src="../images/process-overview.png" alt="Oodle Finance process overview showing the unclear car finance journey and its impact.">
+          </figure>
+
+          <div class="oodle-role-panel oodle-role-panel--inline oodle-role-panel--problem" aria-label="Project role and responsibilities">
+            <div>
+              <span>Role</span>
+              <strong>UX Designer</strong>
+            </div>
+            <div>
+              <span>Scope</span>
+              <strong>Product strategy · UX/UI · Interaction design · Research</strong>
+            </div>
+            <div>
+              <span>Team</span>
+              <strong>1x iOS Dev · 1x Android Dev · PM · BA</strong>
+            </div>
+          </div>
+        </section>
+        <section class="oodle-story-section">
+          <div class="oodle-story-copy oodle-story-copy--wide">
+            <p class="case-kicker">02 / Product vision</p>
+            <h2>Define the features that would create speed and trust<span class="oodle-title-stop">.</span></h2>
+            <p>
+              The product vision focused on four capabilities that could move the experience from a slow finance process to a clearer mobile journey.
+            </p>
+          </div>
+
+          <div class="oodle-feature-grid">
+            <article>
+              <span>01</span>
+              <h3>Instant decision</h3>
+              <p>Fast automated personalised finance quotes and budget feedback in seconds rather than hours or days.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Verification</h3>
+              <p>In-app ID verification and acceptance to reduce uncertainty in the application journey.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Communication</h3>
+              <p>Document scanning and upload support to make evidence submission feel more direct.</p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>Intelligent search</h3>
+              <p>Search that surfaces quality checked, approved vehicles rather than overwhelming the user.</p>
+            </article>
+          </div>
+
+          <figure class="oodle-story-visual oodle-story-visual--product-vision">
+            <img src="../images/confident-finance-journey.png" alt="Product vision graphic showing a clearer path to car finance confidence.">
+          </figure>
+        </section>
+
+        <section class="oodle-story-section oodle-story-section--split oodle-story-section--reverse oodle-story-section--research">
+          <div class="oodle-story-copy">
+            <p class="case-kicker">03 / Research</p>
+            <h2>Find friction in the existing finance journey<span class="oodle-title-stop">.</span></h2>
+            <p>
+              Research focused on the existing Oodle finance application form, with the goal of understanding the current flow and identifying where users became uncertain or confused.
+            </p>
+            <ul class="oodle-evidence-list">
+              <li>Understand the current user flow.</li>
+              <li>Reveal friction points and confusing experiences.</li>
+              <li>Assess whether the language was clear.</li>
+              <li>Gather feedback on what users valued most and least.</li>
+            </ul>
+          </div>
+
+          <figure class="oodle-story-visual oodle-story-visual--research">
+            <button class="oodle-image-zoom" type="button" data-oodle-modal-src="../images/app_finance_flow.png" aria-label="Zoom app finance flow image">
+              <span aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M10.8 17.1a6.3 6.3 0 1 1 0-12.6 6.3 6.3 0 0 1 0 12.6Zm0-1.8a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm5.1.2 4.1 4.1-1.3 1.3-4.1-4.1 1.3-1.3ZM10 7.8h1.6V10h2.2v1.6h-2.2v2.2H10v-2.2H7.8V10H10V7.8Z"/>
+                </svg>
+              </span>
+            </button>
+            <img src="../images/app_finance_flow.png" alt="Oodle Finance app finance flow visual.">
+          </figure>
+        </section>
+
+        <section class="oodle-story-section oodle-story-section--artefact oodle-story-section--user-flow">
+          <div class="oodle-story-copy oodle-story-copy--wide">
+            <p class="case-kicker">04 / User flow</p>
+            <h2>Map the verification checks overhaul before designing screens<span class="oodle-title-stop">.</span></h2>
+            <p>
+              The verification checks overhaul is the strongest systems-thinking artefact in the case study. It maps the journey from splash screen and sign-in through proof upload, scan proof, verification checks and dashboard task updates.
+            </p>
+          </div>
+
+          <figure class="oodle-story-visual oodle-story-visual--dark oodle-story-visual--wide">
+            <img src="../images/oodle_visual_user_flow_v2.png" alt="Verification checks overhaul flow diagram for Oodle Finance.">
+          </figure>
+        </section>
+
+        <section class="oodle-story-section oodle-story-section--ui-design">
+          <div class="oodle-story-copy oodle-story-copy--wide">
+            <p class="case-kicker">05 / UI design</p>
+            <h2>Turn the finance process into a clearer final experience<span class="oodle-title-stop">.</span></h2>
+            <p>
+              The final UI work focused on a simplified finance form, an intuitive loan dashboard and clearer filter-and-sort patterns. The design intent was to make progress, status and next actions easier to understand.
+            </p>
+          </div>
+
+          <div class="oodle-outcome-grid">
+            <article>
+              <h3>Simplified finance form</h3>
+              <p>A step-by-step progress structure made the application feel easier to complete.</p>
+            </article>
+            <article>
+              <h3>Loan dashboard</h3>
+              <p>A clear account view helped customers understand loan status, next payment and key details.</p>
+            </article>
+            <article>
+              <h3>Filter and sort</h3>
+              <p>Filtering and matching helped users narrow the market without feeling overloaded.</p>
+            </article>
+          </div>
+
+          <figure class="oodle-story-visual oodle-story-visual--wide">
+            <img src="../images/oodle_visual_ui_screens_v2.png" alt="Oodle Finance mobile UI screens including finance form, dashboard and filtering.">
+          </figure>
+        </section>
+
+        <section class="oodle-story-section oodle-story-section--split oodle-story-section--car-search">
+          <div class="oodle-story-copy">
+            <p class="case-kicker">06 / Car search</p>
+            <h2>Make discovery feel informed, not overwhelming<span class="oodle-title-stop">.</span></h2>
+            <p>
+              The car search engine presented vehicle information and specifications so customers could make more informed buying decisions.
+            </p>
+            <p>
+              Browse, car details and overview screens helped turn a complex market into a more structured comparison experience.
+            </p>
+          </div>
+
+          <figure class="oodle-story-visual oodle-story-visual--dark oodle-story-visual--car-search">
+            <button class="oodle-image-zoom" type="button" data-oodle-modal-src="../images/oodle_visual_car_search_v2.png" aria-label="Zoom car search image">
+              <span aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M10.8 17.1a6.3 6.3 0 1 1 0-12.6 6.3 6.3 0 0 1 0 12.6Zm0-1.8a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm5.1.2 4.1 4.1-1.3 1.3-4.1-4.1 1.3-1.3ZM10 7.8h1.6V10h2.2v1.6h-2.2v2.2H10v-2.2H7.8V10H10V7.8Z"/>
+                </svg>
+              </span>
+            </button>
+            <img src="../images/oodle_visual_car_search_v2.png" alt="Oodle Finance car search, car details and specification overview screens.">
+          </figure>
+        </section>
+
+        <section class="oodle-story-section oodle-story-section--split oodle-story-section--reverse oodle-story-section--help-choose">
+          <div class="oodle-story-copy">
+            <p class="case-kicker">07 / Help me choose</p>
+            <h2>Guide users toward quality approved cars<span class="oodle-title-stop">.</span></h2>
+            <p>
+              The Help me choose flow used filtering and sorting to help users find cars that matched their needs, with cost, specification, type and feature controls.
+            </p>
+          </div>
+
+          <figure class="oodle-story-visual oodle-story-visual--dark oodle-story-visual--help-choose">
+            <button class="oodle-image-zoom" type="button" data-oodle-modal-src="../images/oodle_visual_help_choose_v2.png" aria-label="Zoom Help me choose image">
+              <span aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M10.8 17.1a6.3 6.3 0 1 1 0-12.6 6.3 6.3 0 0 1 0 12.6Zm0-1.8a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm5.1.2 4.1 4.1-1.3 1.3-4.1-4.1 1.3-1.3ZM10 7.8h1.6V10h2.2v1.6h-2.2v2.2H10v-2.2H7.8V10H10V7.8Z"/>
+                </svg>
+              </span>
+            </button>
+            <img src="../images/oodle_visual_help_choose_v2.png" alt="Oodle Finance Help me choose filter and sorting screens.">
+          </figure>
+        </section>
+
+        <section class="oodle-story-section oodle-story-section--split oodle-story-section--secure-access">
+          <div class="oodle-story-copy">
+            <p class="case-kicker">08 / Secure access</p>
+            <h2>Support account access without losing user trust<span class="oodle-title-stop">.</span></h2>
+            <p>
+              Secure sign-in and registration were part of the product experience, not a separate edge case. In a finance context, account access needs to feel safe, understandable and recoverable.
+            </p>
+            <p>
+              The secure access screens supported email verification, application lookup and clear recovery actions for users who could not be recognised.
+            </p>
+          </div>
+
+          <figure class="oodle-story-visual oodle-story-visual--secure-access">
+            <button class="oodle-image-zoom" type="button" data-oodle-modal-src="../images/oodle_visual_secure_access_v2.png" aria-label="Zoom secure access image">
+              <span aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M10.8 17.1a6.3 6.3 0 1 1 0-12.6 6.3 6.3 0 0 1 0 12.6Zm0-1.8a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm5.1.2 4.1 4.1-1.3 1.3-4.1-4.1 1.3-1.3ZM10 7.8h1.6V10h2.2v1.6h-2.2v2.2H10v-2.2H7.8V10H10V7.8Z"/>
+                </svg>
+              </span>
+            </button>
+            <img src="../images/oodle_visual_secure_access_v2.png" alt="Oodle Finance secure sign-in and registration mobile screens.">
+          </figure>
+        </section>
+
+        <section class="oodle-story-takeaway">
+          <p class="case-kicker">09 / Takeaway</p>
+          <h2>Finance UX succeeds when users know where they stand<span class="oodle-title-stop">.</span></h2>
+          <p>
+            The value of the work was not only polished mobile UI. It was reducing uncertainty across a high-trust journey by helping users understand what is happening, what is required and what comes next.
+          </p>
+        </section>
+      </div>
+    </section>
+
+    <section class="case-study-next-work oodle-selected-work" aria-labelledby="next-work-title">
+      <div class="case-shell">
+        <p class="eyebrow">Selected work</p>
+        <h2 id="next-work-title">Explore another<br>case study</h2>
+
+        <div class="case-study-next-work__grid" aria-label="Other case studies">
+          <a class="case-study-next-work__card case-study-next-work__card--stitch" href="stitch-it.html">
+            <div class="case-study-next-work__content">
+              <p>Enterprise SaaS · Workflow automation · Technical users</p>
+              <h3>ScriptRunner Connect / Stitch-It</h3>
+              <span>Redesigning a complex workflow builder so technical users could configure, validate and deploy automations with more confidence.</span>
+              <ul aria-label="Case study capabilities">
+                <li>Complex workflows</li>
+                <li>Enterprise UX</li>
+                <li>Systems thinking</li>
+              </ul>
+              <strong>Explore case study ↗</strong>
+            </div>
+            <div class="case-study-next-work__visual" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </div>
+          </a>
+
+          <a class="case-study-next-work__card case-study-next-work__card--oodle is-current" href="oodle-finance.html" aria-current="page">
+            <div class="case-study-next-work__content">
+              <p>Mobile finance · B2C · Trust and conversion</p>
+              <h3>Oodle Finance App</h3>
+              <span>Improving a finance application journey where speed, clarity and reassurance shape user trust and completion.</span>
+              <ul aria-label="Case study capabilities">
+                <li>Mobile UX</li>
+                <li>Fintech</li>
+                <li>Decision journeys</li>
+              </ul>
+              <strong>Current case study</strong>
+            </div>
+            <div class="case-study-next-work__visual" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </div>
+          </a>
+
+          <a class="case-study-next-work__card case-study-next-work__card--influence" href="influence-app.html">
+            <div class="case-study-next-work__content">
+              <p>Consumer research · Video feedback · Paid participation</p>
+              <h3>Influence App</h3>
+              <span>Turning feedback loops, survey clarity and reward mechanics into a more usable participation experience.</span>
+              <ul aria-label="Case study capabilities">
+                <li>B2C UX</li>
+                <li>Research loops</li>
+                <li>Engagement</li>
+              </ul>
+              <strong>Explore case study ↗</strong>
+            </div>
+            <div class="case-study-next-work__visual" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="oodle-image-modal" data-oodle-image-modal hidden aria-hidden="true">
+      <button class="oodle-image-modal__backdrop" type="button" data-oodle-modal-close aria-label="Close image preview"></button>
+      <div class="oodle-image-modal__dialog" role="dialog" aria-modal="true" aria-label="Expanded case study image">
+        <button class="oodle-image-modal__close" type="button" data-oodle-modal-close aria-label="Close image preview">×</button>
+        <img data-oodle-modal-image src="" alt="">
+      </div>
+    </div>
+
+</main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <strong>Hal Habeel</strong>
+        <span>ハル・ハビール</span>
+      </div>
+      <p>© 2026. Senior Product Designer.</p>
+    </div>
+  </footer>
+
+
+
+
+
+  <script>
+    (() => {
+      const modal = document.querySelector('[data-oodle-image-modal]');
+      const modalImage = document.querySelector('[data-oodle-modal-image]');
+      const zoomButtons = document.querySelectorAll('[data-oodle-modal-src]');
+      const closeButtons = document.querySelectorAll('[data-oodle-modal-close]');
+
+      if (!modal || !modalImage || !zoomButtons.length) return;
+
+      const openModal = (src, alt) => {
+        modalImage.src = src;
+        modalImage.alt = alt || 'Expanded case study image';
+        modal.hidden = false;
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('oodle-modal-open');
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        modal.setAttribute('aria-hidden', 'true');
+        modalImage.src = '';
+        document.body.classList.remove('oodle-modal-open');
+      };
+
+      zoomButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const figure = button.closest('figure');
+          const img = figure ? figure.querySelector('img') : null;
+          openModal(button.dataset.oodleModalSrc, img ? img.alt : '');
+        });
+      });
+
+      closeButtons.forEach((button) => {
+        button.addEventListener('click', closeModal);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !modal.hidden) closeModal();
+      });
+    })();
+  </script>
+
+
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScriptRunner Connect / Stitch-It — Case Study Preview</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body {
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    .preview-shell {
+      width: min(100% - (var(--page-pad) * 2), var(--page-max));
+      margin-inline: auto;
+    }
+
+    .preview-hero {
+      padding: 8rem var(--page-pad) 5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .preview-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(20rem, 0.75fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: end;
+    }
+
+    .preview-eyebrow,
+    .preview-kicker {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .preview-hero h1 {
+      max-width: 11ch;
+      margin: 0;
+      font-size: clamp(3rem, 8vw, 7.4rem);
+      line-height: 0.9;
+      letter-spacing: -0.08em;
+    }
+
+    .preview-intro {
+      max-width: 44rem;
+      margin: 1.5rem 0 0;
+      color: var(--muted);
+      font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+      line-height: 1.55;
+    }
+
+    .preview-meta {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 2rem;
+      padding: 1.25rem;
+      border: 1px solid var(--line);
+      border-radius: 1.5rem;
+      background: rgba(247, 244, 238, 0.72);
+    }
+
+    .preview-meta div {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(21, 21, 21, 0.06);
+      padding-bottom: 0.65rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .preview-meta div:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .preview-meta strong {
+      color: var(--ink);
+    }
+
+    .preview-visual,
+    .preview-placeholder {
+      display: grid;
+      place-items: center;
+      min-height: 20rem;
+      border: 1px dashed rgba(117, 111, 103, 0.34);
+      border-radius: 1.6rem;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(201, 75, 50, 0.12), transparent 32%),
+        rgba(247, 244, 238, 0.62);
+      color: rgba(117, 111, 103, 0.64);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .preview-visual span,
+    .preview-placeholder span {
+      max-width: 28rem;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .preview-section {
+      padding: clamp(4rem, 7vw, 7rem) var(--page-pad);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .preview-split {
+      display: grid;
+      grid-template-columns: minmax(14rem, 0.36fr) minmax(0, 1fr);
+      gap: clamp(2rem, 6vw, 6rem);
+      align-items: start;
+    }
+
+    .preview-section h2 {
+      max-width: 15ch;
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 4.2rem);
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+    }
+
+    .preview-body {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .preview-body > p {
+      max-width: 46rem;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+      line-height: 1.75;
+    }
+
+    .preview-body blockquote {
+      max-width: 48rem;
+      margin: 0;
+      padding: 1.35rem 1.45rem;
+      border-left: 3px solid var(--vermilion);
+      border-radius: 1rem;
+      background: rgba(247, 244, 238, 0.82);
+      color: var(--ink);
+      font-size: clamp(1.2rem, 2vw, 1.55rem);
+      line-height: 1.45;
+      letter-spacing: -0.025em;
+    }
+
+    .preview-cards,
+    .preview-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .preview-cards article {
+      min-height: 10rem;
+      padding: 1.2rem;
+      border: 1px solid var(--line);
+      border-radius: 1.35rem;
+      background: rgba(247, 244, 238, 0.72);
+    }
+
+    .preview-cards strong {
+      display: block;
+      margin-bottom: 0.6rem;
+      font-size: 0.92rem;
+    }
+
+    .preview-cards p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .preview-gallery .preview-placeholder {
+      min-height: 15rem;
+    }
+
+    .preview-takeaway {
+      padding: clamp(5rem, 8vw, 8rem) var(--page-pad);
+      background: #151515;
+      color: #f7f4ee;
+    }
+
+    .preview-takeaway h2 {
+      max-width: 13ch;
+      margin: 0;
+      color: #f7f4ee;
+      font-size: clamp(2.4rem, 5vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+    }
+
+    .preview-takeaway p {
+      max-width: 54rem;
+      margin: 1.5rem 0 0;
+      color: rgba(247, 244, 238, 0.72);
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 900px) {
+      .preview-hero-grid,
+      .preview-split,
+      .preview-cards,
+      .preview-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .preview-visual,
+      .preview-placeholder {
+        min-height: 15rem;
+      }
+    }
+  
+    /* Hero refinement / case-study editorial layout */
+    .preview-hero {
+      padding: 7.5rem var(--page-pad) 5.5rem;
+    }
+
+    .preview-hero-grid {
+      grid-template-columns: 1fr !important;
+      gap: clamp(2.2rem, 5vw, 4rem);
+      align-items: start;
+    }
+
+    .preview-hero-copy {
+      max-width: 64rem;
+    }
+
+    .preview-back-link {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin-bottom: clamp(2rem, 4vw, 3.5rem);
+      color: rgba(117, 111, 103, 0.78);
+      font-size: 0.92rem;
+      font-weight: 650;
+      text-decoration: none;
+      transition:
+        color 180ms ease,
+        transform 180ms ease;
+    }
+
+    .preview-back-link:hover {
+      color: var(--vermilion);
+      transform: translateX(-0.18rem);
+    }
+
+    .preview-case-type {
+      margin: 0 0 1.15rem;
+      color: var(--vermilion);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .preview-case-type span {
+      margin-left: 0.35rem;
+      font-family: "Noto Sans JP", sans-serif;
+      letter-spacing: 0.08em;
+    }
+
+    .preview-hero h1 {
+      max-width: 13.5ch;
+      font-size: clamp(3.4rem, 8.6vw, 8.6rem);
+      line-height: 0.88;
+      letter-spacing: -0.085em;
+    }
+
+    .preview-intro {
+      max-width: 52rem;
+    }
+
+    .preview-visual--hero {
+      width: 100%;
+      min-height: clamp(26rem, 54vw, 46rem);
+      border-radius: clamp(1.8rem, 3vw, 3rem);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(201, 75, 50, 0.16), transparent 32%),
+        radial-gradient(circle at 82% 20%, rgba(21, 21, 21, 0.08), transparent 30%),
+        rgba(247, 244, 238, 0.74);
+    }
+
+    .preview-visual--hero span {
+      max-width: 34rem;
+      font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+      color: rgba(117, 111, 103, 0.62);
+    }
+
+    @media (max-width: 900px) {
+      .preview-hero {
+        padding-top: 6.5rem;
+      }
+
+      .preview-hero h1 {
+        max-width: 9.5ch;
+      }
+
+      .preview-visual--hero {
+        min-height: 20rem;
+      }
+    }
+
+  
+  /* Stitch-It meta card refinement */
+  .preview-meta {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+    margin-top: 2.25rem !important;
+    max-width: min(100%, 64rem) !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  .preview-meta div {
+    position: relative !important;
+    min-height: 8.8rem !important;
+    display: grid !important;
+    align-content: start !important;
+    gap: 0.8rem !important;
+    padding: 1.25rem 1.35rem 1.3rem !important;
+    border: 1px solid rgba(117, 111, 103, 0.18) !important;
+    border-radius: 1.4rem !important;
+    background: linear-gradient(180deg, rgba(247, 244, 238, 0.98), rgba(242, 238, 232, 0.96)) !important;
+    box-shadow: 0 12px 28px rgba(21, 21, 21, 0.04) !important;
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .preview-meta div:hover {
+    transform: translateY(-2px) !important;
+    border-color: rgba(201, 75, 50, 0.22) !important;
+    box-shadow: 0 18px 34px rgba(21, 21, 21, 0.06) !important;
+  }
+
+  .preview-meta div::before {
+    content: "" !important;
+    width: 1.65rem !important;
+    height: 2px !important;
+    border-radius: 999px !important;
+    background: rgba(117, 111, 103, 0.38) !important;
+  }
+
+  .preview-meta strong {
+    display: block !important;
+    color: rgba(117, 111, 103, 0.82) !important;
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+  }
+
+  .preview-meta span {
+    display: block !important;
+    color: var(--ink) !important;
+    font-size: clamp(1rem, 1.2vw, 1.08rem) !important;
+    font-weight: 650 !important;
+    line-height: 1.55 !important;
+    text-align: left !important;
+  }
+
+  @media (max-width: 900px) {
+    .preview-meta {
+      grid-template-columns: 1fr !important;
+    }
+
+    .preview-meta div {
+      min-height: auto !important;
+    }
+  }
+
+
+    /* Stitch-It case type Japanese grey refinement */
+    .preview-case-type span {
+      color: rgba(117, 111, 103, 0.78) !important;
+    }
+
+  
+    /* Stitch-It hero order refinement */
+    .preview-hero-copy {
+      max-width: 100% !important;
+    }
+
+    .preview-hero h1 {
+      margin-bottom: clamp(2rem, 4vw, 3.5rem) !important;
+    }
+
+    .preview-visual--hero {
+      margin-bottom: clamp(2rem, 4vw, 3rem) !important;
+    }
+
+    .preview-intro {
+      max-width: 54rem !important;
+      margin-top: 0 !important;
+      margin-bottom: 2rem !important;
+    }
+
+    .preview-meta {
+      margin-top: 0 !important;
+    }
+
+  
+    /* Stitch-It meta card orange accent line */
+    .preview-meta div::before {
+      background: var(--vermilion) !important;
+      opacity: 0.82;
+    }
+
+  
+    /* Stitch-It selected work footer section */
+    .case-study-next-work {
+      padding-top: clamp(5rem, 8vw, 8rem) !important;
+      padding-bottom: clamp(5rem, 8vw, 8rem) !important;
+      background: var(--bg);
+    }
+
+    .case-study-next-work h2 {
+      max-width: 9ch;
+      margin: 0 0 clamp(2rem, 4vw, 3rem);
+      font-size: clamp(3rem, 7vw, 6.4rem);
+      line-height: 0.92;
+      letter-spacing: -0.075em;
+    }
+
+    .case-study-next-work__grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      max-width: 76rem;
+    }
+
+    .case-study-next-work__card {
+      min-height: 4.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(117, 111, 103, 0.2);
+      border-radius: 1.25rem;
+      background: rgba(247, 244, 238, 0.74);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: clamp(1rem, 1.2vw, 1.12rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .case-study-next-work__card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(201, 75, 50, 0.28);
+      background: rgba(247, 244, 238, 0.96);
+      box-shadow: 0 16px 34px rgba(21, 21, 21, 0.06);
+    }
+
+    .case-study-next-work__card.is-current {
+      border-color: rgba(201, 75, 50, 0.28);
+      background:
+        linear-gradient(180deg, rgba(247, 244, 238, 0.98), rgba(242, 238, 232, 0.96));
+    }
+
+    .case-study-next-work__card span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .case-study-next-work__card:not(.is-current) span::after {
+      content: "→";
+      color: var(--vermilion);
+      font-weight: 800;
+      opacity: 0;
+      transform: translateX(-0.25rem);
+      transition:
+        opacity 180ms ease,
+        transform 180ms ease;
+    }
+
+    .case-study-next-work__card:not(.is-current):hover span::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @media (max-width: 900px) {
+      .case-study-next-work__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-study-next-work__card {
+        min-height: 4.4rem;
+      }
+    }
+
+  
+    /* Stitch-It selected work compact case-card styling */
+    .case-study-next-work__grid {
+      gap: 1.15rem !important;
+    }
+
+    .case-study-next-work__card {
+      position: relative;
+      min-height: 8.8rem !important;
+      align-items: flex-start !important;
+      justify-content: flex-start !important;
+      padding: 1.35rem 1.45rem !important;
+      border: 1px solid rgba(117, 111, 103, 0.18) !important;
+      border-radius: 1.45rem !important;
+      background:
+        linear-gradient(180deg, rgba(247, 244, 238, 0.98), rgba(242, 238, 232, 0.96)) !important;
+      box-shadow: 0 12px 28px rgba(21, 21, 21, 0.04) !important;
+      overflow: hidden;
+    }
+
+    .case-study-next-work__card::before {
+      content: "";
+      position: absolute;
+      top: 1.25rem;
+      left: 1.35rem;
+      width: 1.75rem;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--vermilion);
+      opacity: 0.82;
+    }
+
+    .case-study-next-work__card span {
+      display: block !important;
+      margin-top: 2.25rem;
+      max-width: 16rem;
+      color: var(--ink);
+      font-size: clamp(1.02rem, 1.2vw, 1.14rem);
+      font-weight: 800;
+      line-height: 1.35;
+      letter-spacing: -0.035em;
+    }
+
+    .case-study-next-work__card span::before {
+      display: block;
+      margin-bottom: 0.55rem;
+      color: rgba(117, 111, 103, 0.72);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .case-study-next-work__card:nth-child(1) span::before {
+      content: "Enterprise SaaS";
+    }
+
+    .case-study-next-work__card:nth-child(2) span::before {
+      content: "Mobile finance";
+    }
+
+    .case-study-next-work__card:nth-child(3) span::before {
+      content: "Consumer research";
+    }
+
+    .case-study-next-work__card:not(.is-current) span::after {
+      content: "Explore →" !important;
+      display: block;
+      margin-top: 1.15rem;
+      color: var(--vermilion);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(0.25rem);
+      transition:
+        opacity 180ms ease,
+        transform 180ms ease;
+    }
+
+    .case-study-next-work__card:not(.is-current):hover span::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .case-study-next-work__card:hover {
+      transform: translateY(-3px) !important;
+      border-color: rgba(201, 75, 50, 0.28) !important;
+      background:
+        linear-gradient(180deg, rgba(247, 244, 238, 1), rgba(242, 238, 232, 0.98)) !important;
+      box-shadow: 0 18px 38px rgba(21, 21, 21, 0.07) !important;
+    }
+
+    .case-study-next-work__card.is-current {
+      border-color: rgba(201, 75, 50, 0.24) !important;
+    }
+
+    .case-study-next-work__card.is-current span::after {
+      content: "Current case study";
+      display: block;
+      margin-top: 1.15rem;
+      color: rgba(117, 111, 103, 0.68);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .case-study-next-work__card {
+        min-height: 8rem !important;
+      }
+    }
+
+  
+    /* Stitch-It selected work themed cards */
+    .case-study-next-work__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 1.2rem !important;
+      max-width: 100% !important;
+    }
+
+    .case-study-next-work__card {
+      position: relative !important;
+      min-height: 25rem !important;
+      display: grid !important;
+      grid-template-rows: 1fr auto !important;
+      align-items: stretch !important;
+      padding: clamp(1.35rem, 2vw, 1.75rem) !important;
+      border: 1px solid rgba(117, 111, 103, 0.18) !important;
+      border-radius: 1.65rem !important;
+      background: rgba(247, 244, 238, 0.78) !important;
+      color: var(--ink) !important;
+      overflow: hidden !important;
+      box-shadow: 0 18px 44px rgba(21, 21, 21, 0.045) !important;
+      text-decoration: none !important;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .case-study-next-work__card::before {
+      display: none !important;
+    }
+
+    .case-study-next-work__card:hover {
+      transform: translateY(-4px) !important;
+      border-color: rgba(201, 75, 50, 0.28) !important;
+      box-shadow: 0 24px 54px rgba(21, 21, 21, 0.075) !important;
+    }
+
+    .case-study-next-work__card.is-current {
+      border-color: rgba(201, 75, 50, 0.28) !important;
+    }
+
+    .case-study-next-work__content {
+      display: grid;
+      align-content: start;
+    }
+
+    .case-study-next-work__content p {
+      margin: 0 0 1.25rem;
+      color: rgba(21, 21, 21, 0.78);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.13em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    .case-study-next-work__content h3 {
+      max-width: 8.5ch;
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(2.05rem, 3.2vw, 3.35rem);
+      line-height: 0.98;
+      letter-spacing: -0.065em;
+    }
+
+    .case-study-next-work__content > span {
+      display: block !important;
+      max-width: 28rem;
+      margin: 1.1rem 0 0 !important;
+      color: rgba(21, 21, 21, 0.72) !important;
+      font-size: 1rem !important;
+      font-weight: 500 !important;
+      line-height: 1.55 !important;
+      letter-spacing: 0 !important;
+    }
+
+    .case-study-next-work__content > span::before,
+    .case-study-next-work__content > span::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    .case-study-next-work__content ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.35rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .case-study-next-work__content li {
+      padding: 0.45rem 0.7rem;
+      border: 1px solid rgba(117, 111, 103, 0.18);
+      border-radius: 999px;
+      color: rgba(21, 21, 21, 0.62);
+      font-size: 0.72rem;
+      font-weight: 750;
+      line-height: 1;
+    }
+
+    .case-study-next-work__content strong {
+      display: block;
+      margin-top: 1.4rem;
+      color: var(--vermilion);
+      font-size: 0.88rem;
+      font-weight: 850;
+      letter-spacing: 0.04em;
+    }
+
+    .case-study-next-work__card.is-current .case-study-next-work__content strong {
+      color: rgba(117, 111, 103, 0.72);
+    }
+
+    .case-study-next-work__visual {
+      position: relative;
+      min-height: 9.2rem;
+      margin-top: 1.8rem;
+      border-radius: 1.15rem;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual {
+      background:
+        radial-gradient(circle at 24% 34%, rgba(122, 75, 230, 0.28), transparent 28%),
+        linear-gradient(135deg, #111114, #201925 58%, #111114);
+    }
+
+    .case-study-next-work__card--oodle .case-study-next-work__visual {
+      background:
+        radial-gradient(circle at 72% 26%, rgba(65, 255, 91, 0.28), transparent 18%),
+        linear-gradient(135deg, #00665c, #00463f);
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual {
+      background:
+        radial-gradient(circle at 72% 24%, rgba(255, 255, 255, 0.24), transparent 20%),
+        linear-gradient(135deg, #ff3b3f, #d6102b);
+    }
+
+    .case-study-next-work__visual i {
+      position: absolute;
+      display: block;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .case-study-next-work__visual i:nth-child(1) {
+      width: 52%;
+      height: 48%;
+      left: 12%;
+      top: 18%;
+      transform: rotate(-7deg);
+    }
+
+    .case-study-next-work__visual i:nth-child(2) {
+      width: 34%;
+      height: 62%;
+      right: 13%;
+      top: 14%;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .case-study-next-work__visual i:nth-child(3) {
+      width: 28%;
+      height: 20%;
+      left: 32%;
+      bottom: 17%;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    @media (max-width: 1100px) {
+      .case-study-next-work__grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .case-study-next-work__card {
+        min-height: 21rem !important;
+      }
+
+      .case-study-next-work__content h3 {
+        max-width: 12ch;
+      }
+    }
+
+  
+    /* Stitch-It selected work thumbnail style refinement */
+
+    .case-study-next-work__visual {
+      position: relative !important;
+      min-height: 10.2rem !important;
+      margin-top: 1.8rem !important;
+      border-radius: 1.35rem !important;
+      overflow: hidden !important;
+      isolation: isolate !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 10px 24px rgba(21, 21, 21, 0.08) !important;
+    }
+
+    .case-study-next-work__visual::before,
+    .case-study-next-work__visual::after,
+    .case-study-next-work__visual i::before,
+    .case-study-next-work__visual i::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .case-study-next-work__visual i {
+      position: absolute !important;
+      display: block !important;
+      border-radius: 1.1rem !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual {
+      background:
+        radial-gradient(circle at 24% 78%, rgba(201, 75, 50, 0.22), transparent 28%),
+        radial-gradient(circle at 72% 20%, rgba(112, 80, 210, 0.30), transparent 24%),
+        linear-gradient(135deg, #0d0d14 0%, #0b0a16 45%, #090913 100%) !important;
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual::before {
+      inset: 0.85rem;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      z-index: 0;
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual::after {
+      inset: 2rem 2.25rem;
+      border-radius: 1.3rem;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      z-index: 0;
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(1) {
+      left: 1.1rem;
+      top: 2.4rem;
+      width: 33%;
+      height: 34%;
+      background:
+        linear-gradient(rgba(255,255,255,0.34), rgba(255,255,255,0.34)) 1rem 1rem / 62% 0.24rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.26), rgba(255,255,255,0.26)) 1rem 1.95rem / 52% 0.22rem no-repeat,
+        linear-gradient(rgba(233,124,109,0.95), rgba(233,124,109,0.95)) 1rem 2.85rem / 36% 0.26rem no-repeat,
+        rgba(255, 255, 255, 0.09) !important;
+      z-index: 2;
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(1)::after {
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 50%;
+      right: -0.42rem;
+      top: 3.15rem;
+      background: #d85d3d;
+      box-shadow: 0 0 0 0.32rem rgba(216, 93, 61, 0.18);
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(2) {
+      right: 1.4rem;
+      top: 3.1rem;
+      width: 47%;
+      height: 36%;
+      background:
+        radial-gradient(circle at 18% 62%, rgba(133, 104, 255, 0.95) 0 0.42rem, transparent 0.45rem),
+        linear-gradient(rgba(255,255,255,0.32), rgba(255,255,255,0.32)) 1rem 1.05rem / 52% 0.22rem no-repeat,
+        linear-gradient(#7f5ae0, #7f5ae0) 1rem 1.85rem / 72% 0.24rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.28), rgba(255,255,255,0.28)) 1rem 2.65rem / 62% 0.22rem no-repeat,
+        linear-gradient(#e07b74, #e07b74) 1rem 3.35rem / 40% 0.24rem no-repeat,
+        rgba(255, 255, 255, 0.10) !important;
+      z-index: 2;
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(2)::after {
+      width: 0.74rem;
+      height: 0.74rem;
+      border-radius: 50%;
+      right: 5rem;
+      bottom: -0.45rem;
+      background: #d85d3d;
+      box-shadow: 0 0 0 0.32rem rgba(216, 93, 61, 0.18);
+    }
+
+    .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(3) {
+      right: 2.45rem;
+      bottom: 1.1rem;
+      width: 24%;
+      height: 18%;
+      background:
+        linear-gradient(#ffffff, #ffffff) 1rem 0.95rem / 34% 0.18rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.38), rgba(255,255,255,0.38)) 1rem 1.65rem / 24% 0.16rem no-repeat,
+        rgba(255,255,255,0.06) !important;
+      z-index: 2;
+    }
+
+    .case-study-next-work__card--oodle .case-study-next-work__visual {
+      background:
+        radial-gradient(circle at 72% 18%, rgba(94, 255, 112, 0.14), transparent 20%),
+        linear-gradient(135deg, #0a716e 0%, #06645f 48%, #045453 100%) !important;
+    }
+
+    .case-study-next-work__card--oodle .case-study-next-work__visual::before {
+      inset: 1rem 1.2rem;
+      border-radius: 1.15rem;
+      border: 1px solid rgba(255,255,255,0.10);
+      z-index: 0;
+    }
+
+    .case-study-next-work__card--oodle .case-study-next-work__visual::after {
+      width: 3.1rem;
+      height: 3.1rem;
+      right: 1.1rem;
+      bottom: 0.8rem;
+      border-radius: 50%;
+      border: 1px solid rgba(73, 255, 112, 0.7);
+      z-index: 2;
+    }
+
+    .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(1) {
+      left: 1.8rem;
+      top: 1.1rem;
+      width: 38%;
+      height: 70%;
+      transform: rotate(-8deg);
+      background:
+        linear-gradient(rgba(181, 233, 230, 0.35), rgba(181, 233, 230, 0.35)) 1rem 1.15rem / 56% 0.25rem no-repeat,
+        linear-gradient(rgba(181, 233, 230, 0.28), rgba(181, 233, 230, 0.28)) 1.2rem 2rem / 44% 0.22rem no-repeat,
+        linear-gradient(rgba(181, 233, 230, 0.28), rgba(181, 233, 230, 0.28)) 1rem 2.85rem / 62% 0.24rem no-repeat,
+        rgba(113, 188, 189, 0.18) !important;
+      z-index: 1;
+    }
+
+    .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(2) {
+      right: 2rem;
+      top: 0.95rem;
+      width: 32%;
+      height: 66%;
+      background:
+        radial-gradient(circle at 22% 14%, #47eb59 0 1rem, transparent 1.05rem),
+        linear-gradient(rgba(226,255,252,0.72), rgba(226,255,252,0.72)) 1.1rem 2.75rem / 48% 0.32rem no-repeat,
+        linear-gradient(rgba(226,255,252,0.42), rgba(226,255,252,0.42)) 1.1rem 3.65rem / 62% 0.22rem no-repeat,
+        linear-gradient(rgba(226,255,252,0.42), rgba(226,255,252,0.42)) 1.1rem 4.35rem / 42% 0.22rem no-repeat,
+        linear-gradient(rgba(171,216,212,0.35), rgba(171,216,212,0.35)) 1.1rem 5.4rem / 56% 1.3rem no-repeat,
+        rgba(184, 234, 222, 0.20) !important;
+      z-index: 2;
+    }
+
+    .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(3) {
+      display: none !important;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.10), transparent 22%),
+        linear-gradient(135deg, #ff313a 0%, #ee2130 100%) !important;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual::before {
+      inset: 1rem 1.2rem;
+      border-radius: 1.15rem;
+      border: 1px solid rgba(255,255,255,0.14);
+      z-index: 0;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual::after {
+      left: 50%;
+      top: 48%;
+      width: 6rem;
+      height: 6rem;
+      transform: translate(-50%, -50%);
+      border-radius: 1.55rem;
+      background:
+        linear-gradient(90deg, transparent 42%, rgba(255,255,255,0.95) 42% 58%, transparent 58%) center / 1.05rem 1.2rem no-repeat,
+        linear-gradient(transparent, transparent) !important;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      box-shadow: inset 0 0 0 999px rgba(72, 14, 21, 0.72);
+      z-index: 2;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(1) {
+      left: 0.9rem;
+      top: 1.2rem;
+      width: 40%;
+      height: 34%;
+      transform: rotate(-8deg);
+      background: rgba(255,255,255,0.20) !important;
+      z-index: 1;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(2) {
+      right: 1rem;
+      bottom: 1.05rem;
+      width: 40%;
+      height: 26%;
+      transform: rotate(6deg);
+      background: rgba(255,255,255,0.16) !important;
+      z-index: 1;
+    }
+
+    .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(3) {
+      left: 50%;
+      bottom: 0.9rem;
+      width: 2rem;
+      height: 2rem;
+      transform: translateX(-50%);
+      border: 0 !important;
+      border-radius: 0 !important;
+      background:
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 0.12rem 1.15rem / 0.24rem 0.7rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 0.62rem 0.7rem / 0.24rem 1.15rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 1.12rem 0.35rem / 0.24rem 1.5rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 1.62rem 0.9rem / 0.24rem 0.95rem no-repeat !important;
+      box-shadow: none !important;
+      z-index: 3;
+    }
+
+
+
+
+  
+    /* Stitch-It top images / repaired deterministic layout */
+    .preview-hero .preview-shell {
+      width: min(100% - (var(--page-pad) * 2), var(--page-max));
+      margin-inline: auto;
+    }
+
+    .preview-hero-copy {
+      max-width: 100% !important;
+    }
+
+    .stitch-hero-figure.preview-visual.preview-visual--hero,
+    .stitch-problem-framing-figure.preview-placeholder {
+      padding: 0 !important;
+      overflow: hidden !important;
+    }
+
+    .stitch-hero-figure.preview-visual.preview-visual--hero::before,
+    .stitch-hero-figure.preview-visual.preview-visual--hero::after,
+    .stitch-problem-framing-figure.preview-placeholder::before,
+    .stitch-problem-framing-figure.preview-placeholder::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    .stitch-hero-image,
+    .stitch-problem-framing-image {
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: inherit !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      box-shadow: none !important;
+    }
+
+    .stitch-hero-figure.preview-visual.preview-visual--hero {
+      margin: clamp(2rem, 4vw, 3.5rem) 0 clamp(2rem, 4vw, 3rem);
+    }
+
+    .stitch-problem-framing-figure.preview-placeholder {
+      height: 20rem !important;
+      min-height: 20rem !important;
+      max-height: 20rem !important;
+    }
+
+    @media (max-width: 900px) {
+      .stitch-problem-framing-figure.preview-placeholder {
+        height: 15rem !important;
+        min-height: 15rem !important;
+        max-height: 15rem !important;
+      }
+    }
+
+
+    /* Stitch-It problem framing unclipped */
+    .stitch-problem-framing-figure.preview-placeholder {
+      height: clamp(19rem, 30vw, 25rem) !important;
+      min-height: clamp(19rem, 30vw, 25rem) !important;
+      max-height: none !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(201, 75, 50, 0.08), transparent 34%),
+        rgba(247, 244, 238, 0.62) !important;
+    }
+
+    .stitch-problem-framing-image {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      border-radius: inherit !important;
+    }
+
+    @media (max-width: 900px) {
+      .stitch-problem-framing-figure.preview-placeholder {
+        height: 17rem !important;
+        min-height: 17rem !important;
+      }
+    }
+
+
+
+
+    /* Stitch-It journey maps / corrected readable layout */
+    .stitch-journey-map-gallery {
+      grid-template-columns: 1fr !important;
+      gap: clamp(1.5rem, 2.5vw, 2rem) !important;
+    }
+
+    .stitch-journey-map-figure.preview-placeholder {
+      display: block !important;
+      width: 100% !important;
+      min-height: 0 !important;
+      height: auto !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      border-radius: 1.6rem !important;
+      background: #fff !important;
+    }
+
+    .stitch-journey-map-figure.preview-placeholder::before,
+    .stitch-journey-map-figure.preview-placeholder::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    .stitch-journey-map-image {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      object-fit: initial !important;
+      object-position: initial !important;
+      border-radius: inherit !important;
+      image-rendering: auto !important;
+    }
+
+
+
+    /* Stitch-It discovery image / consistent edge-to-edge */
+    .stitch-discovery-figure.preview-placeholder {
+      display: block !important;
+      width: 100% !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      min-height: 0 !important;
+      height: auto !important;
+      aspect-ratio: 16 / 8.3 !important;
+      background: transparent !important;
+      border-radius: 1.6rem !important;
+    }
+
+    .stitch-discovery-figure.preview-placeholder::before,
+    .stitch-discovery-figure.preview-placeholder::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    .stitch-discovery-image {
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      border-radius: inherit !important;
+      box-shadow: none !important;
+      transform: scale(1.075) !important;
+      transform-origin: center center !important;
+    }
+
+
+    /* Stitch-It system model image */
+    .stitch-system-model-figure.preview-placeholder {
+      display: block !important;
+      width: 100% !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      min-height: 0 !important;
+      height: auto !important;
+      background: transparent !important;
+      border-radius: 1.6rem !important;
+    }
+
+    .stitch-system-model-figure.preview-placeholder::before,
+    .stitch-system-model-figure.preview-placeholder::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    .stitch-system-model-image {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      object-fit: initial !important;
+      object-position: initial !important;
+      border-radius: inherit !important;
+      box-shadow: none !important;
+      image-rendering: auto !important;
+    }
+
+
+    /* Stitch-It system model stacked images */
+    .stitch-system-model-figure + .stitch-system-model-figure {
+      margin-top: clamp(1rem, 2vw, 1.5rem) !important;
+    }
+
+
+
+    /* Stitch-It activation images */
+    .stitch-activation-image-stack {
+      display: grid;
+      gap: clamp(1.25rem, 2.5vw, 2rem);
+      margin-top: 0.5rem;
+    }
+
+    .stitch-activation-figure.preview-placeholder {
+      display: block !important;
+      width: 100% !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      min-height: 0 !important;
+      height: auto !important;
+      aspect-ratio: auto !important;
+      background: transparent !important;
+      border-radius: 1.6rem !important;
+    }
+
+    .stitch-activation-figure.preview-placeholder::before,
+    .stitch-activation-figure.preview-placeholder::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    .stitch-activation-image {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      max-width: 100% !important;
+      object-fit: initial !important;
+      object-position: initial !important;
+      transform: none !important;
+      border-radius: inherit !important;
+      box-shadow: none !important;
+      image-rendering: auto !important;
+    }
+
+
+    /* Stitch-It wireframe overview image */
+    .stitch-wireframe-figure.preview-placeholder {
+      display: block !important;
+      width: 100% !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      min-height: 0 !important;
+      height: auto !important;
+      background: transparent !important;
+      border-radius: 1.6rem !important;
+    }
+
+    .stitch-wireframe-figure.preview-placeholder::before,
+    .stitch-wireframe-figure.preview-placeholder::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    .stitch-wireframe-image {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      object-fit: initial !important;
+      object-position: initial !important;
+      border-radius: inherit !important;
+      box-shadow: none !important;
+      image-rendering: auto !important;
+    }
+
+
+
+    /* Stitch-It final UI gallery + modal */
+    .final-ui-card.preview-placeholder {
+      position: relative;
+      display: block !important;
+      width: 100% !important;
+      aspect-ratio: 5 / 3 !important;
+      min-height: 0 !important;
+      height: auto !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      background: transparent !important;
+      border-radius: 1.6rem !important;
+      cursor: zoom-in;
+      appearance: none;
+      border: 0;
+      font: inherit;
+      text-align: left;
+    }
+
+    .final-ui-card.preview-placeholder::before,
+    .final-ui-card.preview-placeholder::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    .final-ui-thumb {
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center center !important;
+      border-radius: inherit !important;
+      box-shadow: none !important;
+      transform: none !important;
+      image-rendering: auto !important;
+    }
+
+    .final-ui-card__label {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      max-width: calc(100% - 2rem);
+      padding: 0.55rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(16, 16, 20, 0.78);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .final-ui-modal[hidden] {
+      display: none !important;
+    }
+
+    .final-ui-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+    }
+
+    .final-ui-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 14, 0.78);
+      backdrop-filter: blur(5px);
+    }
+
+    .final-ui-modal__panel {
+      position: relative;
+      z-index: 1;
+      width: min(1440px, calc(100vw - 2rem));
+      max-height: calc(100vh - 2rem);
+      margin: 1rem auto;
+      padding: clamp(0.9rem, 1.5vw, 1.25rem);
+      overflow: auto;
+      border-radius: 1.75rem;
+      background: #f6f1eb;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .final-ui-modal__media {
+      width: 100%;
+      border-radius: 1.35rem;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    .final-ui-modal__media img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: calc(100vh - 13rem);
+      object-fit: contain;
+      object-position: center;
+      border-radius: inherit;
+      image-rendering: auto;
+    }
+
+    .final-ui-modal__copy {
+      width: min(980px, 100%);
+      padding: 0.15rem 0.35rem 0.25rem;
+    }
+
+    .final-ui-modal__eyebrow {
+      margin: 0 0 0.45rem;
+      color: #ef6541;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .final-ui-modal__copy h3 {
+      margin: 0 0 0.45rem;
+      font-size: clamp(1.45rem, 2vw, 2rem);
+      line-height: 1.05;
+    }
+
+    .final-ui-modal__copy p {
+      margin: 0;
+      max-width: 70ch;
+      color: rgba(28, 24, 20, 0.74);
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .final-ui-modal__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 3;
+      width: 2.6rem;
+      height: 2.6rem;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(246, 241, 235, 0.92);
+      color: #111;
+      font-size: 1.45rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+    }
+
+    .final-ui-modal__close:hover {
+      background: #fff;
+    }
+
+    @media (max-width: 920px) {
+      .final-ui-card.preview-placeholder {
+        aspect-ratio: 5 / 3 !important;
+      }
+
+      .final-ui-card__label {
+        left: 0.75rem;
+        right: 0.75rem;
+        bottom: 0.75rem;
+        justify-content: center;
+        text-align: center;
+        white-space: normal;
+      }
+
+      .final-ui-modal__panel {
+        width: calc(100vw - 1rem);
+        max-height: calc(100vh - 1rem);
+        margin: 0.5rem auto;
+      }
+
+      .final-ui-modal__media img {
+        max-height: calc(100vh - 15rem);
+      }
+    }
+
+
+
+    /* Stitch-It final UI dotted border + magnifier */
+    .final-ui-card.preview-placeholder {
+      border: 1px dashed rgba(117, 111, 103, 0.34) !important;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(201, 75, 50, 0.12), transparent 32%),
+        rgba(247, 244, 238, 0.62) !important;
+      box-sizing: border-box !important;
+    }
+
+    .final-ui-card.preview-placeholder:focus-visible {
+      outline: 2px solid rgba(201, 75, 50, 0.72);
+      outline-offset: 4px;
+    }
+
+    .final-ui-card__label {
+      display: none !important;
+    }
+
+    .final-ui-card__zoom {
+      position: absolute;
+      left: 0.95rem;
+      bottom: 0.95rem;
+      z-index: 3;
+      width: 2.55rem;
+      height: 2.55rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(16, 16, 20, 0.82);
+      color: #fff;
+      pointer-events: none;
+      box-shadow: none !important;
+      transition:
+        transform 180ms ease,
+        background 180ms ease;
+    }
+
+    .final-ui-card__zoom svg {
+      width: 1.08rem;
+      height: 1.08rem;
+      display: block;
+    }
+
+    .final-ui-card__zoom circle,
+    .final-ui-card__zoom path {
+      stroke: currentColor;
+      stroke-width: 2.15;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .final-ui-card:hover .final-ui-card__zoom,
+    .final-ui-card:focus-visible .final-ui-card__zoom {
+      transform: scale(1.04);
+      background: rgba(16, 16, 20, 0.92);
+    }
+
+    @media (max-width: 920px) {
+      .final-ui-card__zoom {
+        left: 0.75rem;
+        bottom: 0.75rem;
+        width: 2.3rem;
+        height: 2.3rem;
+      }
+    }
+
+
+    /* Stitch-It research method image */
+    .stitch-research-figure.preview-placeholder {
+      display: block !important;
+      width: 100% !important;
+      min-height: 0 !important;
+      height: auto !important;
+      aspect-ratio: 16 / 8.3 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      box-sizing: border-box !important;
+    }
+
+    .stitch-research-figure.preview-placeholder::before,
+    .stitch-research-figure.preview-placeholder::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    .stitch-research-image {
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center center !important;
+      box-shadow: none !important;
+      transform: none !important;
+      image-rendering: auto !important;
+    }
+
+    @media (max-width: 900px) {
+      .stitch-research-figure.preview-placeholder {
+        aspect-ratio: 16 / 9 !important;
+      }
+    }
+
+
+    /* Stitch-It feasibility image */
+    .stitch-feasibility-figure.preview-placeholder {
+      display: block !important;
+      width: 100% !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      min-height: 0 !important;
+      height: auto !important;
+      background: transparent !important;
+      border-radius: 1.6rem !important;
+    }
+
+    .stitch-feasibility-figure.preview-placeholder::before,
+    .stitch-feasibility-figure.preview-placeholder::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    .stitch-feasibility-image {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      max-width: 100% !important;
+      object-fit: initial !important;
+      object-position: initial !important;
+      border-radius: inherit !important;
+      box-shadow: none !important;
+      image-rendering: auto !important;
+    }
+
+
+    /* Stitch-It problem framing width alignment */
+    .stitch-problem-framing-figure.preview-placeholder {
+      display: block !important;
+      width: 100% !important;
+      min-height: 0 !important;
+      height: auto !important;
+      max-height: none !important;
+      aspect-ratio: 16 / 8.3 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      box-sizing: border-box !important;
+    }
+
+    .stitch-problem-framing-image {
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center center !important;
+      border-radius: inherit !important;
+      box-shadow: none !important;
+      transform: none !important;
+      image-rendering: auto !important;
+    }
+
+    @media (max-width: 900px) {
+      .stitch-problem-framing-figure.preview-placeholder {
+        aspect-ratio: 16 / 9 !important;
+        height: auto !important;
+        min-height: 0 !important;
+      }
+    }
+
+
+    /* Stitch-It sticky back-to-top */
+    .case-study-back-to-top-wrap {
+      position: sticky;
+      top: calc(100vh - 5.25rem);
+      z-index: 160;
+      height: 0;
+      padding: 0 var(--page-pad);
+      margin: 0;
+      pointer-events: none;
+    }
+
+    .case-study-back-to-top-wrap .preview-shell {
+      width: 100% !important;
+      max-width: none !important;
+      margin-inline: 0 !important;
+      display: flex !important;
+      justify-content: flex-end !important;
+    }
+
+    .case-study-back-to-top {
+      pointer-events: auto;
+      display: grid;
+      place-items: center;
+      width: 3.25rem;
+      height: 3.25rem;
+      margin-left: auto;
+      border-radius: 999px;
+      background: var(--vermilion);
+      color: #fff;
+      text-decoration: none;
+      box-shadow:
+        0 18px 38px rgba(201, 75, 50, 0.24),
+        0 6px 14px rgba(21, 21, 21, 0.12);
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease;
+    }
+
+    .case-study-back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        0 22px 44px rgba(201, 75, 50, 0.3),
+        0 8px 18px rgba(21, 21, 21, 0.14);
+    }
+
+    .case-study-back-to-top svg {
+      width: 1.15rem;
+      height: 1.15rem;
+    }
+
+    .case-study-back-to-top path {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 720px) {
+      .case-study-back-to-top-wrap {
+        top: calc(100vh - 4.75rem);
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+
+      .case-study-back-to-top {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+
+
+
+    /* Stitch-It back-to-top footer text alignment */
+    .case-study-back-to-top-wrap {
+      top: calc(100vh - 4.75rem) !important;
+    }
+
+    @media (max-width: 720px) {
+      .case-study-back-to-top-wrap {
+        top: calc(100vh - 4.35rem) !important;
+      }
+    }
+
+
+
+    /* Stitch-It back-to-top up 100px */
+    .case-study-back-to-top-wrap {
+      top: calc(100vh - 4.75rem - 100px) !important;
+    }
+
+    @media (max-width: 720px) {
+      .case-study-back-to-top-wrap {
+        top: calc(100vh - 4.35rem - 100px) !important;
+      }
+    }
+
+</style>
+  <link rel="icon" href="../images/circle_logo_favicon.svg" type="image/svg+xml">
+</head>
+
+<body id="top" class="case-page">
+  <header class="site-header" data-header>
+    <a class="brand" href="../index.html#top" aria-label="Hal Habeel home">
+      <span class="brand__mark" aria-hidden="true">ハ</span>
+      <span class="brand__text">
+        <span>Hal Habeel</span>
+        <span>ハル・ハビール</span>
+      </span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#capabilities">Capabilities</a>
+      <a href="../index.html#guide">AI Guide</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="case-study-back-to-top-wrap" aria-label="Back to top">
+    <div class="preview-shell">
+      <a class="case-study-back-to-top" href="#top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 5l-7 7m7-7l7 7M12 5v14"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+    <section class="preview-hero">
+      <div class="preview-shell preview-hero-grid">
+        <div class="preview-hero-copy">
+          <a class="preview-back-link" href="../index.html#work">← Back to selected work</a>
+          <p class="preview-case-type">Enterprise SaaS · Workflow automation <span>技術的な流れ</span></p>
+
+          <h1>ScriptRunner Connect / Stitch-It</h1>
+
+          <figure class="preview-visual preview-visual--hero stitch-hero-figure" aria-label="Stitch-It hero product UI">
+            <img
+              class="stitch-hero-image"
+              src="../images/IED_screen.png"
+              alt="ScriptRunner Connect / Stitch-It product interface showing a dark code editor, resource manager, API connections and scheduled triggers."
+            >
+          </figure>
+
+          <p class="preview-intro">
+            Designing confidence into a complex workflow automation product for Atlassian teams who needed to connect tools, write scripts and automate processes across multiple systems.
+          </p>
+
+          <div class="preview-meta" aria-label="Case study summary">
+            <div><strong>Role</strong><span>Lead Product Designer</span></div>
+            <div><strong>Domain</strong><span>Enterprise SaaS / automation</span></div>
+            <div><strong>Users</strong><span>Atlassian admins, consultants, technical operators</span></div>
+            <div><strong>Focus</strong><span>Discovery, flows, wireframes, UI, feasibility</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section">
+      <div class="preview-shell preview-split">
+        <div>
+          <span class="preview-kicker">01 / Problem</span>
+          <h2>The product had power, but users needed confidence.</h2>
+        </div>
+
+        <div class="preview-body">
+          <p>Stitch-It gave users the ability to connect systems, write scripts, configure workflows and automate tasks. But for a technical product, capability alone is not enough.</p>
+          <p>Users needed to understand what they were building, how the parts connected, where to start, and whether the workflow was safe to run.</p>
+
+          <figure class="preview-placeholder stitch-problem-framing-figure" aria-label="Problem framing diagram">
+            <img
+              class="stitch-problem-framing-image"
+              src="../images/problem_framing.png"
+              alt="Problem framing diagram showing the Stitch-It workflow from idea to configure, test and deploy."
+            >
+          </figure>
+
+          <blockquote>How might we sequence technical complexity so users can start faster, understand the system, test safely and deploy with confidence?</blockquote>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="preview-section">
+      <div class="preview-shell preview-split">
+        <div>
+          <span class="preview-kicker">02 / Role</span>
+          <h2>My role was to turn ambiguity into product direction.</h2>
+        </div>
+        <div class="preview-body">
+          <p>I led the product design work from discovery through interface design, working with product, architecture, engineering, QA and marketing.</p>
+<p>My contribution focused on defining the user problem, mapping journeys and workflows, exploring product structure, creating wireframes, designing the UI direction and keeping the solution grounded in technical feasibility.</p>
+          <div class="preview-cards">
+<article><strong>Discovery</strong><p>Clarified the product opportunity, target users and differentiated value.</p></article>
+<article><strong>Experience strategy</strong><p>Mapped confidence gaps, activation moments and the product system.</p></article>
+<article><strong>UX/UI design</strong><p>Created task flows, wireframes and final product interface concepts.</p></article>
+<article><strong>Delivery realism</strong><p>Worked around technical constraints and engineering feasibility.</p></article>
+</div>
+          
+          
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="preview-section">
+      <div class="preview-shell preview-split">
+        <div>
+          <span class="preview-kicker">03 / Discovery</span>
+          <h2>Before screens, clarify the product.</h2>
+        </div>
+        <div class="preview-body">
+          <p>The first step was to answer three foundational questions: who the product was for, what problem it solved, and why it should exist in the market.</p>
+<p>This moved the work away from surface-level UI improvements and towards a clearer product strategy.</p>
+          
+          
+          <figure class="preview-placeholder stitch-discovery-figure" aria-label="Discovery process diagram">
+  <img
+    class="stitch-discovery-image"
+    src="../images/discovery.png"
+    alt="Discovery process diagram showing how the product opportunity was narrowed through research, interviews, community insight and competitive analysis."
+  >
+</figure>
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="preview-section">
+      <div class="preview-shell preview-split">
+        <div>
+          <span class="preview-kicker">04 / Research</span>
+          <h2>Technical users were not necessarily developers.</h2>
+        </div>
+        <div class="preview-body">
+          <p>Research combined interviews with Atlassian community professionals, community analysis and competitor benchmarking.</p>
+<p>A key insight emerged: Stitch-It needed to support technical users who could work with scripts and systems, but who still needed guidance, structure and confidence.</p>
+          <div class="preview-cards">
+<article><strong>Target users</strong><p>Atlassian administrators and consultants responsible for automating work across tools.</p></article>
+<article><strong>Core need</strong><p>Connect systems, automate processes and reduce repetitive manual work.</p></article>
+<article><strong>Key tension</strong><p>Users needed technical power, but not a blank-canvas developer experience.</p></article>
+<article><strong>Differentiated value</strong><p>A code-based automation tool usable by non-developer technical users.</p></article>
+</div>
+          
+          <figure class="preview-placeholder stitch-research-figure" aria-label="Research methodology and findings summary">
+            <img
+              class="stitch-research-image"
+              src="../images/research_method.png"
+              alt="Research methodology and findings infographic showing research inputs, key findings and takeaways for Stitch-It."
+            >
+          </figure>
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="preview-section">
+      <div class="preview-shell preview-split">
+        <div>
+          <span class="preview-kicker">05 / Journey maps</span>
+          <h2>Map where confidence dropped.</h2>
+        </div>
+        <div class="preview-body">
+          <p>The journey maps showed that friction was not limited to individual UI steps. Users lost confidence at moments of uncertainty: understanding the request, choosing the right solution, knowing where to start, configuring the workflow and trusting it before deployment.</p>
+<p>This shifted the design direction from “make it simpler” to “make the next step clearer.”</p>
+          
+          <div class="preview-gallery stitch-journey-map-gallery">
+<figure class="preview-placeholder stitch-journey-map-figure" aria-label="Atlassian administrator journey map">
+  <img
+    class="stitch-journey-map-image"
+    src="../images/atlassian_admin.png"
+    alt="Atlassian administrator journey map for the Stitch-It case study."
+  >
+</figure>
+<figure class="preview-placeholder stitch-journey-map-figure" aria-label="Atlassian consultant journey map">
+  <img
+    class="stitch-journey-map-image"
+    src="../images/atlassian_consultant.png"
+    alt="Atlassian consultant journey map for the Stitch-It case study."
+  >
+</figure>
+</div>
+          
+          <blockquote>Confidence became the key experience metric. If users could not understand the system or trust the next step, they were unlikely to continue.</blockquote>
+        </div>
+      </div>
+    </section>
+    
+    <section class="preview-section">
+      <div class="preview-shell preview-split">
+        <div>
+          <span class="preview-kicker">06 / System model</span>
+          <h2>Make the complexity visible before simplifying it.</h2>
+        </div>
+        <div class="preview-body">
+          <p>Before moving into UI, I mapped how the product objects related to one another: workspaces, scripts, connections, templates, triggers, schedules, deployment states and help resources.</p>
+<p>This created a shared model of the product and helped the team decide how the experience should be structured.</p>
+          
+          
+          <figure class="preview-placeholder stitch-system-model-figure" aria-label="User flow and product system map">
+  <img
+    class="stitch-system-model-image"
+    src="../images/system_model.png"
+    alt="User flow diagram showing the Stitch-It workflow model, configuration paths, API connections, triggers and deployment flow."
+  >
+</figure>
+
+<figure class="preview-placeholder stitch-system-model-figure stitch-system-model-figure--secondary" aria-label="Alternative user flow and product system map">
+  <img
+    class="stitch-system-model-image"
+    src="../images/system_model02.png"
+    alt="Alternative user flow diagram showing discarded options, resource tree logic, trigger configuration and workflow setup paths."
+  >
+</figure>
+          <blockquote>Expose enough of the system model for users to understand what they are building, without forcing them to understand everything upfront.</blockquote>
+        </div>
+      </div>
+    </section>
+    
+    <section class="preview-section">
+      <div class="preview-shell preview-split">
+        <div>
+          <span class="preview-kicker">07 / Activation</span>
+          <h2>Design two routes into the product.</h2>
+        </div>
+        <div class="preview-body">
+          <p>The task flow made the activation strategy clear. New or less confident users needed a guided route through templates. More experienced users needed the option to start from a blank workspace.</p>
+<p>The product could not force every user into the same path. It needed to support both confidence and control.</p>
+          <div class="preview-cards">
+<article><strong>Guided route</strong><p>For users who know the outcome they want but need help getting started.</p></article>
+<article><strong>Blank workspace</strong><p>For confident technical users who want flexibility and control from the beginning.</p></article>
+</div>
+          
+          <div class="stitch-activation-image-stack" aria-label="Activation process visuals">
+  <figure class="preview-placeholder stitch-activation-figure" aria-label="Design thinking workshop board">
+    <img
+      class="stitch-activation-image"
+      src="../images/activation_design_workshop_fill.png"
+      alt="Design thinking workshop board used to align the product team on Stitch-It objectives."
+    >
+  </figure>
+
+  <figure class="preview-placeholder stitch-activation-figure" aria-label="Task flow diagram">
+    <img
+      class="stitch-activation-image"
+      src="../images/activation_task_flow_fill.png"
+      alt="Task flow diagram showing how users move through Stitch-It setup, templates, workspace configuration, scripts, connections and deployment."
+    >
+  </figure>
+</div>
+          <blockquote>The goal was not to hide complexity. The goal was to sequence it.</blockquote>
+        </div>
+      </div>
+    </section>
+    
+    <section class="preview-section">
+      <div class="preview-shell preview-split">
+        <div>
+          <span class="preview-kicker">08 / Wireframes</span>
+          <h2>Turn the product model into screen structure.</h2>
+        </div>
+        <div class="preview-body">
+          <p>The wireframes translated the task flow into interface structure. I explored how users would browse templates, inspect template detail, set up workspaces, access the editor and understand what to do next.</p>
+<p>At this stage, the priority was hierarchy, orientation and flow, not visual polish.</p>
+          
+          
+          <figure class="preview-placeholder stitch-wireframe-figure" aria-label="Low-fidelity wireframe overview">
+  <img
+    class="stitch-wireframe-image"
+    src="../images/wireframe_overview.png"
+    alt="Low-fidelity Stitch-It wireframe overview showing connection screens, code editor, template setup and dashboard concepts."
+  >
+</figure>
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="preview-section">
+      <div class="preview-shell preview-split">
+        <div>
+          <span class="preview-kicker">09 / Final UI</span>
+          <h2>A workspace for building, testing and managing automation.</h2>
+        </div>
+        <div class="preview-body">
+          <p>The final UI direction organised the product around recognisable workspace patterns: dashboards, templates, code editing, scheduling, workspaces, connectors and help.</p>
+<p>The experience needed to feel technical and capable, but also structured enough for users to know where they were, what they were configuring and what action came next.</p>
+          
+          
+          <!-- Stitch-It final UI gallery -->
+          <div class="preview-gallery">
+            <button
+              class="preview-placeholder final-ui-card"
+              type="button"
+              data-final-ui-src="../images/final_ui_dashboard.png"
+              data-final-ui-alt="Stitch-It dashboard UI showing onboarding entry points, template cards, usage information and help."
+              data-final-ui-title="Dashboard UI"
+              data-final-ui-desc="The dashboard organised the experience around clear starting points, reusable templates, usage visibility and contextual guidance, helping users understand where to begin and what to do next."
+              aria-label="Open Dashboard UI image"
+            >
+              <img class="final-ui-thumb" src="../images/final_ui_dashboard.png" alt="Stitch-It dashboard UI">
+              <span class="final-ui-card__zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="10.75" cy="10.75" r="5.75"></circle>
+                  <path d="M15.2 15.2L20 20"></path>
+                </svg>
+              </span>
+            </button>
+
+            <button
+              class="preview-placeholder final-ui-card"
+              type="button"
+              data-final-ui-src="../images/final_ui_ide.png"
+              data-final-ui-alt="Stitch-It code editor UI with scripts, event listeners and API connections."
+              data-final-ui-title="Code editor UI"
+              data-final-ui-desc="The code editor brought scripts, connections, listeners and deployment controls into one technical workspace, giving users a stronger sense of control while keeping the system understandable."
+              aria-label="Open Code editor UI image"
+            >
+              <img class="final-ui-thumb" src="../images/final_ui_ide.png" alt="Stitch-It code editor UI">
+              <span class="final-ui-card__zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="10.75" cy="10.75" r="5.75"></circle>
+                  <path d="M15.2 15.2L20 20"></path>
+                </svg>
+              </span>
+            </button>
+
+            <button
+              class="preview-placeholder final-ui-card"
+              type="button"
+              data-final-ui-src="../images/final_ui_connection_modal.png"
+              data-final-ui-alt="Stitch-It connection setup modal with guided steps."
+              data-final-ui-title="Guided configuration flow"
+              data-final-ui-desc="This guided setup flow helped users configure integrations step by step, breaking a technical task into a clearer sequence with visible progress and reduced uncertainty."
+              aria-label="Open Guided configuration flow image"
+            >
+              <img class="final-ui-thumb" src="../images/final_ui_connection_modal.png" alt="Stitch-It guided connection setup modal">
+              <span class="final-ui-card__zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="10.75" cy="10.75" r="5.75"></circle>
+                  <path d="M15.2 15.2L20 20"></path>
+                </svg>
+              </span>
+            </button>
+
+            <button
+              class="preview-placeholder final-ui-card"
+              type="button"
+              data-final-ui-src="../images/final_ui_connectors_grid.png"
+              data-final-ui-alt="Stitch-It connectors and workspace UI showing available integrations."
+              data-final-ui-title="Connectors / workspace UI"
+              data-final-ui-desc="The connectors view made the system feel more legible by showing available integrations as a structured library, helping users discover, compare and configure tools with more confidence."
+              aria-label="Open Connectors / workspace UI image"
+            >
+              <img class="final-ui-thumb" src="../images/final_ui_connectors_grid.png" alt="Stitch-It connectors and workspace UI">
+              <span class="final-ui-card__zoom" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="10.75" cy="10.75" r="5.75"></circle>
+                  <path d="M15.2 15.2L20 20"></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+          <!-- /Stitch-It final UI gallery -->
+
+          
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="preview-section">
+      <div class="preview-shell preview-split">
+        <div>
+          <span class="preview-kicker">10 / Feasibility</span>
+          <h2>Keep design grounded in technical reality.</h2>
+        </div>
+        <div class="preview-body">
+          <p>The product direction had to work alongside a changing technical stack. Engineering was rethinking the underlying architecture, so design decisions needed to stay flexible and implementation-aware.</p>
+<p>This meant separating useful existing functionality from legacy constraints, and working with the team to understand what could be carried forward, adapted or redesigned.</p>
+          
+          
+          <figure class="preview-placeholder stitch-feasibility-figure" aria-label="Technical feasibility and engineering decisions">
+            <img
+              class="stitch-feasibility-image"
+              src="../images/technical_feasibility.png"
+              alt="Technical feasibility and engineering decisions for the Stitch-It case study."
+            >
+          </figure>
+          
+        </div>
+      </div>
+    </section>
+    
+
+    <section class="preview-takeaway">
+      <div class="preview-shell">
+        <span class="preview-kicker">11 / Takeaway</span>
+        <h2>Complexity sequenced into confidence.</h2>
+        <p>
+          The case study reframed Stitch-It as a confidence-building workflow product. Rather than hiding complexity, the design made it more understandable: templates reduced blank-canvas anxiety, workspaces created structure, connectors made integrations visible, the editor preserved flexibility, and help supported users at moments of uncertainty.
+        </p>
+        <p>
+          Powerful products do not become usable by hiding complexity. They become usable when complexity is sequenced, explained and made safe to act on.
+        </p>
+      </div>
+    </section>
+  
+
+    <section class="case-study-next-work case-preview__section" aria-labelledby="next-work-title">
+      <div class="preview-shell">
+        <p class="preview-case-type">Selected work</p>
+        <h2 id="next-work-title">Explore another<br>case study</h2>
+
+        <div class="case-study-next-work__grid" aria-label="Other case studies">
+          <a class="case-study-next-work__card case-study-next-work__card--stitch is-current" href="stitch-it.html" aria-current="page">
+            <div class="case-study-next-work__content">
+              <p>Enterprise SaaS · Workflow automation · Technical users</p>
+              <h3>ScriptRunner Connect / Stitch-It</h3>
+              <span>Redesigning a complex workflow builder so technical users could configure, validate and deploy automations with more confidence.</span>
+              <ul aria-label="Case study capabilities">
+                <li>Complex workflows</li>
+                <li>Enterprise UX</li>
+                <li>Systems thinking</li>
+              </ul>
+              <strong>Current case study</strong>
+            </div>
+            <div class="case-study-next-work__visual" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </div>
+          </a>
+
+          <a class="case-study-next-work__card case-study-next-work__card--oodle" href="oodle-finance.html">
+            <div class="case-study-next-work__content">
+              <p>Mobile finance · B2C · Trust and conversion</p>
+              <h3>Oodle Finance App</h3>
+              <span>Improving a finance application journey where speed, clarity and reassurance shape user trust and completion.</span>
+              <ul aria-label="Case study capabilities">
+                <li>Mobile UX</li>
+                <li>Fintech</li>
+                <li>Decision journeys</li>
+              </ul>
+              <strong>Explore case study ↗</strong>
+            </div>
+            <div class="case-study-next-work__visual" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </div>
+          </a>
+
+          <a class="case-study-next-work__card case-study-next-work__card--influence" href="influence-app.html">
+            <div class="case-study-next-work__content">
+              <p>Consumer research · Video feedback · Paid participation</p>
+              <h3>Influence App</h3>
+              <span>Turning feedback loops, survey clarity and reward mechanics into a more usable participation experience.</span>
+              <ul aria-label="Case study capabilities">
+                <li>B2C UX</li>
+                <li>Research loops</li>
+                <li>Engagement</li>
+              </ul>
+              <strong>Explore case study ↗</strong>
+            </div>
+            <div class="case-study-next-work__visual" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+</main>
+<!-- Stitch-It Final UI modal -->
+  <div class="final-ui-modal" id="finalUiModal" hidden>
+    <div class="final-ui-modal__backdrop" data-close-final-ui></div>
+    <div class="final-ui-modal__panel" role="dialog" aria-modal="true" aria-labelledby="finalUiModalTitle">
+      <button class="final-ui-modal__close" type="button" aria-label="Close image dialog" data-close-final-ui>&times;</button>
+      <div class="final-ui-modal__media">
+        <img id="finalUiModalImage" src="" alt="">
+      </div>
+      <div class="final-ui-modal__copy">
+        <p class="final-ui-modal__eyebrow">09 / Final UI</p>
+        <h3 id="finalUiModalTitle">Final UI</h3>
+        <p id="finalUiModalDesc"></p>
+      </div>
+    </div>
+  </div>
+  <!-- /Stitch-It Final UI modal -->
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <strong>Hal Habeel</strong>
+        <span>ハル・ハビール</span>
+      </div>
+      <p>© 2026. Senior Product Designer.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const modal = document.getElementById('finalUiModal');
+      if (!modal) return;
+
+      const body = document.body;
+      const modalImage = document.getElementById('finalUiModalImage');
+      const modalTitle = document.getElementById('finalUiModalTitle');
+      const modalDesc = document.getElementById('finalUiModalDesc');
+      const closeButton = modal.querySelector('.final-ui-modal__close');
+      let lastTrigger = null;
+
+      function openModal(button) {
+        lastTrigger = button;
+        modalImage.src = button.getAttribute('data-final-ui-src') || '';
+        modalImage.alt = button.getAttribute('data-final-ui-alt') || '';
+        modalTitle.textContent = button.getAttribute('data-final-ui-title') || 'Final UI';
+        modalDesc.textContent = button.getAttribute('data-final-ui-desc') || '';
+        modal.hidden = false;
+        body.style.overflow = 'hidden';
+        closeButton.focus();
+      }
+
+      function closeModal() {
+        modal.hidden = true;
+        body.style.overflow = '';
+        modalImage.src = '';
+        modalImage.alt = '';
+        if (lastTrigger) lastTrigger.focus();
+      }
+
+      document.querySelectorAll('.final-ui-card').forEach((button) => {
+        button.addEventListener('click', function () {
+          openModal(button);
+        });
+      });
+
+      modal.querySelectorAll('[data-close-final-ui]').forEach((el) => {
+        el.addEventListener('click', closeModal);
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && !modal.hidden) {
+          closeModal();
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Influence App — Hal Habeel Case Study</title>
+  <meta name="description" content="This case study demonstrates product iteration across a consumer feedback platform: identifying user failure points, improving task comprehension, increasing confidence and making reward-driven participation clearer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="../images/circle_logo_favicon.svg" type="image/svg+xml">
+
+  <style>
+    /* Influence story rebuild */
+    .influence-story .case-sidebar-card {
+      background: rgba(247, 244, 238, 0.78);
+    }
+
+    .influence-section h2 {
+      max-width: 14ch;
+    }
+
+    .influence-title-stop {
+      color: var(--vermilion);
+    }
+
+    .influence-section > p {
+      max-width: 48rem;
+    }
+
+    .influence-figure,
+    .influence-figure-grid {
+      margin-top: clamp(1.75rem, 3vw, 2.5rem);
+    }
+
+    .influence-figure {
+      overflow: hidden;
+      border: 1px solid rgba(117, 111, 103, 0.16);
+      border-radius: 1.45rem;
+      background:
+        linear-gradient(180deg, rgba(247, 244, 238, 0.96), rgba(242, 238, 232, 0.94));
+      box-shadow: 0 24px 58px rgba(21, 21, 21, 0.075);
+    }
+
+    .influence-figure--dark {
+      background: #111026;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .influence-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: inherit;
+    }
+
+    .influence-figure figcaption {
+      padding: 0.85rem 1rem 1rem;
+      color: rgba(21, 21, 21, 0.58);
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+
+    .influence-figure--dark figcaption {
+      color: rgba(247, 244, 238, 0.58);
+    }
+
+    .influence-figure-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .influence-figure-grid .influence-figure {
+      margin-top: 0;
+    }
+
+    @media (max-width: 900px) {
+      .influence-figure-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* Influence hero refinement */
+    .case-hero.section-pad {
+      padding: 7.5rem var(--page-pad) 5.5rem !important;
+    }
+
+    .influence-hero-kicker {
+      display: inline-flex !important;
+      align-items: baseline !important;
+      gap: 0.55rem !important;
+      width: fit-content !important;
+      margin-bottom: clamp(0.85rem, 1.5vw, 1.15rem) !important;
+      color: var(--vermilion) !important;
+    }
+
+    .influence-hero-kicker span {
+      color: rgba(117, 111, 103, 0.78) !important;
+      font-family: "Noto Sans JP", sans-serif !important;
+      font-size: 0.78rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: none !important;
+    }
+
+    .case-hero h1 {
+      margin-bottom: clamp(1.75rem, 3vw, 2.5rem) !important;
+    }
+
+    .influence-hero-visual-section {
+      padding: 0 !important;
+      margin: 0 0 clamp(1.75rem, 3vw, 2.4rem) !important;
+    }
+
+    .influence-hero-visual {
+      width: min(100%, 72rem) !important;
+      height: auto !important;
+      min-height: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      border: 1px solid rgba(117, 111, 103, 0.16) !important;
+      border-radius: 1.6rem !important;
+      background: transparent !important;
+      box-shadow: 0 24px 58px rgba(21, 21, 21, 0.075) !important;
+    }
+
+    .influence-hero-visual img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      object-fit: initial !important;
+      object-position: initial !important;
+      border-radius: inherit !important;
+      box-shadow: none !important;
+      transform: none !important;
+      image-rendering: auto !important;
+    }
+
+    .case-hero .case-lede {
+      margin-top: 0 !important;
+      max-width: 52rem !important;
+    }
+
+    .case-hero .case-tags {
+      margin-top: clamp(1.25rem, 2.4vw, 1.85rem) !important;
+    }
+
+    @media (max-width: 900px) {
+      .case-hero.section-pad {
+        padding-top: 6.5rem !important;
+      }
+
+      .influence-hero-visual {
+        border-radius: 1.25rem !important;
+      }
+
+      .influence-hero-kicker {
+        flex-wrap: wrap !important;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* Influence hero kicker line fix */
+    .case-hero .back-link {
+      display: flex !important;
+      width: fit-content !important;
+      margin-bottom: clamp(2rem, 4vw, 3rem) !important;
+      float: none !important;
+      clear: both !important;
+    }
+
+    .influence-hero-kicker {
+      display: flex !important;
+      clear: both !important;
+      width: fit-content !important;
+      margin-top: 0 !important;
+      margin-bottom: clamp(0.85rem, 1.5vw, 1.15rem) !important;
+    }
+  </style>
+
+
+  <style>
+    /* Influence context image caption cleanup */
+    .influence-section--intro .influence-figure img {
+      border-radius: inherit !important;
+    }
+  </style>
+
+
+  <style>
+    /* Influence evidence image caption cleanup */
+    .influence-figure img[src="../images/influence_case_p04_feedback_painpoints.png"] {
+      border-radius: inherit !important;
+    }
+  </style>
+
+
+  <style>
+    /* Influence opportunity image caption cleanup */
+    .influence-figure img[src="../images/concept_testing.png"] {
+      border-radius: inherit !important;
+    }
+  </style>
+
+
+  <style>
+    /* Influence opportunity dark canvas removal */
+    .influence-figure--opportunity {
+      background: #f3f0ea !important;
+      border: 1px solid rgba(117, 111, 103, 0.16) !important;
+      overflow: hidden !important;
+    }
+
+    .influence-figure--opportunity img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      border-radius: inherit !important;
+      margin: 0 !important;
+    }
+  </style>
+
+
+  <style>
+    /* Influence opportunity shadow removal */
+    .influence-figure--opportunity {
+      box-shadow: none !important;
+    }
+  </style>
+
+
+  <style>
+    /* Influence flow definition image cleanup */
+    .influence-section--flow-definition .influence-figure-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: clamp(1.25rem, 2.4vw, 2rem) !important;
+      margin-top: clamp(2rem, 3.5vw, 3rem) !important;
+    }
+
+    .influence-section--flow-definition .influence-figure {
+      margin-top: 0 !important;
+      border-radius: 1.45rem !important;
+      background: #f3f0ea !important;
+      box-shadow: none !important;
+      overflow: hidden !important;
+    }
+
+    .influence-section--flow-definition .influence-figure img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      border-radius: inherit !important;
+      margin: 0 !important;
+    }
+
+    .influence-section--flow-definition .influence-figure figcaption {
+      display: none !important;
+    }
+
+    @media (max-width: 900px) {
+      .influence-section--flow-definition .influence-figure-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* Influence flow definition bigger images */
+    .influence-section--flow-definition .influence-figure-grid {
+      width: min(100%, 76rem) !important;
+      max-width: 76rem !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: clamp(0.75rem, 1.4vw, 1.15rem) !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .influence-section--flow-definition .influence-figure {
+      width: 100% !important;
+      max-width: none !important;
+    }
+
+    .influence-section--flow-definition .influence-figure img {
+      width: 100% !important;
+      max-width: none !important;
+    }
+
+    @media (max-width: 900px) {
+      .influence-section--flow-definition .influence-figure-grid {
+        width: 100% !important;
+        max-width: 100% !important;
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* Influence selected work fallback */
+    .influence-selected-work {
+      padding-top: clamp(5rem, 8vw, 8rem) !important;
+      padding-bottom: clamp(5rem, 8vw, 8rem) !important;
+      background: var(--bg) !important;
+    }
+
+    .influence-selected-work h2 {
+      max-width: 9ch !important;
+      margin: 0 0 clamp(2rem, 4vw, 3rem) !important;
+      color: var(--ink) !important;
+      font-size: clamp(3rem, 7vw, 6.4rem) !important;
+      line-height: 0.92 !important;
+      letter-spacing: -0.075em !important;
+    }
+
+    .influence-selected-work .case-study-next-work__grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 1.2rem !important;
+      max-width: 100% !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card {
+      position: relative !important;
+      min-height: 25rem !important;
+      display: grid !important;
+      grid-template-rows: 1fr auto !important;
+      align-items: stretch !important;
+      padding: clamp(1.35rem, 2vw, 1.75rem) !important;
+      border: 1px solid rgba(117, 111, 103, 0.18) !important;
+      border-radius: 1.65rem !important;
+      background: rgba(247, 244, 238, 0.78) !important;
+      color: var(--ink) !important;
+      overflow: hidden !important;
+      box-shadow: 0 18px 44px rgba(21, 21, 21, 0.045) !important;
+      text-decoration: none !important;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card:hover {
+      transform: translateY(-4px) !important;
+      border-color: rgba(201, 75, 50, 0.28) !important;
+      box-shadow: 0 24px 54px rgba(21, 21, 21, 0.075) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card.is-current {
+      border-color: rgba(201, 75, 50, 0.28) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__content {
+      display: grid !important;
+      align-content: start !important;
+    }
+
+    .influence-selected-work .case-study-next-work__content p {
+      margin: 0 0 1.25rem !important;
+      color: rgba(21, 21, 21, 0.78) !important;
+      font-size: 0.72rem !important;
+      font-weight: 850 !important;
+      letter-spacing: 0.13em !important;
+      line-height: 1.45 !important;
+      text-transform: uppercase !important;
+    }
+
+    .influence-selected-work .case-study-next-work__content h3 {
+      max-width: 8.5ch !important;
+      margin: 0 !important;
+      color: var(--ink) !important;
+      font-size: clamp(2.05rem, 3.2vw, 3.35rem) !important;
+      line-height: 0.98 !important;
+      letter-spacing: -0.065em !important;
+    }
+
+    .influence-selected-work .case-study-next-work__content > span {
+      display: block !important;
+      max-width: 28rem !important;
+      margin: 1.1rem 0 0 !important;
+      color: rgba(21, 21, 21, 0.72) !important;
+      font-size: 1rem !important;
+      font-weight: 500 !important;
+      line-height: 1.55 !important;
+      letter-spacing: 0 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__content ul {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 0.5rem !important;
+      margin: 1.35rem 0 0 !important;
+      padding: 0 !important;
+      list-style: none !important;
+    }
+
+    .influence-selected-work .case-study-next-work__content li {
+      padding: 0.45rem 0.7rem !important;
+      border: 1px solid rgba(117, 111, 103, 0.18) !important;
+      border-radius: 999px !important;
+      color: rgba(21, 21, 21, 0.62) !important;
+      font-size: 0.72rem !important;
+      font-weight: 750 !important;
+      line-height: 1 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__content strong {
+      display: block !important;
+      margin-top: 1.4rem !important;
+      color: var(--vermilion) !important;
+      font-size: 0.88rem !important;
+      font-weight: 850 !important;
+      letter-spacing: 0.04em !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card.is-current .case-study-next-work__content strong {
+      color: rgba(117, 111, 103, 0.72) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__visual {
+      position: relative !important;
+      min-height: 10.2rem !important;
+      margin-top: 1.8rem !important;
+      border-radius: 1.35rem !important;
+      overflow: hidden !important;
+      isolation: isolate !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 10px 24px rgba(21, 21, 21, 0.08) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--stitch .case-study-next-work__visual {
+      background:
+        radial-gradient(circle at 24% 78%, rgba(201, 75, 50, 0.22), transparent 28%),
+        radial-gradient(circle at 72% 20%, rgba(112, 80, 210, 0.30), transparent 24%),
+        linear-gradient(135deg, #0d0d14 0%, #0b0a16 45%, #090913 100%) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual {
+      background:
+        radial-gradient(circle at 72% 26%, rgba(65, 255, 91, 0.28), transparent 18%),
+        linear-gradient(135deg, #00665c, #00463f) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--influence .case-study-next-work__visual {
+      background:
+        radial-gradient(circle at 72% 24%, rgba(255, 255, 255, 0.24), transparent 20%),
+        linear-gradient(135deg, #ff3b3f, #d6102b) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__visual i {
+      position: absolute !important;
+      display: block !important;
+      border-radius: 1.1rem !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      background: rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__visual i:nth-child(1) {
+      width: 52% !important;
+      height: 48% !important;
+      left: 12% !important;
+      top: 18% !important;
+      transform: rotate(-7deg) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__visual i:nth-child(2) {
+      width: 34% !important;
+      height: 62% !important;
+      right: 13% !important;
+      top: 14% !important;
+      background: rgba(255, 255, 255, 0.14) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__visual i:nth-child(3) {
+      width: 28% !important;
+      height: 20% !important;
+      left: 32% !important;
+      bottom: 17% !important;
+      border-radius: 999px !important;
+      background: rgba(255, 255, 255, 0.18) !important;
+    }
+
+    @media (max-width: 1100px) {
+      .influence-selected-work .case-study-next-work__grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .influence-selected-work .case-study-next-work__card {
+        min-height: 21rem !important;
+      }
+
+      .influence-selected-work .case-study-next-work__content h3 {
+        max-width: 12ch !important;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* Influence selected work mini preview correction */
+
+    .influence-selected-work .case-study-next-work__visual {
+      position: relative !important;
+      min-height: 10.2rem !important;
+      margin-top: 1.8rem !important;
+      border-radius: 1.35rem !important;
+      overflow: hidden !important;
+      isolation: isolate !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 10px 24px rgba(21, 21, 21, 0.08) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__visual::before,
+    .influence-selected-work .case-study-next-work__visual::after,
+    .influence-selected-work .case-study-next-work__visual i::before,
+    .influence-selected-work .case-study-next-work__visual i::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .influence-selected-work .case-study-next-work__visual i {
+      position: absolute !important;
+      display: block !important;
+      border-radius: 1.1rem !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18) !important;
+    }
+
+    /* Stitch-It mini preview */
+    .influence-selected-work .case-study-next-work__card--stitch .case-study-next-work__visual {
+      background:
+        radial-gradient(circle at 24% 78%, rgba(201, 75, 50, 0.22), transparent 28%),
+        radial-gradient(circle at 72% 20%, rgba(112, 80, 210, 0.30), transparent 24%),
+        linear-gradient(135deg, #0d0d14 0%, #0b0a16 45%, #090913 100%) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--stitch .case-study-next-work__visual::before {
+      inset: 0.85rem;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      z-index: 0;
+    }
+
+    .influence-selected-work .case-study-next-work__card--stitch .case-study-next-work__visual::after {
+      inset: 2rem 2.25rem;
+      border-radius: 1.3rem;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      z-index: 0;
+    }
+
+    .influence-selected-work .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(1) {
+      left: 1.1rem !important;
+      top: 2.4rem !important;
+      right: auto !important;
+      bottom: auto !important;
+      width: 33% !important;
+      height: 34% !important;
+      transform: rotate(-7deg) !important;
+      transform-origin: center center !important;
+      border-radius: 1.1rem !important;
+      background:
+        linear-gradient(rgba(255,255,255,0.34), rgba(255,255,255,0.34)) 1rem 1rem / 62% 0.24rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.26), rgba(255,255,255,0.26)) 1rem 1.95rem / 52% 0.22rem no-repeat,
+        linear-gradient(rgba(233,124,109,0.95), rgba(233,124,109,0.95)) 1rem 2.85rem / 36% 0.26rem no-repeat,
+        rgba(255, 255, 255, 0.09) !important;
+      z-index: 2 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(1)::after {
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 50%;
+      right: -0.42rem;
+      top: 3.15rem;
+      background: #d85d3d;
+      box-shadow: 0 0 0 0.32rem rgba(216, 93, 61, 0.18);
+    }
+
+    .influence-selected-work .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(2) {
+      right: 1.4rem !important;
+      top: 3.1rem !important;
+      left: auto !important;
+      bottom: auto !important;
+      width: 47% !important;
+      height: 36% !important;
+      background:
+        radial-gradient(circle at 18% 62%, rgba(133, 104, 255, 0.95) 0 0.42rem, transparent 0.45rem),
+        linear-gradient(rgba(255,255,255,0.32), rgba(255,255,255,0.32)) 1rem 1.05rem / 52% 0.22rem no-repeat,
+        linear-gradient(#7f5ae0, #7f5ae0) 1rem 1.85rem / 72% 0.24rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.28), rgba(255,255,255,0.28)) 1rem 2.65rem / 62% 0.22rem no-repeat,
+        rgba(255, 255, 255, 0.1) !important;
+      z-index: 2 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--stitch .case-study-next-work__visual i:nth-child(3) {
+      left: 36% !important;
+      right: auto !important;
+      bottom: 1.1rem !important;
+      top: auto !important;
+      width: 24% !important;
+      height: 18% !important;
+      transform: translateX(-50%) !important;
+      border-radius: 999px !important;
+      background:
+        linear-gradient(#ffffff, #ffffff) 1rem 0.95rem / 34% 0.18rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.38), rgba(255,255,255,0.38)) 1rem 1.65rem / 24% 0.16rem no-repeat,
+        rgba(255,255,255,0.06) !important;
+      z-index: 2 !important;
+    }
+
+    /* Oodle mini preview */
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual {
+      background:
+        radial-gradient(circle at 72% 26%, rgba(65, 255, 91, 0.28), transparent 18%),
+        linear-gradient(135deg, #00665c, #00463f) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual::before {
+      inset: 1rem 1.15rem;
+      border-radius: 1.35rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      z-index: 0;
+    }
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual::after {
+      left: 50%;
+      bottom: 0.95rem;
+      width: 46%;
+      height: 0.52rem;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      z-index: 1;
+    }
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(1) {
+      left: 18% !important;
+      top: 17% !important;
+      width: 31% !important;
+      height: 66% !important;
+      transform: rotate(-5deg) !important;
+      border-radius: 1.1rem !important;
+      background:
+        linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)) 50% 0.8rem / 34% 0.16rem no-repeat,
+        linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)) 50% 88% / 34% 0.18rem no-repeat,
+        #f7f4ef !important;
+      z-index: 2 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(2) {
+      right: 17% !important;
+      top: 14% !important;
+      width: 31% !important;
+      height: 69% !important;
+      transform: rotate(5deg) !important;
+      border-radius: 1.1rem !important;
+      background:
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 50% 0.8rem / 34% 0.16rem no-repeat,
+        linear-gradient(#00b894, #00b894) 50% 58% / 50% 0.34rem no-repeat,
+        #f7f4ef !important;
+      z-index: 2 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(3) {
+      left: 50% !important;
+      top: 45% !important;
+      width: 2.2rem !important;
+      height: 2.2rem !important;
+      transform: translate(-50%, -50%) !important;
+      border-radius: 999px !important;
+      border: 0 !important;
+      background: rgba(0, 184, 148, 0.92) !important;
+      box-shadow: 0 0 0 0.42rem rgba(0, 184, 148, 0.18) !important;
+      z-index: 3 !important;
+    }
+
+    /* Influence mini preview */
+    .influence-selected-work .case-study-next-work__card--influence .case-study-next-work__visual {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.10), transparent 22%),
+        linear-gradient(135deg, #ff313a 0%, #ee2130 100%) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--influence .case-study-next-work__visual::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: 1rem 1.2rem !important;
+      border-radius: 1.15rem !important;
+      border: 1px solid rgba(255,255,255,0.14) !important;
+      z-index: 0 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--influence .case-study-next-work__visual::after {
+      content: "" !important;
+      position: absolute !important;
+      left: 50% !important;
+      top: 48% !important;
+      width: 6rem !important;
+      height: 6rem !important;
+      transform: translate(-50%, -50%) !important;
+      border-radius: 1.55rem !important;
+      background: rgba(72, 14, 21, 0.72) !important;
+      z-index: 2 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(1) {
+      left: 0.9rem !important;
+      top: 1.2rem !important;
+      right: auto !important;
+      bottom: auto !important;
+      width: 40% !important;
+      height: 34% !important;
+      transform: rotate(-8deg) !important;
+      border-radius: 1rem !important;
+      background: rgba(255,255,255,0.20) !important;
+      z-index: 1 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(2) {
+      right: 1rem !important;
+      top: 1.2rem !important;
+      left: auto !important;
+      bottom: auto !important;
+      width: 40% !important;
+      height: 34% !important;
+      transform: rotate(6deg) !important;
+      border-radius: 1rem !important;
+      background: rgba(255,255,255,0.16) !important;
+      z-index: 1 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(3) {
+      left: 50% !important;
+      bottom: 0.9rem !important;
+      top: auto !important;
+      right: auto !important;
+      width: 2rem !important;
+      height: 2rem !important;
+      transform: translateX(-50%) !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      background:
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 0.12rem 1.15rem / 0.24rem 0.7rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 0.62rem 0.7rem / 0.24rem 1.15rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 1.12rem 0.35rem / 0.24rem 1.5rem no-repeat,
+        linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.86)) 1.62rem 0.9rem / 0.24rem 0.95rem no-repeat !important;
+      z-index: 3 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(1)::before,
+    .influence-selected-work .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(1)::after,
+    .influence-selected-work .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(2)::before,
+    .influence-selected-work .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(2)::after,
+    .influence-selected-work .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(3)::before,
+    .influence-selected-work .case-study-next-work__card--influence .case-study-next-work__visual i:nth-child(3)::after {
+      display: none !important;
+      content: none !important;
+    }
+  </style>
+
+
+  <style>
+    /* Influence selected work green mini preview fix */
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual {
+      background:
+        radial-gradient(circle at 78% 24%, rgba(63, 255, 91, 0.18), transparent 22%),
+        linear-gradient(135deg, #00665c 0%, #00483f 100%) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: 1rem 1.15rem !important;
+      border-radius: 1.25rem !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      background: transparent !important;
+      z-index: 0 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual::after {
+      content: "" !important;
+      position: absolute !important;
+      right: 1.15rem !important;
+      bottom: 1rem !important;
+      left: auto !important;
+      top: auto !important;
+      width: 3.15rem !important;
+      height: 3.15rem !important;
+      transform: none !important;
+      border-radius: 999px !important;
+      border: 1px solid rgba(65, 255, 91, 0.55) !important;
+      background: rgba(0, 184, 148, 0.08) !important;
+      z-index: 3 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i {
+      position: absolute !important;
+      display: block !important;
+      border-radius: 1rem !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.14) !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(1) {
+      left: 1.55rem !important;
+      top: 1.55rem !important;
+      right: auto !important;
+      bottom: auto !important;
+      width: 43% !important;
+      height: 52% !important;
+      transform: rotate(-8deg) !important;
+      border-radius: 1rem !important;
+      background:
+        linear-gradient(rgba(159, 228, 218, 0.45), rgba(159, 228, 218, 0.45)) 1rem 1rem / 58% 0.22rem no-repeat,
+        linear-gradient(rgba(159, 228, 218, 0.34), rgba(159, 228, 218, 0.34)) 1rem 1.65rem / 48% 0.2rem no-repeat,
+        linear-gradient(rgba(159, 228, 218, 0.28), rgba(159, 228, 218, 0.28)) 1rem 2.3rem / 42% 0.2rem no-repeat,
+        rgba(255, 255, 255, 0.09) !important;
+      z-index: 2 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(2) {
+      right: 1.75rem !important;
+      top: 1.25rem !important;
+      left: auto !important;
+      bottom: auto !important;
+      width: 38% !important;
+      height: 58% !important;
+      transform: rotate(2deg) !important;
+      border-radius: 1rem !important;
+      background:
+        radial-gradient(circle at 20% 16%, #43f45f 0 0.8rem, transparent 0.84rem),
+        linear-gradient(rgba(205, 245, 238, 0.58), rgba(205, 245, 238, 0.58)) 1.05rem 2.8rem / 48% 0.22rem no-repeat,
+        linear-gradient(rgba(205, 245, 238, 0.4), rgba(205, 245, 238, 0.4)) 1.05rem 3.45rem / 64% 0.2rem no-repeat,
+        linear-gradient(rgba(205, 245, 238, 0.28), rgba(205, 245, 238, 0.28)) 1.05rem 4.1rem / 54% 0.2rem no-repeat,
+        rgba(255, 255, 255, 0.12) !important;
+      z-index: 2 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(3) {
+      left: 50% !important;
+      bottom: 1.15rem !important;
+      top: auto !important;
+      right: auto !important;
+      width: 1.35rem !important;
+      height: 0.28rem !important;
+      transform: translateX(-50%) !important;
+      border: 0 !important;
+      border-radius: 999px !important;
+      background: rgba(255, 255, 255, 0.18) !important;
+      box-shadow: none !important;
+      z-index: 2 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(1)::before,
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(1)::after,
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(2)::before,
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(2)::after,
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(3)::before,
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(3)::after {
+      display: none !important;
+      content: none !important;
+    }
+  </style>
+
+  <style>
+    /* Influence green mini preview final consistency fix */
+
+    /*
+      Target only the Oodle green mini preview inside the Influence selected-work footer.
+      This keeps the outer green canvas unchanged, but makes the two inner panels
+      larger square cards and restores the missing internal line details.
+    */
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(1) {
+      left: 1.55rem !important;
+      top: 1.45rem !important;
+      right: auto !important;
+      bottom: auto !important;
+      width: 6.15rem !important;
+      height: 6.15rem !important;
+      max-width: none !important;
+      aspect-ratio: 1 / 1 !important;
+      transform: rotate(-8deg) !important;
+      border-radius: 1rem !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      background:
+        linear-gradient(rgba(159, 228, 218, 0.48), rgba(159, 228, 218, 0.48)) 1rem 1.05rem / 62% 0.22rem no-repeat,
+        linear-gradient(rgba(159, 228, 218, 0.38), rgba(159, 228, 218, 0.38)) 1rem 1.7rem / 52% 0.2rem no-repeat,
+        linear-gradient(rgba(159, 228, 218, 0.30), rgba(159, 228, 218, 0.30)) 1rem 2.35rem / 44% 0.2rem no-repeat,
+        rgba(255, 255, 255, 0.09) !important;
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.14) !important;
+      z-index: 2 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(2) {
+      right: 1.9rem !important;
+      top: 1.3rem !important;
+      left: auto !important;
+      bottom: auto !important;
+      width: 6.15rem !important;
+      height: 6.15rem !important;
+      max-width: none !important;
+      aspect-ratio: 1 / 1 !important;
+      transform: rotate(2deg) !important;
+      border-radius: 1rem !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      background:
+        radial-gradient(circle at 20% 16%, #43f45f 0 0.8rem, transparent 0.84rem),
+        linear-gradient(rgba(236, 251, 247, 0.82), rgba(236, 251, 247, 0.82)) 1.1rem 2.55rem / 50% 0.22rem no-repeat,
+        linear-gradient(rgba(236, 251, 247, 0.62), rgba(236, 251, 247, 0.62)) 1.1rem 3.2rem / 64% 0.2rem no-repeat,
+        linear-gradient(rgba(236, 251, 247, 0.48), rgba(236, 251, 247, 0.48)) 1.1rem 3.85rem / 52% 0.2rem no-repeat,
+        linear-gradient(rgba(236, 251, 247, 0.22), rgba(236, 251, 247, 0.22)) 1.1rem 5rem / 34% 0.52rem no-repeat,
+        rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.14) !important;
+      z-index: 2 !important;
+    }
+
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(1)::before,
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(1)::after,
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(2)::before,
+    .influence-selected-work .case-study-next-work__card--oodle .case-study-next-work__visual i:nth-child(2)::after {
+      display: none !important;
+      content: none !important;
+    }
+  </style>
+
+
+  <style>
+    /* Influence production back-to-top arrow */
+    .influence-back-to-top {
+      position: fixed;
+      right: clamp(1rem, 4vw, 4rem);
+      bottom: calc(clamp(2rem, 5vw, 4.5rem) + 60px);
+      z-index: 5000;
+      display: grid;
+      place-items: center;
+      width: 3.25rem;
+      height: 3.25rem;
+      border-radius: 999px;
+      background: #ff313a;
+      color: #fff;
+      text-decoration: none;
+      box-shadow:
+        0 18px 38px rgba(255, 49, 58, 0.24),
+        0 6px 14px rgba(21, 21, 21, 0.12);
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease;
+    }
+
+    .influence-back-to-top:hover {
+      transform: translateY(-3px);
+      background: #ee2130;
+      box-shadow:
+        0 22px 44px rgba(255, 49, 58, 0.3),
+        0 8px 18px rgba(21, 21, 21, 0.14);
+    }
+
+    .influence-back-to-top svg {
+      display: block;
+      width: 1.15rem;
+      height: 1.15rem;
+    }
+
+    .influence-back-to-top path {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 720px) {
+      .influence-back-to-top {
+        right: 1rem;
+        bottom: calc(1.25rem + 60px);
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* Influence image zoom modal */
+    .influence-image-zoom {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      border-radius: inherit;
+      background: transparent;
+      color: inherit;
+      cursor: zoom-in;
+      appearance: none;
+      font: inherit;
+      text-align: left;
+      overflow: hidden;
+    }
+
+    .influence-image-zoom img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      border-radius: inherit !important;
+      transition: transform 220ms ease, filter 220ms ease;
+    }
+
+    .influence-image-zoom:hover img,
+    .influence-image-zoom:focus-visible img {
+      transform: scale(1.012);
+      filter: saturate(1.03);
+    }
+
+    .influence-image-zoom:focus-visible {
+      outline: 2px solid rgba(255, 49, 58, 0.72);
+      outline-offset: 4px;
+    }
+
+    .influence-image-zoom__icon {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      z-index: 3;
+      width: 2.55rem;
+      height: 2.55rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(16, 16, 20, 0.82);
+      color: #fff;
+      pointer-events: none;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .influence-image-zoom__icon svg {
+      display: block;
+      width: 1.1rem;
+      height: 1.1rem;
+    }
+
+    .influence-image-zoom__icon circle,
+    .influence-image-zoom__icon path {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.1;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .influence-image-zoom:hover .influence-image-zoom__icon,
+    .influence-image-zoom:focus-visible .influence-image-zoom__icon {
+      transform: scale(1.04);
+      background: rgba(16, 16, 20, 0.92);
+    }
+
+    .influence-image-modal[hidden] {
+      display: none !important;
+    }
+
+    .influence-image-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+    }
+
+    .influence-image-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 14, 0.78);
+      backdrop-filter: blur(5px);
+    }
+
+    .influence-image-modal__panel {
+      position: relative;
+      z-index: 1;
+      width: min(1440px, calc(100vw - 2rem));
+      max-height: calc(100vh - 2rem);
+      margin: 1rem auto;
+      padding: clamp(0.9rem, 1.5vw, 1.25rem);
+      overflow: auto;
+      border-radius: 1.75rem;
+      background: #f6f1eb;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
+      display: grid;
+      gap: 1rem;
+    }
+
+    .influence-image-modal__media {
+      width: 100%;
+      border-radius: 1.35rem;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    .influence-image-modal__media img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: calc(100vh - 8rem);
+      object-fit: contain;
+      object-position: center;
+      border-radius: inherit;
+    }
+
+    .influence-image-modal__title {
+      margin: 0;
+      color: rgba(21, 21, 21, 0.72);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.13em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .influence-image-modal__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 3;
+      width: 2.6rem;
+      height: 2.6rem;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(246, 241, 235, 0.92);
+      color: #111;
+      font-size: 1.45rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+    }
+
+    .influence-image-modal__close:hover {
+      background: #fff;
+    }
+
+    @media (max-width: 920px) {
+      .influence-image-zoom__icon {
+        left: 0.75rem;
+        bottom: 0.75rem;
+        width: 2.3rem;
+        height: 2.3rem;
+      }
+
+      .influence-image-modal__panel {
+        width: calc(100vw - 1rem);
+        max-height: calc(100vh - 1rem);
+        margin: 0.5rem auto;
+      }
+
+      .influence-image-modal__media img {
+        max-height: calc(100vh - 9rem);
+      }
+    }
+  </style>
+
+</head>
+<body class="case-page" id="top">
+  <a class="influence-back-to-top" href="#top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 5l-7 7m7-7l7 7M12 5v14"></path>
+    </svg>
+  </a>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="../index.html#top" aria-label="Hal Habeel home">
+      <span class="brand__mark" aria-hidden="true">ハ</span>
+      <span class="brand__text">
+        <span>Hal Habeel</span>
+        <span>ハル・ハビール</span>
+      </span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#capabilities">Capabilities</a>
+      <a href="../index.html#guide">AI Guide</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+
+    <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu">
+      <span>Menu</span>
+      <span class="menu-button__lines" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+    <nav aria-label="Mobile navigation">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#capabilities">Capabilities</a>
+      <a href="../index.html#guide">AI Guide</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="case-hero section-pad">
+      <div class="case-shell">
+        <a class="back-link" href="../index.html#work">← Back to selected work</a>
+        <p class="eyebrow influence-hero-kicker">B2C product · Video feedback platform <span>参加を明確にする</span></p>
+        <h1>Influence App</h1>
+
+        <div class="case-visual-section case-visual-section--hero influence-hero-visual-section">
+          <div class="case-visual influence-hero-visual">
+            <img src="../images/influence.png" alt="Influence App case study visual">
+          </div>
+        </div>
+        <p class="case-lede">A product improvement case study focused on helping users participate successfully in paid video surveys by improving clarity, guidance, motivation and feedback.</p>
+
+        <div class="case-tags" aria-label="Case study tags">
+          <span>B2C UX</span>
+          <span>Research platform</span>
+          <span>Video tasks</span>
+          <span>Engagement</span>
+          <span>Rewards</span>
+          <span>Product iteration</span>
+        </div>
+      </div>
+    </section>
+<section id="story" class="case-content section-pad influence-story">
+      <div class="case-shell case-layout">
+        <aside class="case-sidebar" aria-label="Case study summary">
+          <div class="case-sidebar-card">
+            <p class="eyebrow">Summary</p>
+            <h2>What this proves</h2>
+            <p>
+              Influence shows end-to-end product iteration: using customer feedback, system mapping and focused UX improvements to help users find paid opportunities, understand what to do, submit better video responses and trust the reward journey.
+            </p>
+          </div>
+
+          <div class="case-sidebar-card">
+            <p class="eyebrow">Role</p>
+            <ul>
+              <li>Product vision and incubation</li>
+              <li>Information architecture and user-flow mapping</li>
+              <li>Interaction design and prototyping</li>
+              <li>Motion studies and pattern documentation</li>
+              <li>UX improvements across participation, community and rewards</li>
+            </ul>
+          </div>
+        </aside>
+
+        <article class="case-narrative">
+          <section class="case-section influence-section influence-section--intro">
+            <p class="case-kicker">01 / Context</p>
+            <h2>Turn casual video behaviour into useful research participation<span class="influence-title-stop">.</span></h2>
+            <p>
+              Influence allowed people to take video surveys for cash and be heard by brands through recorded feedback. The product already had a compelling exchange: users could earn money, while clients received richer qualitative insight.
+            </p>
+            <p>
+              The design challenge was that participation was fragile. Users needed to understand where paid opportunities were, what each task required, how to submit acceptable video responses and how their activity translated into rewards.
+            </p>
+
+            <figure class="influence-figure">
+              <img src="../images/influence_case_p02_role.png" alt="Influence app role and product context screens.">
+            </figure>
+          </section>
+
+          <section class="case-section influence-section">
+            <p class="case-kicker">02 / System mapping</p>
+            <h2>Before redesigning screens, map the product system<span class="influence-title-stop">.</span></h2>
+            <p>
+              The first major step was mapping the end-to-end information flow of the survey app. This made the hidden complexity visible: survey discovery, eligibility, recording, moderation, rewards, cash-out and community all affected the user experience.
+            </p>
+            <p>
+              This was important because the problems were not isolated UI defects. They were connected system issues: a weak task model could create rejected responses, support tickets, lower participation and reduced research quality.
+            </p>
+
+            <figure class="influence-figure influence-figure--dark">
+              <button
+                class="influence-image-zoom"
+                type="button"
+                data-modal-image="../images/influence_case_p03_information_flow.png"
+                data-modal-title="System mapping"
+                aria-label="Open System mapping image larger"
+              >
+                <img src="../images/influence_case_p03_information_flow.png" alt="Influence information flow map showing the end-to-end survey app system.">
+                <span class="influence-image-zoom__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <circle cx="10.5" cy="10.5" r="5.5"></circle>
+                    <path d="M15 15l4.5 4.5"></path>
+                    <path d="M10.5 8v5"></path>
+                    <path d="M8 10.5h5"></path>
+                  </svg>
+                </span>
+              </button>
+              <figcaption>PDF page 3 placeholder — information-flow map of the survey app.</figcaption>
+            </figure>
+          </section>
+
+          <section class="case-section influence-section">
+            <p class="case-kicker">03 / Evidence</p>
+            <h2>User feedback showed where the product was leaking trust<span class="influence-title-stop">.</span></h2>
+            <p>
+              Feedback from app-store reviews, Play Store reviews and Zendesk support exposed repeat pain points: lack of paid opportunities, rejected feedback videos without clear reasons, poor in-app notification experience and cash-out issues.
+            </p>
+            <p>
+              A heuristic review added another layer: poor system-status visibility, weak user control, inconsistent standards, error prevention as an afterthought and outdated or cluttered screens.
+            </p>
+
+            <figure class="influence-figure">
+              <button
+                class="influence-image-zoom"
+                type="button"
+                data-modal-image="../images/influence_case_p04_feedback_painpoints.png"
+                data-modal-title="Evidence"
+                aria-label="Open Evidence image larger"
+              >
+                <img src="../images/influence_case_p04_feedback_painpoints.png" alt="Influence customer feedback and usability pain points.">
+                <span class="influence-image-zoom__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <circle cx="10.5" cy="10.5" r="5.5"></circle>
+                    <path d="M15 15l4.5 4.5"></path>
+                    <path d="M10.5 8v5"></path>
+                    <path d="M8 10.5h5"></path>
+                  </svg>
+                </span>
+              </button>
+            </figure>
+          </section>
+
+          <section class="case-section influence-section">
+            <p class="case-kicker">04 / Opportunity</p>
+            <h2>Leverage the community the product already had<span class="influence-title-stop">.</span></h2>
+            <p>
+              The app already had engaged users who liked the idea of getting paid for video feedback. The missed opportunity was that the old experience limited their ability to find relevant tasks, understand expectations and keep participating.
+            </p>
+            <p>
+              The product opportunity became clear: improve information findability, increase paid participation moments and make the community more useful without undermining research quality.
+            </p>
+
+            <figure class="influence-figure influence-figure--opportunity">
+              <button
+                class="influence-image-zoom"
+                type="button"
+                data-modal-image="../images/concept_testing.png"
+                data-modal-title="Opportunity"
+                aria-label="Open Opportunity image larger"
+              >
+                <img src="../images/concept_testing.png" alt="Influence concept testing and existing community screens.">
+                <span class="influence-image-zoom__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <circle cx="10.5" cy="10.5" r="5.5"></circle>
+                    <path d="M15 15l4.5 4.5"></path>
+                    <path d="M10.5 8v5"></path>
+                    <path d="M8 10.5h5"></path>
+                  </svg>
+                </span>
+              </button>
+            </figure>
+          </section>
+
+          <section class="case-section influence-section influence-section--flow-definition">
+            <p class="case-kicker">05 / Flow definition</p>
+            <h2>Define the critical journeys before designing the interface<span class="influence-title-stop">.</span></h2>
+            <p>
+              I mapped the interaction flows that mattered most: login and signup, cash-out, recording a video response, eligibility and application states. This helped the team understand dependencies and decision points before committing to interface work.
+            </p>
+
+            <div class="influence-figure-grid">
+              <figure class="influence-figure">
+                <button
+                class="influence-image-zoom"
+                type="button"
+                data-modal-image="../images/influence_case_p06_login_flow.png"
+                data-modal-title="Login and signup flow"
+                aria-label="Open Login and signup flow image larger"
+              >
+                <img src="../images/influence_case_p06_login_flow.png" alt="Influence login and signup user flow.">
+                <span class="influence-image-zoom__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <circle cx="10.5" cy="10.5" r="5.5"></circle>
+                    <path d="M15 15l4.5 4.5"></path>
+                    <path d="M10.5 8v5"></path>
+                    <path d="M8 10.5h5"></path>
+                  </svg>
+                </span>
+              </button>
+                </figure>
+
+              <figure class="influence-figure">
+                <button
+                class="influence-image-zoom"
+                type="button"
+                data-modal-image="../images/influence_case_p07_video_response_flow.png"
+                data-modal-title="Video response flow"
+                aria-label="Open Video response flow image larger"
+              >
+                <img src="../images/influence_case_p07_video_response_flow.png" alt="Influence video response user flow.">
+                <span class="influence-image-zoom__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <circle cx="10.5" cy="10.5" r="5.5"></circle>
+                    <path d="M15 15l4.5 4.5"></path>
+                    <path d="M10.5 8v5"></path>
+                    <path d="M8 10.5h5"></path>
+                  </svg>
+                </span>
+              </button>
+              </figure>
+            </div>
+          </section>
+
+          <section class="case-section influence-section">
+            <p class="case-kicker">06 / Task comprehension</p>
+            <h2>Group related questions so users understand the study<span class="influence-title-stop">.</span></h2>
+            <p>
+              Many video surveys contained multiple questions, but users struggled to identify which questions belonged to the same study. This created avoidable confusion before participation even began.
+            </p>
+            <p>
+              The solution was question grouping: showing relevant questions for the same study in one place, making the task model clearer and helping users understand the structure of the paid survey.
+            </p>
+
+            <figure class="influence-figure influence-figure--dark">
+              <img src="../images/influence_case_p08_question_grouping.png" alt="Influence question grouping feature screens.">
+            </figure>
+          </section>
+
+          <section class="case-section influence-section">
+            <p class="case-kicker">07 / Response quality</p>
+            <h2>Reduce rejected responses with better recording guidance<span class="influence-title-stop">.</span></h2>
+            <p>
+              Users often complained that responses were rejected and they were not incentivised for their feedback. One specific moderation reason was that the participant’s head was not properly in frame.
+            </p>
+            <p>
+              The design introduced an on-screen frame and messaging during recording, helping users self-correct before submission and reducing avoidable rejection.
+            </p>
+
+            <figure class="influence-figure">
+              <img src="../images/influence_case_p09_recording_guidance.png" alt="Influence recording interface with on-screen framing guidance.">
+            </figure>
+          </section>
+
+          <section class="case-section influence-section">
+            <p class="case-kicker">08 / More paid opportunities</p>
+            <h2>Add new ways to participate and earn<span class="influence-title-stop">.</span></h2>
+            <p>
+              A core complaint was that there were not enough paid opportunities in the app. The product response was not only to surface more surveys, but to expand the types of paid research tasks available.
+            </p>
+            <p>
+              The app introduced paid Augmented Reality survey experiences, creating more opportunities for users to earn cash while giving brands richer product-testing scenarios.
+            </p>
+
+            <figure class="influence-figure influence-figure--dark">
+              <img src="../images/influence_case_p10_ar_surveys.png" alt="Influence augmented reality paid survey screens.">
+            </figure>
+          </section>
+
+          <section class="case-section influence-section">
+            <p class="case-kicker">09 / Community</p>
+            <h2>Make participation feel less isolated<span class="influence-title-stop">.</span></h2>
+            <p>
+              Users believed the app prioritised active users, meaning fewer opportunities were available to everyone else. The community section created another engagement layer where users could learn, share tips and stay connected to the product.
+            </p>
+            <p>
+              This helped shift the app from a simple task stream to a more participatory research community.
+            </p>
+
+            <figure class="influence-figure">
+              <img src="../images/influence_case_p11_community.png" alt="Influence community section screens.">
+            </figure>
+          </section>
+
+          <section class="case-section influence-section">
+            <p class="case-kicker">10 / Rewards and cash-out</p>
+            <h2>Clarify balance, activity and cash-out status<span class="influence-title-stop">.</span></h2>
+            <p>
+              Participants often contacted support about balance and cash-out issues. The problem was not only financial; it was about system status, trust and confidence.
+            </p>
+            <p>
+              The dashboard gave users a clearer view of their activity, up-to-date balance and transaction history, reducing uncertainty around what they had earned and what could be withdrawn.
+            </p>
+
+            <figure class="influence-figure influence-figure--dark">
+              <img src="../images/influence_case_p12_dashboard_cashout.png" alt="Influence dashboard, balance and cash-out screens.">
+            </figure>
+          </section>
+
+          <section class="case-section influence-section">
+            <p class="case-kicker">11 / Discovery</p>
+            <h2>Surface open paid studies where users already engage<span class="influence-title-stop">.</span></h2>
+            <p>
+              In addition to the survey stream, paid video surveys were published in the community section. Available opportunities were labelled “OPEN”, allowing users to apply directly from a place where they were already browsing and participating.
+            </p>
+
+            <figure class="influence-figure">
+              <img src="../images/influence_case_p13_open_opportunities.png" alt="Influence open paid survey opportunity shown in the community experience.">
+            </figure>
+          </section>
+
+          <section class="case-section case-reflection influence-section">
+            <p class="case-kicker">12 / Takeaway</p>
+            <h2>Small system changes created a stronger participation loop<span class="influence-title-stop">.</span></h2>
+            <p>
+              The work improved the product by listening closely to user feedback, identifying practical low-hanging opportunities and applying systems thinking across paid opportunities, task structure, recording guidance, community and rewards.
+            </p>
+            <p>
+              The result was a clearer participation model: users could find opportunities, understand what was expected, submit better responses, track rewards and stay engaged with the community.
+            </p>
+
+            
+          </section>
+        </article>
+      </div>
+    </section>
+
+    <section class="case-study-next-work influence-selected-work" aria-labelledby="next-work-title">
+      <div class="case-shell">
+        <p class="eyebrow">Selected work</p>
+        <h2 id="next-work-title">Explore another<br>case study</h2>
+
+        <div class="case-study-next-work__grid" aria-label="Other case studies">
+          <a class="case-study-next-work__card case-study-next-work__card--stitch" href="stitch-it.html">
+            <div class="case-study-next-work__content">
+              <p>Enterprise SaaS · Workflow automation · Technical users</p>
+              <h3>ScriptRunner Connect / Stitch-It</h3>
+              <span>Redesigning a complex workflow builder so technical users could configure, validate and deploy automations with more confidence.</span>
+              <ul aria-label="Case study capabilities">
+                <li>Complex workflows</li>
+                <li>Enterprise UX</li>
+                <li>Systems thinking</li>
+              </ul>
+              <strong>Explore case study ↗</strong>
+            </div>
+            <div class="case-study-next-work__visual" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </div>
+          </a>
+
+          <a class="case-study-next-work__card case-study-next-work__card--oodle" href="oodle-finance.html">
+            <div class="case-study-next-work__content">
+              <p>Mobile finance · B2C · Trust and conversion</p>
+              <h3>Oodle Finance App</h3>
+              <span>Improving a finance application journey where speed, clarity and reassurance shape user trust and completion.</span>
+              <ul aria-label="Case study capabilities">
+                <li>Mobile UX</li>
+                <li>Fintech</li>
+                <li>Decision journeys</li>
+              </ul>
+              <strong>Explore case study ↗</strong>
+            </div>
+            <div class="case-study-next-work__visual" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </div>
+          </a>
+
+          <a class="case-study-next-work__card case-study-next-work__card--influence is-current" href="influence-app.html" aria-current="page">
+            <div class="case-study-next-work__content">
+              <p>Consumer research · Video feedback · Paid participation</p>
+              <h3>Influence App</h3>
+              <span>Turning feedback loops, survey clarity and reward mechanics into a more usable participation experience.</span>
+              <ul aria-label="Case study capabilities">
+                <li>B2C UX</li>
+                <li>Research loops</li>
+                <li>Engagement</li>
+              </ul>
+              <strong>Current case study</strong>
+            </div>
+            <div class="case-study-next-work__visual" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <strong>Hal Habeel</strong>
+        <span>ハル・ハビール</span>
+      </div>
+      <p>© 2026. Senior Product Designer.</p>
+    </div>
+  </footer>
+
+
+
+
+  <script src="../script.js"></script>
+
+  <div class="influence-image-modal" data-influence-image-modal hidden>
+    <div class="influence-image-modal__backdrop" data-influence-image-modal-close></div>
+    <div class="influence-image-modal__panel" role="dialog" aria-modal="true" aria-labelledby="influence-image-modal-title">
+      <button class="influence-image-modal__close" type="button" data-influence-image-modal-close aria-label="Close image modal">×</button>
+      <p class="influence-image-modal__title" id="influence-image-modal-title" data-influence-image-modal-title></p>
+      <div class="influence-image-modal__media">
+        <img src="" alt="" data-influence-image-modal-img>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    /* Influence image zoom modal */
+    (() => {
+      const modal = document.querySelector("[data-influence-image-modal]");
+      const modalImg = document.querySelector("[data-influence-image-modal-img]");
+      const modalTitle = document.querySelector("[data-influence-image-modal-title]");
+      const triggers = document.querySelectorAll(".influence-image-zoom");
+
+      if (!modal || !modalImg || !modalTitle || !triggers.length) return;
+
+      let lastActiveTrigger = null;
+
+      const openModal = (trigger) => {
+        const img = trigger.querySelector("img");
+        const src = trigger.dataset.modalImage || img?.getAttribute("src") || "";
+        const title = trigger.dataset.modalTitle || img?.getAttribute("alt") || "Image preview";
+
+        lastActiveTrigger = trigger;
+        modalImg.src = src;
+        modalImg.alt = img?.getAttribute("alt") || title;
+        modalTitle.textContent = title;
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+
+        const closeButton = modal.querySelector("[data-influence-image-modal-close]");
+        if (closeButton) closeButton.focus();
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        modalImg.src = "";
+        document.body.style.overflow = "";
+
+        if (lastActiveTrigger) {
+          lastActiveTrigger.focus();
+          lastActiveTrigger = null;
+        }
+      };
+
+      triggers.forEach((trigger) => {
+        trigger.addEventListener("click", () => openModal(trigger));
+      });
+
+      modal.querySelectorAll("[data-influence-image-modal-close]").forEach((control) => {
+        control.addEventListener("click", closeModal);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) {
+          closeModal();
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
