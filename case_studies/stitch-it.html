@@ -1797,7 +1797,6 @@
       }
     }
   </style>
-
 </head>
 
 <body id="top" class="case-page">
@@ -1817,7 +1816,25 @@
       <a href="../index.html#about">About</a>
       <a href="../index.html#contact">Contact</a>
     </nav>
+
+    <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu">
+      <span>Menu</span>
+      <span class="menu-button__lines" aria-hidden="true"></span>
+    </button>
   </header>
+
+
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+    <nav aria-label="Mobile navigation">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#capabilities">Capabilities</a>
+      <a href="../index.html#guide">AI Guide</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+
+  
 
   <main id="top">
     <section class="case-study-back-to-top-wrap" aria-label="Back to top">
