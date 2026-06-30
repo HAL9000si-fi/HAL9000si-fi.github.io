@@ -3867,3 +3867,118 @@ select::-ms-expand {
   }
 }
 
+/* START hiring-thesis-section */
+.hiring-thesis {
+  background: var(--bg);
+}
+
+.hiring-thesis__panel {
+  display: block;
+}
+
+.hiring-thesis__intro {
+  max-width: 58rem;
+}
+
+.hiring-thesis__intro h2 {
+  max-width: 10.8ch;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(2.2rem, 5vw, 4.65rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+
+.hiring-thesis__body {
+  margin-top: clamp(1.4rem, 3vw, 2.25rem);
+}
+
+.hiring-thesis__body > p {
+  max-width: 44rem;
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1.15rem, 1.9vw, 1.48rem);
+  line-height: 1.48;
+  letter-spacing: -0.022em;
+}
+
+.hiring-thesis__proof {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.hiring-thesis__proof a {
+  position: relative;
+  display: grid;
+  align-content: start;
+  min-height: 11.75rem;
+  padding: clamp(1.05rem, 2vw, 1.35rem);
+  border: 1px solid rgba(21, 21, 21, 0.12);
+  border-radius: 1.35rem;
+  background: #eee8df;
+  color: var(--ink);
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: none;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.hiring-thesis__proof a:hover,
+.hiring-thesis__proof a:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(201, 75, 50, 0.32);
+  background: #f3efe9;
+}
+
+.hiring-thesis__proof span {
+  display: block;
+  margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--vermilion);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.hiring-thesis__proof strong {
+  display: block;
+  max-width: 11rem;
+  margin-bottom: 0.65rem;
+  color: var(--ink);
+  font-size: clamp(1.08rem, 1.6vw, 1.34rem);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+}
+
+.hiring-thesis__proof small {
+  display: block;
+  max-width: 20rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.52;
+}
+
+@media (max-width: 900px) {
+  .hiring-thesis__intro h2 {
+    max-width: 10.5ch;
+  }
+
+  .hiring-thesis__proof {
+    grid-template-columns: 1fr;
+  }
+
+  .hiring-thesis__proof a {
+    min-height: auto;
+  }
+
+  .hiring-thesis__proof span {
+    margin-bottom: 1.75rem;
+  }
+}
+/* END hiring-thesis-section */
+
